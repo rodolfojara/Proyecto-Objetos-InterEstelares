@@ -3,12 +3,9 @@
 Sistema multi-agente/orquestado para recolectar, normalizar, versionar, correlacionar y presentar información sobre objetos interestelares (1I/'Oumuamua, 2I/Borisov, 3I/ATLAS) y futuros descubrimientos.
 
 ## Estado del proyecto
-- Fase 0: Preparación - **COMPLETADA**
-- Fase 1: Ingesta histórica inicial - **COMPLETADA**
-- Fase 2: Agentes base - Pendiente
-- Fase 3: Validación y correlación - Pendiente
-- Fase 4: Búsqueda retrospectiva - Pendiente
-- Fase 5: Automatización - Pendiente
+- **Estructura e implementación (fabricación):** Fases 0-6 implementadas estructuralmente (esquema, agentes, skills, orquestador, reportes, multimedia)
+- **Ejecución:** Fase 0: Preparación - **EJECUTADA** | Fase 1: Ingesta histórica inicial - **EJECUTADA**
+- **Pendientes de ejecución:** Fase 2: Agentes base - Pendiente | Fase 3: Validación y correlación - Pendiente | Fase 4: Búsqueda retrospectiva - Pendiente | Fase 5: Automatización/Orquestador - Pendiente | Fase 6: Curador multimedia - Pendiente
 
 > Cuando se mencione una fase por número (Fase 0, Fase 1, ..., Fase 5), se entiende tal como está definida en este proyecto.
 
@@ -143,13 +140,14 @@ python scripts/orchestrator/generate_infographic_prompt.py
 Tras ejecutarlo, la consola te mostrará la ruta exacta del archivo generado. Ahí tendrás el prompt con los datos actuales del sistema (fechas de descubrimiento, elementos orbitales, actividad y comparativa entre 1I, 2I y 3I).
 
 ## Estado de las fases
-- **Fase 0:** Preparación - **COMPLETADA**
-- **Fase 1:** Ingesta histórica inicial - **COMPLETADA**
-- **Fase 2:** Agentes base y skills - **COMPLETADA**
-- **Fase 3:** Validación, correlación y reportes - **COMPLETADA**
-- **Fase 4:** Búsqueda retrospectiva - **COMPLETADA**
-- **Fase 5:** Orquestador completo y automatización - **COMPLETADA**
-- **Fase 6:** Curador multimedia (YouTube) - **COMPLETADA**
+- **Infraestructura (implementación estructural):** Fases 0-6 - **IMPLEMENTADAS**
+- **Fase 0:** Preparación - **EJECUTADA**
+- **Fase 1:** Ingesta histórica inicial - **EJECUTADA**
+- **Fase 2:** Agentes base y skills - **IMPLEMENTADA, PENDIENTE DE EJECUCIÓN**
+- **Fase 3:** Validación, correlación y reportes - **IMPLEMENTADA, PENDIENTE DE EJECUCIÓN**
+- **Fase 4:** Búsqueda retrospectiva - **IMPLEMENTADA, PENDIENTE DE EJECUCIÓN**
+- **Fase 5:** Orquestador completo y automatización - **IMPLEMENTADA, PENDIENTE DE EJECUCIÓN**
+- **Fase 6:** Curador multimedia (YouTube) - **IMPLEMENTADA, PENDIENTE DE EJECUCIÓN**
 
 ---
-*Sistema ISO Tracker - Todas las fases 0-6 completadas*
+*Sistema ISO Tracker - Infraestructura 0-6 implementada; solo fases 0-1 ejecutadas, fases 2-6 pendientes de ejecución.*

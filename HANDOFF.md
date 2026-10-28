@@ -11,13 +11,13 @@ Desarrollar un sistema modular para recolectar, normalizar, versionar, correlaci
 ---
 
 ## 2. Historia del desarrollo
-- **Fase 0:** Estructura de carpetas, esquema SQLite base, configuración inicial
-- **Fase 1:** Ingesta histórica inicial de los 3 objetos con elementos orbitales y actividad
-- **Fase 2:** Agentes base (vigilante, recolector, normalizador), skills reutilizables, tabla `object_aliases` para manejar múltiples designaciones/alias de un objeto
-- **Fase 3:** Validación cruzada con fuentes primarias, correlacionador con análisis asistido (hipótesis marcadas), presentador, generador de reportes con métricas requeridas y generador de prompt para infografías (modelo sin capacidad visual)
-- **Fase 4:** Búsqueda retrospectiva de candidatos hiperbólicos (e > 1) con tablas `retro_candidates` y `retro_candidate_reviews`
-- **Fase 5:** Orquestador maestro (`master_orchestrator.py`), utilidades y automatización manual/Task Scheduler/cron
-- **Fase 6:** Curador multimedia (YouTube) con tablas `media_resources` y `media_object_links`, criterios de curación, integración a reportes
+- **Fase 0:** Estructura de carpetas, esquema SQLite base, configuración inicial - **IMPLEMENTADA Y EJECUTADA**
+- **Fase 1:** Ingesta histórica inicial de los 3 objetos con elementos orbitales y actividad - **IMPLEMENTADA Y EJECUTADA**
+- **Fase 2:** Agentes base (vigilante, recolector, normalizador), skills reutilizables, tabla `object_aliases` para manejar múltiples designaciones/alias de un objeto - **IMPLEMENTADA ESTRUCTURALMENTE, PENDIENTE DE EJECUCIÓN**
+- **Fase 3:** Validación cruzada con fuentes primarias, correlacionador con análisis asistido (hipótesis marcadas), presentador, generador de reportes con métricas requeridas y generador de prompt para infografías (modelo sin capacidad visual) - **IMPLEMENTADA ESTRUCTURALMENTE, PENDIENTE DE EJECUCIÓN**
+- **Fase 4:** Búsqueda retrospectiva de candidatos hiperbólicos (e > 1) con tablas `retro_candidates` y `retro_candidate_reviews` - **IMPLEMENTADA ESTRUCTURALMENTE, PENDIENTE DE EJECUCIÓN**
+- **Fase 5:** Orquestador maestro (`master_orchestrator.py`), utilidades y automatización manual/Task Scheduler/cron - **IMPLEMENTADA ESTRUCTURALMENTE, PENDIENTE DE EJECUCIÓN**
+- **Fase 6:** Curador multimedia (YouTube) con tablas `media_resources` y `media_object_links`, criterios de curación, integración a reportes - **IMPLEMENTADA ESTRUCTURALMENTE, PENDIENTE DE EJECUCIÓN**
 
 ---
 
@@ -32,9 +32,9 @@ Desarrollar un sistema modular para recolectar, normalizar, versionar, correlaci
 ---
 
 ## 4. Estado actual
-- **Objetos:** 1I/'Oumuamua, 2I/Borisov, 3I/ATLAS registrados
-- **Tablas:** 16 tablas (incluyendo aliases, candidatos retrospectivos, multimedia)
-- **Sistema funcional:** Listo para ingesta, análisis, reportes y curación
+- **Objetos:** 1I/'Oumuamua, 2I/Borisov, 3I/ATLAS registrados (mediante ingesta Fase 0-1 ejecutada)
+- **Tablas:** 16 tablas (incluyendo aliases, candidatos retrospectivos, multimedia) - esquema completo implementado
+- **Infraestructura:** Fases 0-6 implementadas estructuralmente. Solo Fases 0-1 ejecutadas. Fases 2-6 pendientes de ejecución.
 - **Multimedia:** Sistema implementado pero sin vídeos añadidos (se eliminaron enlaces erróneamente añadidos)
 - **Infografías:** Requieren generación externa via prompt
 
