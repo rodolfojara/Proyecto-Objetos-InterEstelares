@@ -26,7 +26,7 @@ for c in candidates:
 
 ## Scripts a ejecutar (manual por ahora)
 ```bash
-cd "C:\Users\user\Documents\Proyecto predeterminado"
+cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
 python scripts/orchestrator/run_fase2_check.py  # (se creará si necesario)
 ```
 

@@ -24,7 +24,7 @@ El sistema está diseñado para **ejecución manual**. Para automatizar:
 4. Acción: Iniciar programa
    - Programa: `python`
    - Argumentos: `scripts/orchestrator/master_orchestrator.py all`
-   - Iniciar en: `C:\Users\user\Documents\Proyecto predeterminado`
+   - Iniciar en: `C:\Users\user\Documents\Proyecto Objetos InterEstelares`
 
 **Linux/Mac (cron):**
 ```bash
@@ -37,7 +37,7 @@ crontab -e
 
 ## Uso rápido
 ```bash
-cd "C:\Users\user\Documents\Proyecto predeterminado"
+cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
 python scripts/orchestrator/master_orchestrator.py status
 python scripts/utils/check_status.py
 ```

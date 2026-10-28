@@ -1,8 +1,8 @@
 import sqlite3, json
 from datetime import datetime
 
-db = r'C:/Users/user/Documents/Proyecto predeterminado/data/db/iso.db'
-data_path = r'C:/Users/user/Documents/Proyecto predeterminado/data/objects.json'
+db = r'C:/Users/user/Documents/Proyecto Objetos InterEstelares/data/db/iso.db'
+data_path = r'C:/Users/user/Documents/Proyecto Objetos InterEstelares/data/objects.json'
 
 with open(data_path, encoding='utf-8') as f:
     data = json.load(f)

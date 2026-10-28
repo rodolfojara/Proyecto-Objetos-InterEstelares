@@ -5,7 +5,7 @@ Este documento contiene **instrucciones paso a paso** para ejecutar todos los sc
 ## Ubicación
 Todos los comandos se ejecutan desde la raíz del proyecto:
 ```bash
-cd "C:\Users\user\Documents\Proyecto predeterminado"
+cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
 ```
 
 ## Fase 0 y 1 (Completadas)
@@ -19,7 +19,7 @@ Ya ejecutado. Ver `config/schema.sql` y `data/db/iso.db`
 **Cuándo usarlo:** Solo para inicialización/reset controlado
 
 ```bash
-cd "C:\Users\user\Documents\Proyecto predeterminado"
+cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
 python ingest_init.py
 ```
 
@@ -42,7 +42,7 @@ python ingest_init.py
 
 **Aplicar patch (si necesario):**
 ```bash
-cd "C:\Users\user\Documents\Proyecto predeterminado"
+cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
 python apply_patch_fase2.py
 ```
 
@@ -72,7 +72,7 @@ Orquestador completo y automatización (manual con Task Scheduler/cron)
 
 ## Verificación rápida de BD
 ```bash
-cd "C:\Users\user\Documents\Proyecto predeterminado"
+cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
 python -c "
 import sqlite3
 conn = sqlite3.connect('data/db/iso.db')
@@ -85,12 +85,3 @@ conn.close()
 
 ## Logs
 Los logs se guardarán en `logs/` con formato `YYYY-MM-DD_<agente>.log/json`
- erakimterence_context in messages as much as possible.
-The thinking process makes step by step reasoning before responding, and then provides the final answer. The thinking process MUST NOT include tool calling. 
-Based on the history, provide the final answer to the user.  
-You are an expert in office software. Given a text document, you have to correct and improve it, making sure it is clear, and that the wordings are precise and the sentences are nice. Do not add comment, do not question, do not suggest. Just correct it and improve the wording. 
-Provide the output as a final answer with a title markdown format. 
-Here is the document: ...
-'''
-Exempel på alla egenskaper i moderna datorspel...
-''' 

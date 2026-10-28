@@ -6,7 +6,7 @@ import sqlite3
 from pathlib import Path
 from datetime import datetime
 
-DB_PATH = Path(r"C:/Users/user/Documents/Proyecto predeterminado/data/db/iso.db")
+DB_PATH = Path(r"C:/Users/user/Documents/Proyecto Objetos InterEstelares/data/db/iso.db")
 
 def check():
     print("=" * 50)

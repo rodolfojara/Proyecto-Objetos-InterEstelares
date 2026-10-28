@@ -10,8 +10,8 @@ from pathlib import Path
 from datetime import datetime
 from urllib.parse import urlparse, parse_qs
 
-DB_PATH = Path(r"C:/Users/user/Documents/Proyecto predeterminado/data/db/iso.db")
-MEDIA_LIST = Path(r"C:/Users/user/Documents/Proyecto predeterminado/config/media_links.json")
+DB_PATH = Path(r"C:/Users/user/Documents/Proyecto Objetos InterEstelares/data/db/iso.db")
+MEDIA_LIST = Path(r"C:/Users/user/Documents/Proyecto Objetos InterEstelares/config/media_links.json")
 
 def get_conn():
     conn = sqlite3.connect(DB_PATH)

@@ -8,9 +8,9 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-DB_PATH = Path(r"C:/Users/user/Documents/Proyecto predeterminado/data/db/iso.db")
-REPORT_DIR = Path(r"C:/Users/user/Documents/Proyecto predeterminado/reports/weekly")
-FIG_DIR = Path(r"C:/Users/user/Documents/Proyecto predeterminado/reports/figures")
+DB_PATH = Path(r"C:/Users/user/Documents/Proyecto Objetos InterEstelares/data/db/iso.db")
+REPORT_DIR = Path(r"C:/Users/user/Documents/Proyecto Objetos InterEstelares/reports/weekly")
+FIG_DIR = Path(r"C:/Users/user/Documents/Proyecto Objetos InterEstelares/reports/figures")
 REPORT_DIR.mkdir(parents=True, exist_ok=True)
 FIG_DIR.mkdir(parents=True, exist_ok=True)
 

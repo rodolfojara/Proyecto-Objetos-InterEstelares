@@ -9,9 +9,9 @@ import re
 from pathlib import Path
 from datetime import datetime
 
-DB_PATH = Path(r"C:/Users/user/Documents/Proyecto predeterminado/data/db/iso.db")
-RAW_DIR = Path(r"C:/Users/user/Documents/Proyecto predeterminado/data/raw")
-REPORT_DIR = Path(r"C:/Users/user/Documents/Proyecto predeterminado/reports")
+DB_PATH = Path(r"C:/Users/user/Documents/Proyecto Objetos InterEstelares/data/db/iso.db")
+RAW_DIR = Path(r"C:/Users/user/Documents/Proyecto Objetos InterEstelares/data/raw")
+REPORT_DIR = Path(r"C:/Users/user/Documents/Proyecto Objetos InterEstelares/reports")
 REPORT_DIR.mkdir(parents=True, exist_ok=True)
 
 def get_conn():

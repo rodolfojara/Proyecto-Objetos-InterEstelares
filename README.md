@@ -14,7 +14,7 @@ Sistema multi-agente/orquestado para recolectar, normalizar, versionar, correlac
 
 ## Estructura del proyecto
 ```
-Proyecto predeterminado/
+Proyecto Objetos InterEstelares/
 ├── config/
 │   ├── schema.sql        # Esquema SQLite
 │   └── sources.json      # Fuentes a monitorear (por crear en fases posteriores)
@@ -62,7 +62,7 @@ Tablas principales:
 
 ### Ingesta inicial (Fase 0/1 - ya ejecutado)
 ```bash
-cd "C:\Users\user\Documents\Proyecto predeterminado"
+cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
 python ingest_init.py
 ```
 **Ubicación:** `ingest_init.py` (raíz del proyecto)
@@ -71,7 +71,7 @@ python ingest_init.py
 ### Generador de reportes (se creará en fases posteriores)
 Los scripts de reporte seguirán el patrón:
 ```bash
-cd "C:\Users\user\Documents\Proyecto predeterminado"
+cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
 python scripts/orchestrator/generate_report.py [--weekly|--summary]
 ```
 Las instrucciones específicas de cada script se añadirán en `docs/EXECUTION.md` cuando se creen.
@@ -116,7 +116,7 @@ El sistema cuenta con un **curador multimedia** para añadir vídeos de YouTube 
 
 **Uso rápido:**
 ```bash
-cd "C:\Users\user\Documents\Proyecto predeterminado"
+cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
 # Editar config/media_links.json con URLs de vídeos relacionados con 1I/'Oumuamua, 2I/Borisov o 3I/ATLAS
 python scripts/orchestrator/curate_media.py
 python scripts/orchestrator/update_report_with_media.py
@@ -131,12 +131,12 @@ Dado que el modelo actual **no tiene capacidad de visión/generación de imágen
 - **Script:** `scripts/orchestrator/generate_infographic_prompt.py`
 - **Cuándo ejecutarlo:** **Manualmente**. No forma parte de `master_orchestrator.py all`, se ejecuta solo cuando lo necesites.
 - **Dónde se genera:** `reports/infografia_prompt_YYYY-MM-DD_HH-MM-SS.md`
-- **Dónde verlo:** Carpeta `reports/` del proyecto (`C:\Users\user\Documents\Proyecto predeterminado\reports\`). Abre ese archivo con cualquier editor de texto.
+- **Dónde verlo:** Carpeta `reports/` del proyecto (`C:\Users\user\Documents\Proyecto Objetos InterEstelares\reports\`). Abre ese archivo con cualquier editor de texto.
 - **Cómo usarlo:** Copia todo el contenido del archivo `.md` y pégalo en una IA con capacidad de generar imágenes (ChatGPT con imagen, Google Gemini, Grok, Ideogram, Flux, etc.).
 
 **Uso rápido:**
 ```bash
-cd "C:\Users\user\Documents\Proyecto predeterminado"
+cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
 python scripts/orchestrator/generate_infographic_prompt.py
 ```
 

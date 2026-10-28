@@ -10,7 +10,7 @@ import subprocess
 from pathlib import Path
 from datetime import datetime
 
-ROOT = Path(r"C:/Users/user/Documents/Proyecto predeterminado")
+ROOT = Path(r"C:/Users/user/Documents/Proyecto Objetos InterEstelares")
 CONFIG = ROOT / "config" / "orchestrator.json"
 LOG_DIR = ROOT / "logs"
 LOG_DIR.mkdir(parents=True, exist_ok=True)
