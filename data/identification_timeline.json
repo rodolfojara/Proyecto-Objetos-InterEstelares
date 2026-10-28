@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "descripcion": "Cronologia de identificacion de los objetos interestelares confirmados. Distingue deteccion, descubrimiento, anuncio, confirmacion interestelar y asignacion de la designacion I.",
+    "criterio_designacion_iso": "Fecha en que el MPC/IAU asigna el numero I (1I, 2I, 3I). Es la referencia de 'desde cuando se le llama objeto interestelar'.",
+    "criterio_clasificacion_papers": "El corte para separar papers que observaron el objeto sin identificarlo de los que lo tratan como interestelar es iso_confirmation_date, no iso_designation_date: antes de la confirmacion ningun paper podia atribuirle origen interestelar.",
+    "fecha_actualizacion": "2026-10-28",
+    "fuentes_primarias": [
+      "MPEC 2017-U181",
+      "MPEC 2017-U183",
+      "MPEC 2019-R106",
+      "MPEC 2025-N12"
+    ]
+  },
+  "objects": [
+    {
+      "designation": "1I/'Oumuamua",
+      "earliest_observation_date": "2017-10-18",
+      "discovery_date": "2017-10-19",
+      "announcement_date": "2017-10-25",
+      "iso_confirmation_date": "2017-10-25",
+      "iso_designation_date": "2017-11-06",
+      "designations_pre_iso": "C/2017 U1 (PANSTARRS); A/2017 U1",
+      "discoverer": "Robert Weryk (Pan-STARRS 1)",
+      "discovery_site": "Pan-STARRS 1, Haleakala, Maui",
+      "mpc_code": "F51",
+      "reference_id": "MPEC 2017-U181; MPEC 2017-U183",
+      "source_url": "https://www.minorplanetcenter.net/mpec/K17/K17UI1.html",
+      "confidence": 4,
+      "notes": "Primera astrometria en MPEC 2017-U181: 2017 Oct 18.47 UT (F51); el reconocimiento y reporte por R. Weryk es del 2017-10-19. MPEC 2017-U181 (2017-10-25 03:53 UT) publica e ~ 1.2 y senala que 'puede ser el primer caso claro de cometa interestelar'. MPEC 2017-U183 (2017-10-25 22:22 UT) cambia el prefijo de C/ a A/ por aspecto estelar. La designacion 1I y el nombre 'Oumuamua se anuncian en boletin del MPC; la prensa lo reporta el 2017-11-07, por lo que la fecha 2017-11-06 requiere confirmacion contra el boletin original."
+    },
+    {
+      "designation": "2I/Borisov",
+      "earliest_observation_date": "2019-08-30",
+      "discovery_date": "2019-08-30",
+      "announcement_date": "2019-09-11",
+      "iso_confirmation_date": "2019-09-11",
+      "iso_designation_date": "2019-09-24",
+      "designations_pre_iso": "C/2019 Q4 (Borisov)",
+      "discoverer": "Gennady Borisov (MARGO)",
+      "discovery_site": "MARGO, Nauchnij, Crimea",
+      "mpc_code": "L51",
+      "reference_id": "MPEC 2019-R106; IAU iau1910",
+      "source_url": "https://www.minorplanetcenter.net/mpec/K19/K19RA6.html",
+      "confidence": 5,
+      "notes": "G. Borisov reporta el objeto como candidato a cometa el 2019-08-30 (primera imagen 2019 Aug 30.04 UT, L51). MPEC 2019-R106 (2019-09-11 20:40 UT) publica elementos hiperbolicos (e = 3.08) e indica origen interestelar. La designacion formal 2I/Borisov se asigna el 2019-09-24, 25 dias despues del descubrimiento."
+    },
+    {
+      "designation": "3I/ATLAS",
+      "earliest_observation_date": "2025-06-14",
+      "discovery_date": "2025-07-01",
+      "announcement_date": "2025-07-02",
+      "iso_confirmation_date": "2025-07-02",
+      "iso_designation_date": "2025-07-02",
+      "designations_pre_iso": "A11pl3Z (NEOCP); C/2025 N1 (ATLAS)",
+      "discoverer": "ATLAS (L. Denneau et al.)",
+      "discovery_site": "ATLAS Chile, Rio Hurtado",
+      "mpc_code": "W68",
+      "reference_id": "MPEC 2025-N12",
+      "source_url": "https://www.minorplanetcenter.net/mpec/K25/K25N12.html",
+      "confidence": 5,
+      "notes": "Descubierto por ATLAS Chile (W68) en cuatro imagenes de 30 s tomadas el 2025-07-01 UT, con precovery de ZTF (I41) desde el 2025-06-14. MPEC 2025-N12 (2025-07-02 21:31 UT) ya publica el objeto como 3I/ATLAS = C/2025 N1 (ATLAS) con e ~ 6.3, por lo que anuncio, confirmacion y designacion coinciden en fecha."
+    }
+  ]
+}

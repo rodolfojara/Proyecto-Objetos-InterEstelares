@@ -146,6 +146,28 @@ CREATE TABLE IF NOT EXISTS report_metrics (
   updated_at TIMESTAMP DEFAULT (datetime('now'))
 );
 
+-- Identification timeline (Fase 2)
+-- Fechas que separan "objeto observado" de "objeto interestelar"
+CREATE TABLE IF NOT EXISTS object_identification (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  object_id INTEGER NOT NULL UNIQUE,
+  earliest_observation_date TEXT,
+  discovery_date TEXT,
+  announcement_date TEXT,
+  iso_confirmation_date TEXT,
+  iso_designation_date TEXT,
+  designations_pre_iso TEXT,
+  discoverer TEXT,
+  discovery_site TEXT,
+  mpc_code TEXT,
+  reference_id TEXT,
+  source_url TEXT NOT NULL,
+  notes TEXT,
+  confidence INTEGER DEFAULT 3,
+  retrieved_at TIMESTAMP DEFAULT (datetime('now')),
+  FOREIGN KEY (object_id) REFERENCES objects(id) ON DELETE CASCADE
+);
+
 -- Indexes for performance
 CREATE INDEX IF NOT EXISTS idx_orbital_object ON orbital_elements(object_id);
 CREATE INDEX IF NOT EXISTS idx_physical_object ON physical_params(object_id);
@@ -156,3 +178,4 @@ CREATE INDEX IF NOT EXISTS idx_pub_doi ON publications(doi);
 CREATE INDEX IF NOT EXISTS idx_prov_entity ON provenance_log(entity, entity_id);
 CREATE INDEX IF NOT EXISTS idx_objpub_obj ON object_publications(object_id);
 CREATE INDEX IF NOT EXISTS idx_objpub_pub ON object_publications(publication_id);
+CREATE INDEX IF NOT EXISTS idx_ident_object ON object_identification(object_id);

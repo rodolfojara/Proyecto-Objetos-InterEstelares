@@ -46,6 +46,23 @@ cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
 python apply_patch_fase2.py
 ```
 
+## Cronología de identificación (soporte a Fase 2/3)
+
+Registra las fechas de detección, descubrimiento, anuncio, confirmación interestelar y designación I de cada objeto, y permite clasificar papers previos y posteriores a la identificación.
+
+**Archivos:**
+- `config/schema_identificacion_patch.sql` - Tabla `object_identification`
+- `config/schema_identificacion_view.sql` - Vista `v_publication_epoch`
+- `data/identification_timeline.json` - Fechas y referencias primarias
+- `apply_patch_identificacion.py` - Aplica el patch y carga los datos (idempotente)
+- `docs/IDENTIFICACION.md` - Criterios y consultas
+
+**Ejecutar:**
+```bash
+cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
+python apply_patch_identificacion.py
+```
+
 ## Fase 3 (Pendiente)
 Se crearán:
 - `scripts/agents/validador.md`
