@@ -101,6 +101,22 @@ python ingest_init.py
 **Ubicación:** `ingest_init.py` (raíz del proyecto)
 **Qué hace:** Carga 1I/'Oumuamua, 2I/Borisov, 3I/ATLAS desde `data/objects.json` a la DB con sus elementos orbitales y actividad inicial, registrando en `provenance_log`.
 
+### Metadatos bibliográficos (Fase 2 - recolección)
+```bash
+cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
+python scripts/orchestrator/collect_metadata_openalex.py --dry-run
+python scripts/orchestrator/collect_metadata_openalex.py
+```
+**Ubicación:** `scripts/orchestrator/collect_metadata_openalex.py` (con `metadata_discovery.py` como apoyo)
+**Qué hace:** Carga papers (título, autores, DOI/arXiv, revista, fecha, abstract) en `publications` y los vincula a cada objeto en `object_publications`, dentro de la ventana de un año desde la designación I. No toca tablas científicas ni alias. Criterios, ventanas y resultados en `docs/EXECUTION.md`.
+
+Mantenimiento de esos metadatos:
+```bash
+python scripts/orchestrator/collect_metadata_openalex.py --normalizar
+python scripts/orchestrator/backfill_abstracts.py --refrescar-cortos 200
+```
+`--normalizar` limpia títulos y abstracts ya cargados; `--refrescar-cortos` reemplaza abstracts truncados por la versión completa de arXiv o Crossref. Ambos son idempotentes. El detalle de errores, rutas alternativas y tiempos está en `docs/LECCIONES_METADATOS.md`.
+
 ### Generador de reportes (se creará en fases posteriores)
 Los scripts de reporte seguirán el patrón:
 ```bash

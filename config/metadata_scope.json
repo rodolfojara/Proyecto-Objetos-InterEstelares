@@ -1,0 +1,52 @@
+{
+  "descripcion": "Alcance del pase inicial de metadatos bibliograficos (solo papers, sin datos cientificos).",
+  "fuente": "openalex",
+  "agente": "recolector",
+  "criterio_ventana": "un ano desde la fecha de designacion I de cada objeto",
+  "campos_permitidos": [
+    "arxiv_id",
+    "doi",
+    "title",
+    "authors",
+    "journal",
+    "published_at",
+    "abstract",
+    "source_url"
+  ],
+  "campos_prohibidos": [
+    "orbital_elements",
+    "physical_params",
+    "composition",
+    "activity",
+    "object_aliases"
+  ],
+  "ventanas": [
+    {
+      "designation": "1I/'Oumuamua",
+      "desde": "2017-11-06",
+      "hasta": "2018-11-06",
+      "metodo": "openalex",
+      "query": "Oumuamua",
+      "regex": "oumuamua"
+    },
+    {
+      "designation": "2I/Borisov",
+      "desde": "2019-09-24",
+      "hasta": "2020-09-24",
+      "metodo": "openalex",
+      "query": "Borisov",
+      "regex": "2i\\s*/\\s*|(?:c\\s*/\\s*)?2019\\s*q4",
+      "regex_titulo": "(?=.*\\bborisov\\b)(?=.*(?:comet|interstellar|hyperboli))|interstellar\\s+(?:comet|object|interloper)"
+    },
+    {
+      "designation": "3I/ATLAS",
+      "desde": "2025-07-02",
+      "hasta": "2026-07-02",
+      "metodo": "arxiv+crossref",
+      "query": "3I/ATLAS",
+      "query_arxiv": "3I/ATLAS",
+      "query_crossref": ["3I/ATLAS", "C/2025 N1", "interstellar comet ATLAS 3I"],
+      "regex": "3i\\s*/\\s*atlas|3i\\s+atlas|2025\\s*n1|(?:interstellar|comet|cometary|hyperboli)[\\s\\S]{0,6000}\\b3i\\b|\\b3i\\b[\\s\\S]{0,6000}(?:interstellar|comet|cometary|hyperboli)"
+    }
+  ]
+}
