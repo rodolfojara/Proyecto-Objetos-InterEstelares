@@ -1,0 +1,100 @@
+{
+  "objects": [
+    {
+      "designation": "1I/'Oumuamua",
+      "name": "1I/2017 U1 ('Oumuamua)",
+      "type": "interstellar_object",
+      "discovery_date": "2017-10-19",
+      "discovery_report_first_mpec_or_cbelt": "MPEC 2017-U183",
+      "status": "active",
+      "notes": "First interstellar object detected. No obvious coma detected initially; non-gravitational acceleration debated.",
+      "orbital_elements": [
+        {
+          "epoch": "2017-10-25",
+          "e": 1.19951,
+          "q": 0.255916,
+          "i": 122.676,
+          "e_hyperbolic_v_inf": 26.33,
+          "source_url": "https://minorplanetcenter.net/mpec/K17/K17UI3.html",
+          "confidence": 5
+        }
+      ],
+      "physical_params": [],
+      "composition": [],
+      "activity": [
+        {
+          "rh": null,
+          "activity_detected": 0,
+          "coma_detected": 0,
+          "dust_detected": 0,
+          "source_url": "https://www.nature.com/articles/nature25020",
+          "confidence": 4
+        }
+      ]
+    },
+    {
+      "designation": "2I/Borisov",
+      "name": "2I/2019 Q4 (Borisov)",
+      "type": "interstellar_object",
+      "discovery_date": "2019-08-30",
+      "discovery_report_first_mpec_or_cbelt": "MPEC 2019-R106",
+      "status": "active",
+      "notes": "Second interstellar object. Active comet with visible coma, composition studied extensively.",
+      "orbital_elements": [
+        {
+          "epoch": "2019-09-30",
+          "e": 3.35648,
+          "q": 2.00662,
+          "i": 44.0525,
+          "e_hyperbolic_v_inf": 32.3,
+          "source_url": "https://minorplanetcenter.net/mpec/K19/K19RA6.html",
+          "confidence": 5
+        }
+      ],
+      "physical_params": [],
+      "composition": [],
+      "activity": [
+        {
+          "rh": 2.0,
+          "activity_detected": 1,
+          "coma_detected": 1,
+          "dust_detected": 1,
+          "source_url": "https://www.nature.com/articles/s41550-019-0931-8",
+          "confidence": 5
+        }
+      ]
+    },
+    {
+      "designation": "3I/ATLAS",
+      "name": "3I/2025 N1 (ATLAS)",
+      "type": "interstellar_object",
+      "discovery_date": "2025-07-01",
+      "discovery_report_first_mpec_or_cbelt": "MPEC 2025-N12",
+      "status": "active",
+      "notes": "Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.",
+      "orbital_elements": [
+        {
+          "epoch": "2025-07-01",
+          "e": 6.14,
+          "q": 1.356,
+          "i": 175.11,
+          "e_hyperbolic_v_inf": 58.0,
+          "source_url": "https://minorplanetcenter.net/mpec/K25/K25N12.html",
+          "confidence": 5
+        }
+      ],
+      "physical_params": [],
+      "composition": [],
+      "activity": [
+        {
+          "rh": 4.5,
+          "activity_detected": 1,
+          "coma_detected": 1,
+          "dust_detected": 1,
+          "source_url": "https://science.nasa.gov/solar-system/comets/3i-atlas/",
+          "confidence": 4
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "links": [
+    {
+      "url": "https://www.youtube.com/watch?v=UTJk2ZGaxaA",
+      "title": "Video relacionado con 1I/'Oumuamua",
+      "channel": "",
+      "relevance_score": 4,
+      "notes": "Añadido manualmente - revisar con curador"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=WjDVFJobYTY",
+      "title": "Video relacionado con 2I/Borisov",
+      "channel": "",
+      "relevance_score": 4,
+      "notes": "Añadido manualmente - revisar con curador"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dlali9WWqDI",
+      "title": "Video relacionado con 3I/ATLAS",
+      "channel": "",
+      "relevance_score": 4,
+      "notes": "Añadido manualmente - revisar con curador"
+    }
+  ],
+  "instructions": "Añade URLs reales de vídeos de YouTube (watch?v=...). Ejecuta curate_media.py para añadirlos a la BD."
+}

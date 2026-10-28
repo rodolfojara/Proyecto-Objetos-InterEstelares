@@ -1,0 +1,68 @@
+{
+  "sources": [
+    {
+      "name": "MPC_MPEC",
+      "type": "html",
+      "url": "https://minorplanetcenter.net/mpec/RecentMPECs.html",
+      "priority": 1,
+      "check_interval_hours": 24,
+      "notes": "Primary source for discoveries/updates"
+    },
+    {
+      "name": "arXiv_astro-ph.EP",
+      "type": "rss_or_html",
+      "url": "https://arxiv.org/archive/astro-ph.EP",
+      "priority": 1,
+      "check_interval_hours": 24,
+      "notes": "Preprints - key for evolution of knowledge"
+    },
+    {
+      "name": "JPL_Horizons",
+      "type": "api_or_page",
+      "url": "https://ssd.jpl.nasa.gov/horizons/",
+      "priority": 1,
+      "check_interval_hours": 24,
+      "notes": "Ephemerides/orbital elements"
+    },
+    {
+      "name": "JPL_SBDB",
+      "type": "api_or_page",
+      "url": "https://ssd.jpl.nasa.gov/tools/sbdb_lookup.html",
+      "priority": 2,
+      "check_interval_hours": 72,
+      "notes": "Consolidated physical/orbital data"
+    },
+    {
+      "name": "NASA_Science",
+      "type": "html",
+      "url": "https://science.nasa.gov/solar-system/comets/",
+      "priority": 2,
+      "check_interval_hours": 72,
+      "notes": "Official communications"
+    },
+    {
+      "name": "ESA",
+      "type": "html",
+      "url": "https://www.esa.int/",
+      "priority": 3,
+      "check_interval_hours": 72,
+      "notes": "Mission updates"
+    },
+    {
+      "name": "Acta_Astronautica",
+      "type": "html",
+      "url": "https://www.sciencedirect.com/journal/acta-astronautica",
+      "priority": 4,
+      "check_interval_hours": 168,
+      "notes": "Conditional - missions/interception; lower priority"
+    },
+    {
+      "name": "Advances_in_Space_Research",
+      "type": "html",
+      "url": "https://www.sciencedirect.com/journal/advances-in-space-research",
+      "priority": 4,
+      "check_interval_hours": 168,
+      "notes": "Conditional"
+    }
+  ]
+}

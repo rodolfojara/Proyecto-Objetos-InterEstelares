@@ -1,0 +1,71 @@
+{
+  "project_name": "ISO Tracker",
+  "description": "Orquestador maestro para el seguimiento de objetos interestelares",
+  "phases": [
+    {
+      "id": 0,
+      "name": "Preparación",
+      "status": "completed",
+      "scripts": [
+        "config/schema.sql",
+        "config/schema_fase2_patch.sql",
+        "config/schema_fase4_patch.sql"
+      ],
+      "description": "Estructura, esquema y base de datos"
+    },
+    {
+      "id": 1,
+      "name": "Ingesta histórica inicial",
+      "status": "completed",
+      "scripts": [
+        "ingest_init.py"
+      ],
+      "description": "Carga de 1I/'Oumuamua, 2I/Borisov, 3I/ATLAS"
+    },
+    {
+      "id": 2,
+      "name": "Agentes base y skills",
+      "status": "completed",
+      "scripts": [
+        "apply_patch_fase2.py"
+      ],
+      "description": "vigilante, recolector, normalizador y skills reutilizables"
+    },
+    {
+      "id": 3,
+      "name": "Validación, correlación y reportes",
+      "status": "completed",
+      "scripts": [
+        "scripts/orchestrator/generate_report.py",
+        "scripts/orchestrator/generate_infographic_prompt.py"
+      ],
+      "description": "validador, correlacionador, presentador y generador de reportes"
+    },
+    {
+      "id": 4,
+      "name": "Búsqueda retrospectiva",
+      "status": "completed",
+      "scripts": [
+        "apply_patch_fase4.py",
+        "scripts/orchestrator/run_retro_search.py"
+      ],
+      "description": "Búsqueda de candidatos hiperbólicos (e > 1)"
+    },
+    {
+      "id": 5,
+      "name": "Orquestador completo y automatización",
+      "status": "completed",
+      "scripts": [
+        "scripts/orchestrator/master_orchestrator.py",
+        "scripts/utils/check_status.py"
+      ],
+      "description": "Orquestador maestro y sistema de automatización"
+    }
+  ],
+  "execution": {
+    "mode": "manual",
+    "note": "Los scripts NO corren 24/7. Ejecutar manualmente o con Task Scheduler/cron",
+    "log_dir": "logs/",
+    "report_dir": "reports/"
+  }
+}
