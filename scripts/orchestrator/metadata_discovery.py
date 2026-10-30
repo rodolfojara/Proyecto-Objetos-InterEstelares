@@ -34,6 +34,14 @@ TIPOS_CROSSREF = {
 }
 PREFIJOS_DESCARTADOS = ('10.5281/',)  # Zenodo
 
+# Cache parcial por página para reanudación
+PARTIAL_CACHE_DIR = None
+for i, arg in enumerate(__import__('sys').argv):
+    if arg == '--cache-dir' and i + 1 < len(__import__('sys').argv):
+        PARTIAL_CACHE_DIR = __import__('sys').argv[i + 1]
+    elif arg.startswith('--cache-dir='):
+        PARTIAL_CACHE_DIR = arg.split('=', 1)[1]
+
 
 def _get(url, intentos=5, cabeceras=None):
     ultimo = None
@@ -137,8 +145,28 @@ def _work_sintetico(doi, titulo, abstract, fecha, autores, tipo, idioma,
 
 def descubrir_arxiv(ventana, termino=None, maximo=400):
     termino = termino or ventana.get('query_arxiv') or ventana['query']
+    cache_base = PARTIAL_CACHE_DIR
+    if cache_base:
+        os.makedirs(cache_base, exist_ok=True)
+        cache_prefijo = os.path.join(cache_base, 'arxiv_' + re.sub(r'[^A-Za-z0-9]+', '_', ventana['designation']) + '_' + ventana['desde'])
+    else:
+        cache_prefijo = None
+
     resultados, start = [], 0
     while start < maximo:
+        if cache_prefijo:
+            cache_p = cache_prefijo + '_start' + str(start) + '.json'
+            if os.path.exists(cache_p):
+                try:
+                    with open(cache_p, encoding='utf-8') as f:
+                        cached = json.load(f)
+                    print('    arxiv start=%d: cache %d resultados' % (start, len(cached)))
+                    resultados.extend(cached)
+                    start += 200
+                    continue
+                except Exception:
+                    pass
+
         params = {
             'advanced': '',
             'terms-0-operator': 'AND',
@@ -162,6 +190,7 @@ def descubrir_arxiv(ventana, termino=None, maximo=400):
         print('    arxiv start=%d: %d resultados' % (start, len(bloques)))
         if not bloques:
             break
+        page_results = []
         for b in bloques:
             m = re.search(r'arxiv\.org/abs/([0-9]{4}\.[0-9]{4,5})', b)
             if not m:
@@ -187,9 +216,17 @@ def descubrir_arxiv(ventana, termino=None, maximo=400):
                         re.sub(r'(\d) (\w)', r'\1 \2', mf.group(1)).replace(',', ''), '%d %B %Y'))
                 except Exception:
                     fecha = None
-            resultados.append(_work_sintetico(
+            wr = _work_sintetico(
                 doi='10.48550/arxiv.' + aid, titulo=titulo, abstract=abstract, fecha=fecha,
-                autores=autores, tipo='preprint', idioma='en', arxiv_id=aid))
+                autores=autores, tipo='preprint', idioma='en', arxiv_id=aid)
+            page_results.append(wr)
+        resultados.extend(page_results)
+        if cache_prefijo:
+            try:
+                with open(cache_prefijo + '_start' + str(start) + '.json', 'w', encoding='utf-8') as f:
+                    json.dump(page_results, f, ensure_ascii=False)
+            except Exception:
+                pass
         start += 200
         if len(bloques) < 200:
             break
@@ -209,9 +246,25 @@ def descubrir_crossref(ventana, maximo_paginas=5, tam=200):
     if isinstance(consultas, str):
         consultas = [consultas]
     resultados = []
+    cache_base = PARTIAL_CACHE_DIR
+    if cache_base:
+        os.makedirs(cache_base, exist_ok=True)
     for consulta in consultas:
         print('    crossref consulta: %s' % consulta)
         for pagina in range(maximo_paginas):
+            cache_p = None
+            if cache_base:
+                cache_p = os.path.join(cache_base, 'crossref_' + re.sub(r'[^A-Za-z0-9]+', '_', ventana['designation']) + '_' + re.sub(r'[^A-Za-z0-9]+', '_', consulta) + '_p' + str(pagina) + '.json')
+                if os.path.exists(cache_p):
+                    try:
+                        with open(cache_p, encoding='utf-8') as f:
+                            cached = json.load(f)
+                        print('      pagina %d: cache %d resultados' % (pagina, len(cached)))
+                        resultados.extend(cached)
+                        continue
+                    except Exception:
+                        pass
+
             params = {
                 'query.bibliographic': consulta,
                 'filter': ('from-pub-date:%s,until-pub-date:%s,type:journal-article,'
@@ -227,6 +280,7 @@ def descubrir_crossref(ventana, maximo_paginas=5, tam=200):
                 print('      %d resultados totales' % datos['message']['total-results'])
             if not items:
                 break
+            page_results = []
             for it in items:
                 doi = (it.get('DOI') or '').lower()
                 if not doi or doi.startswith(PREFIJOS_DESCARTADOS):
@@ -252,10 +306,17 @@ def descubrir_crossref(ventana, maximo_paginas=5, tam=200):
                 arxiv_id = None
                 if doi.startswith('10.48550/arxiv.'):
                     arxiv_id = doi.split('arxiv.', 1)[1]
-                resultados.append(_work_sintetico(
+                page_results.append(_work_sintetico(
                     doi=doi, titulo=titulo, abstract=abstract, fecha=fecha, autores=autores,
                     tipo=tipo, idioma=(it.get('language') or idioma_probable(titulo)),
                     revista=revista, issn=issn, arxiv_id=arxiv_id))
+            resultados.extend(page_results)
+            if cache_p:
+                try:
+                    with open(cache_p, 'w', encoding='utf-8') as f:
+                        json.dump(page_results, f, ensure_ascii=False)
+                except Exception:
+                    pass
             if len(items) < tam:
                 break
             time.sleep(2)

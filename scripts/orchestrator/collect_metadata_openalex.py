@@ -11,6 +11,17 @@ Uso:
 """
 
 import difflib
+try:
+    import fcntl
+    _HAS_FCNTL = True
+except ImportError:
+    try:
+        import msvcrt
+        _HAS_FCNTL = False
+        _HAS_MSVCRT = True
+    except ImportError:
+        _HAS_FCNTL = False
+        _HAS_MSVCRT = False
 import json
 import os
 import re
@@ -21,6 +32,7 @@ import time
 import unicodedata
 import urllib.parse
 import urllib.request
+from pathlib import Path
 
 from metadata_discovery import limpiar_abstract, limpiar_titulo
 
@@ -38,16 +50,35 @@ MAILTO = 'rodolfojara@users.noreply.github.com'
 TIPOS_VALIDOS = {'article', 'preprint', 'review'}
 MAX_AUTORES = 25
 MAX_ABSTRACT = 4000
+COMMIT_CADA = 10  # Commit every N records for resumability
 
 CTX = ssl.create_default_context(cafile=CA_BUNDLE) if os.path.exists(CA_BUNDLE) else ssl.create_default_context()
 
 # cache opcional de respuestas API (util para reintentar sin volver a paginar)
 CACHE_DIR = None
+CHECKPOINT_DIR = None
+REANUDAR = False
 for i, arg in enumerate(sys.argv):
     if arg == '--cache-dir' and i + 1 < len(sys.argv):
         CACHE_DIR = sys.argv[i + 1]
     elif arg.startswith('--cache-dir='):
         CACHE_DIR = arg.split('=', 1)[1]
+    elif arg == '--checkpoint-dir' and i + 1 < len(sys.argv):
+        CHECKPOINT_DIR = sys.argv[i + 1]
+    elif arg.startswith('--checkpoint-dir='):
+        CHECKPOINT_DIR = arg.split('=', 1)[1]
+    elif arg == '--reanudar':
+        REANUDAR = True
+    elif arg == '--commit-cada' and i + 1 < len(sys.argv):
+        try:
+            COMMIT_CADA = int(sys.argv[i + 1])
+        except ValueError:
+            pass
+    elif arg.startswith('--commit-cada='):
+        try:
+            COMMIT_CADA = int(arg.split('=', 1)[1])
+        except ValueError:
+            pass
 
 
 def http_json(url, intentos=8):
@@ -472,6 +503,123 @@ def _duracion(segundos):
     return '%dmin %02ds' % (minutos, seg)
 
 
+def _checkpoint_path(ventana):
+    base_dir = CHECKPOINT_DIR or (CACHE_DIR if CACHE_DIR else os.path.join(BASE, '.metadata_checkpoints'))
+    os.makedirs(base_dir, exist_ok=True)
+    nombre = re.sub(r'[^A-Za-z0-9]+', '_', ventana['designation']) + '_' + ventana['desde'] + '.json'
+    return os.path.join(base_dir, nombre)
+
+
+def _lock_path(ventana):
+    base_dir = CHECKPOINT_DIR or (CACHE_DIR if CACHE_DIR else os.path.join(BASE, '.metadata_checkpoints'))
+    os.makedirs(base_dir, exist_ok=True)
+    nombre = re.sub(r'[^A-Za-z0-9]+', '_', ventana['designation']) + '_lock'
+    return os.path.join(base_dir, nombre)
+
+
+def _cargar_checkpoint(ventana):
+    if not REANUDAR:
+        return None
+    path = _checkpoint_path(ventana)
+    if os.path.exists(path):
+        try:
+            with open(path, encoding='utf-8') as f:
+                chk = json.load(f)
+            print('    checkpoint encontrado: %s' % path)
+            return chk
+        except Exception as e:
+            print('    ! error leyendo checkpoint: %r' % e)
+    return None
+
+
+def _guardar_checkpoint(ventana, chk):
+    path = _checkpoint_path(ventana)
+    chk['ultima_actualizacion'] = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
+    try:
+        tmp = path + '.tmp'
+        with open(tmp, 'w', encoding='utf-8') as f:
+            json.dump(chk, f, ensure_ascii=False, indent=2)
+        os.replace(tmp, path)
+    except Exception as e:
+        print('    ! error guardando checkpoint: %r' % e)
+
+
+def _adquirir_lock(ventana):
+    lock_path = _lock_path(ventana)
+    try:
+        fd = os.open(lock_path, os.O_RDWR | os.O_CREAT, 0o644)
+        if _HAS_FCNTL:
+            try:
+                fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except IOError:
+                os.close(fd)
+                raise
+        elif _HAS_MSVCRT:
+            try:
+                os.lseek(fd, 0, os.SEEK_SET)
+                msvcrt.locking(fd, msvcrt.LK_NBLCK, 1)
+            except IOError:
+                os.close(fd)
+                raise
+        try:
+            os.write(fd, str(os.getpid()).encode())
+        except Exception:
+            pass
+        return fd
+    except Exception as e:
+        print('  ! no se pudo adquirir lock para %s: %r' % (ventana['designation'], e))
+        print('    Si la ejecucion anterior fue interrumpida, elimine %s' % lock_path)
+        raise
+
+
+def _liberar_lock(fd, ventana):
+    try:
+        if _HAS_FCNTL:
+            fcntl.flock(fd, fcntl.LOCK_UN)
+        elif _HAS_MSVCRT:
+            try:
+                os.lseek(fd, 0, os.SEEK_SET)
+                msvcrt.locking(fd, msvcrt.LK_UNLCK, 1)
+            except Exception:
+                pass
+        os.close(fd)
+    except Exception:
+        pass
+    try:
+        lock_path = _lock_path(ventana)
+        if os.path.exists(lock_path):
+            os.unlink(lock_path)
+    except Exception:
+        pass
+
+
+def _verificar_ventana(con, oid, ventana, esperados):
+    cur = con.cursor()
+    total = cur.execute(
+        'SELECT COUNT(*) FROM object_publications WHERE object_id = ?', (oid,)
+    ).fetchone()[0]
+    # Verificar duplicados por publication_id
+    duplicados = cur.execute(
+        'SELECT publication_id, COUNT(*) as c FROM object_publications WHERE object_id = ? GROUP BY publication_id HAVING c > 1',
+        (oid,)
+    ).fetchall()
+    # Verificar integridad referencial basica
+    huerfanos = cur.execute(
+        '''SELECT COUNT(*) FROM object_publications op 
+           WHERE op.object_id = ? AND NOT EXISTS (SELECT 1 FROM publications p WHERE p.id = op.publication_id)''',
+        (oid,)
+    ).fetchone()[0]
+    ok = True
+    if duplicados:
+        print('  ! ADVERTENCIA: duplicados encontrados: %s' % duplicados)
+        ok = False
+    if huerfanos:
+        print('  ! ADVERTENCIA: enlaces huerfanos: %d' % huerfanos)
+        ok = False
+    print('  verificacion: total_vinculos=%d | duplicados=%d | huerfanos=%d' % (total, len(duplicados), huerfanos))
+    return ok
+
+
 def main():
     dry = '--dry-run' in sys.argv
     solo = None
@@ -484,6 +632,8 @@ def main():
         cfg = json.load(f)
 
     con = sqlite3.connect(DB)
+    con.execute('PRAGMA journal_mode=WAL;')
+    con.execute('PRAGMA synchronous=NORMAL;')
 
     if '--normalizar' in sys.argv:
         print('== Normalizacion de metadatos ya cargados ==')
@@ -507,22 +657,70 @@ def main():
         oid = fila[0]
         inicio_ventana = time.time()
 
-        candidatos = buscar(ventana)
-        validos, descartes = filtrar(ventana, candidatos)
-        print('  candidatos=%d | validos=%d | descartes=%s' % (len(candidatos), len(validos), descartes))
+        lock_fd = None
+        if not dry:
+            try:
+                lock_fd = _adquirir_lock(ventana)
+                print('  lock adquirido')
+            except Exception:
+                con.close()
+                raise
 
-        if dry:
-            for r in validos[:12]:
-                print('    - [%s] %s | %s' % (r['relevance'], r['title'][:75], r['published_at']))
-        else:
-            acciones = {'insert': 0, 'update': 0}
-            for r in validos:
-                acciones[guardar(con, oid, ventana, r)] += 1
-            con.commit()
-            print('  guardados: %d nuevos, %d actualizados' % (acciones['insert'], acciones['update']))
+        try:
+            checkpoint = _cargar_checkpoint(ventana)
+            if checkpoint and checkpoint.get('completado'):
+                print('  ventana ya completada segun checkpoint, omitiendo')
+                resumen.append((ventana['designation'], checkpoint.get('validos', 0)))
+                print('  duracion ventana: %s' % _duracion(time.time() - inicio_ventana))
+                continue
 
-        resumen.append((ventana['designation'], len(validos)))
-        print('  duracion ventana: %s' % _duracion(time.time() - inicio_ventana))
+            candidatos = buscar(ventana)
+            validos, descartes = filtrar(ventana, candidatos)
+            print('  candidatos=%d | validos=%d | descartes=%s' % (len(candidatos), len(validos), descartes))
+
+            if checkpoint:
+                # Filtrar ya procesados
+                procesados = set(checkpoint.get('procesados_ids', []))
+                validos_orig = len(validos)
+                validos = [v for v in validos if v.get('arxiv_id') not in procesados and v.get('doi') not in procesados]
+                print('  reanudando: %d ya procesados, %d pendientes' % (validos_orig - len(validos), len(validos)))
+
+            if dry:
+                for r in validos[:12]:
+                    print('    - [%s] %s | %s' % (r['relevance'], r['title'][:75], r['published_at']))
+            else:
+                acciones = {'insert': 0, 'update': 0}
+                chk = checkpoint or {
+                    'ventana': ventana['designation'],
+                    'desde': ventana['desde'],
+                    'hasta': ventana['hasta'],
+                    'etapa': 'guardando',
+                    'procesados_ids': [],
+                    'validos': 0,
+                    'completado': False
+                }
+                for idx, r in enumerate(validos):
+                    acciones[guardar(con, oid, ventana, r)] += 1
+                    pid_key = r.get('arxiv_id') or r.get('doi')
+                    if pid_key and pid_key not in chk['procesados_ids']:
+                        chk['procesados_ids'].append(pid_key)
+                    chk['validos'] = len(chk['procesados_ids'])
+                    if (idx + 1) % COMMIT_CADA == 0:
+                        con.commit()
+                        _guardar_checkpoint(ventana, chk)
+                        print('    commit parcial %d/%d' % (idx + 1, len(validos)))
+                con.commit()
+                _verificar_ventana(con, oid, ventana, len(validos))
+                chk['completado'] = True
+                chk['acciones'] = acciones
+                _guardar_checkpoint(ventana, chk)
+                print('  guardados: %d nuevos, %d actualizados' % (acciones['insert'], acciones['update']))
+
+            resumen.append((ventana['designation'], len(validos)))
+            print('  duracion ventana: %s' % _duracion(time.time() - inicio_ventana))
+        finally:
+            if lock_fd is not None:
+                _liberar_lock(lock_fd, ventana)
 
     con.close()
     print('\nResumen del pase:')
