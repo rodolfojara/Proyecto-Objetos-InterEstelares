@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-11-02T00:52:52.995296Z",
+  "git_log": [
+    "102ea57 docs: uso de IA, herramientas/loop/agentes/skills y modo por lotes",
+    "85733ce metadata: modo por lotes con checkpoint, reanudacion, commits parciales y cache por pagina",
+    "7050c39 Metadatos bibliograficos: pase inicial de 209 papers y utilidades de mantenimiento",
+    "8e7d12f Cronologia de identificacion: fechas de deteccion/confirmacion/designacion I y clasificacion de papers por epoca",
+    "1bbef5f Clarify: phases 0-6 structurally implemented, only 0-1 executed, 2-6 pending"
+  ],
+  "count_objects": 3,
+  "count_publications": 209,
+  "count_object_publications": 209,
+  "count_object_aliases": 0,
+  "has_object_aliases_schema": true,
+  "checkpoints_dir_contents": [],
+  "has_fase2_plan": false,
+  "has_run_fase2_check": false,
+  "has_run_fase2_aliases": false
+}

@@ -1,0 +1,28 @@
+{
+  "phase": "fase2",
+  "mode": "corta_aliases_only",
+  "executed": [
+    "aliases"
+  ],
+  "pending": [
+    "physical_params",
+    "composition",
+    "activity"
+  ],
+  "status": "completed",
+  "started_at": "2026-11-02T00:55:57.665697Z",
+  "finished_at": "2026-11-02T00:55:57.737905Z",
+  "objects_total": 3,
+  "objects_processed": 3,
+  "papers_considered": 0,
+  "aliases_inserted": 15,
+  "checkpoint_file": ".metadata_checkpoints/fase2_aliases_checkpoint.json",
+  "log_file": "logs/fase2_aliases.log",
+  "notes": "Solo escribir en object_aliases. No tocar orbital_elements/physical_params/composition/activity",
+  "lots": {
+    "size": 1,
+    "current_lot": 0,
+    "done": [],
+    "pending": []
+  }
+}
