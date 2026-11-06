@@ -213,7 +213,7 @@ def generate_dashboard(resumable=False, force=False):
             else:
                 lines.append("- N/D / pendiente de consolidación de mediciones espectroscópicas y tasas de producción.")
 
-            # last observation / location
+            # last observation / location / ephemeris
             obs = q(cur, "SELECT * FROM observations WHERE object_id=? ORDER BY observation_date DESC, retrieved_at DESC LIMIT 1", (oid,))
             lines.append("")
             lines.append("### Última observación / ubicación aproximada")
@@ -221,10 +221,23 @@ def generate_dashboard(resumable=False, force=False):
                 r = obs[0]
                 rdict = dict(r)
                 lines.append(f"- Fecha: {fmt(rdict.get('observation_date'))}")
-                lines.append(f"- Telescopio/Instrumento: {fmt(rdict.get('telescope'))} / {fmt(rdict.get('instrument'))}")
-                lines.append(f"- Tipo: {fmt(rdict.get('type'))}")
-                lines.append("- Magnitud observada: N/D (campo no registrado en tabla `observations` actual)")
-                lines.append("- Posición/ubicación aproximada (RA-Dec/distancia): N/D (pendiente de integrar efemérides)")
+                lines.append(f"- Tipo/Fuente instrumental: {fmt(rdict.get('type'))} / {fmt(rdict.get('telescope'))} {fmt(rdict.get('instrument'),'')}")
+                mag = rdict.get('mag')
+                mag_type = rdict.get('mag_type') or ''
+                if mag is None or str(mag).strip().lower() in ('', 'n.a.', 'na', 'none'):
+                    lines.append("- Magnitud (V) observada/calculada: N/D")
+                else:
+                    lines.append(f"- Magnitud ({fmt(mag_type,'V')}): {mag}")
+                ra = rdict.get('ra'); dec = rdict.get('dec')
+                delta = rdict.get('delta_au'); rhel = rdict.get('r_au')
+                if ra or dec or delta or rhel:
+                    lines.append(f"- Ubicación aproximada (RA, Dec): {fmt(ra)} , {fmt(dec)}")
+                    lines.append(f"- Distancia: Δ={fmt(delta)} au, r={fmt(rhel)} au")
+                else:
+                    lines.append("- Posición/ubicación aproximada (RA-Dec/distancia): N/D")
+                notes = rdict.get('notes')
+                if notes:
+                    lines.append(f"- Nota: {notes}")
                 lines.append(f"- Fuente: {fmt(rdict.get('source_url'))}")
             else:
                 lines.append("- **Última observación registrada:** N/D")

@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-06 02:35:32  
+**Actualizado:** 2026-11-06 02:48:09  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -12,7 +12,7 @@
 - **2I/Borisov** (2I/2019 Q4 (Borisov)): descubierto 2019-08-30 — active. Second interstellar object. Active comet with visible coma, composition studied extensively.
 - **3I/ATLAS** (3I/2025 N1 (ATLAS)): descubierto 2025-07-01 — active. Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
 
-**BD:** 209 publicaciones, 0 observaciones, 3 parámetros físicos, 3 registros de composición, 6 registros de actividad, 8 recursos multimedia.
+**BD:** 209 publicaciones, 3 observaciones, 9 parámetros físicos, 3 registros de composición, 6 registros de actividad, 8 recursos multimedia.
 
 ---
 
@@ -39,19 +39,20 @@
 - Fuente: https://www.nature.com/articles/nature25020 (confianza 4)
 
 ### Características físicas (tamaño, dimensiones, magnitud, etc.)
-- **Tamaño estimado:** N/D
-- **Dimensiones/forma:** N/D
-- **Magnitud absoluta (H) / magnitud observada reciente:** N/D (sin observaciones con magnitud registradas en BD)
-- **Volumen/masa/albedo/rotación:** N/D
-- *Pendiente de ingestión detallada desde fuentes consolidadas (MPC/JPL/papers).*
+- rotation_period: 7.937 h (fuente: https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=1I&phys-par=1)
+- absolute_magnitude_H: 22.08 mag (fuente: https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=1I&phys-par=1)
 
 ### Composición
 - N/D / pendiente de consolidación de mediciones espectroscópicas y tasas de producción.
 
 ### Última observación / ubicación aproximada
-- **Última observación registrada:** N/D
-- **Magnitud observada (último dato):** N/D
-- **Ubicación aproximada (última observación):** N/D — pendiente de ingestión de efemérides/observaciones (p. ej. JPL Horizons/MPC).
+- Fecha: 2026-11-06
+- Tipo/Fuente instrumental: ephemeris / JPL Horizons ephemeris
+- Magnitud (V/APmag): 39.591
+- Ubicación aproximada (RA, Dec): 23 51 50.94 , +24 21 09.9
+- Distancia: Δ=54.4642216853347 au, r=N/D au
+- Nota: Efeméride OBSERVER geocéntrica (Horizons) para 2026-11-06 UTC; ubicación aproximada (no observación astrométrica registrada).
+- Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%271I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-06%27&STOP_TIME=%272026-11-07%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C20%27&CSV_FORMAT=YES
 
 ### Análisis/publicaciones recientes (resumen)
 - 2018-10-31: [Spin Evolution and Cometary Interpretation of the Interstellar Minor Object 1I/2017 ’Oumuamua](https://doi.org/10.3847/2041-8213/aae977)
@@ -89,19 +90,20 @@
 - Fuente: https://www.nature.com/articles/s41550-019-0931-8 (confianza 5)
 
 ### Características físicas (tamaño, dimensiones, magnitud, etc.)
-- **Tamaño estimado:** N/D
-- **Dimensiones/forma:** N/D
-- **Magnitud absoluta (H) / magnitud observada reciente:** N/D (sin observaciones con magnitud registradas en BD)
-- **Volumen/masa/albedo/rotación:** N/D
-- *Pendiente de ingestión detallada desde fuentes consolidadas (MPC/JPL/papers).*
+- comet_total_mag_slope_K1: 4.5  (fuente: https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=2I&phys-par=1)
+- comet_total_magnitude_M1: 13.8 mag (fuente: https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=2I&phys-par=1)
 
 ### Composición
 - N/D / pendiente de consolidación de mediciones espectroscópicas y tasas de producción.
 
 ### Última observación / ubicación aproximada
-- **Última observación registrada:** N/D
-- **Magnitud observada (último dato):** N/D
-- **Ubicación aproximada (última observación):** N/D — pendiente de ingestión de efemérides/observaciones (p. ej. JPL Horizons/MPC).
+- Fecha: 2026-11-06
+- Tipo/Fuente instrumental: ephemeris / JPL Horizons ephemeris
+- Magnitud (V/APmag): 29.908
+- Ubicación aproximada (RA, Dec): 17 59 02.37 , -53 26 13.3
+- Distancia: Δ=49.8898042303077 au, r=N/D au
+- Nota: Efeméride OBSERVER geocéntrica (Horizons) para 2026-11-06 UTC; ubicación aproximada (no observación astrométrica registrada).
+- Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%272I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-06%27&STOP_TIME=%272026-11-07%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C20%27&CSV_FORMAT=YES
 
 ### Análisis/publicaciones recientes (resumen)
 - 2020-08-25: [Infrared Observations of 2I/Borisov near Perihelion](https://doi.org/10.3847/1538-3881/aba8f8)
@@ -139,19 +141,20 @@
 - Fuente: https://science.nasa.gov/solar-system/comets/3i-atlas/ (confianza 4)
 
 ### Características físicas (tamaño, dimensiones, magnitud, etc.)
-- **Tamaño estimado:** N/D
-- **Dimensiones/forma:** N/D
-- **Magnitud absoluta (H) / magnitud observada reciente:** N/D (sin observaciones con magnitud registradas en BD)
-- **Volumen/masa/albedo/rotación:** N/D
-- *Pendiente de ingestión detallada desde fuentes consolidadas (MPC/JPL/papers).*
+- comet_total_mag_slope_K1: 7.5  (fuente: https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=3I&phys-par=1)
+- comet_total_magnitude_M1: 11.8 mag (fuente: https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=3I&phys-par=1)
 
 ### Composición
 - N/D / pendiente de consolidación de mediciones espectroscópicas y tasas de producción.
 
 ### Última observación / ubicación aproximada
-- **Última observación registrada:** N/D
-- **Magnitud observada (último dato):** N/D
-- **Ubicación aproximada (última observación):** N/D — pendiente de ingestión de efemérides/observaciones (p. ej. JPL Horizons/MPC).
+- Fecha: 2026-11-06
+- Tipo/Fuente instrumental: ephemeris / JPL Horizons ephemeris
+- Magnitud (V/APmag): 25.661
+- Ubicación aproximada (RA, Dec): 07 06 43.72 , +19 16 28.3
+- Distancia: Δ=12.5601284219453 au, r=N/D au
+- Nota: Efeméride OBSERVER geocéntrica (Horizons) para 2026-11-06 UTC; ubicación aproximada (no observación astrométrica registrada).
+- Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%273I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-06%27&STOP_TIME=%272026-11-07%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C20%27&CSV_FORMAT=YES
 
 ### Análisis/publicaciones recientes (resumen)
 - 2026-06-30: [Prospects for Panspermia via Interstellar Objects like 3I/ATLAS](https://arxiv.org/abs/2607.00202)

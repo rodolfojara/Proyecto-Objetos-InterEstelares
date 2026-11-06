@@ -112,17 +112,25 @@ CREATE TABLE IF NOT EXISTS object_publications (
   FOREIGN KEY (publication_id) REFERENCES publications(id) ON DELETE CASCADE
 );
 
--- Observations
+-- Observations (and ephemerides/positions)
 CREATE TABLE IF NOT EXISTS observations (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   object_id INTEGER NOT NULL,
   telescope TEXT,
   instrument TEXT,
   observation_date TEXT,
-  type TEXT,  -- spectroscopy, photometry, imaging
+  type TEXT,  -- spectroscopy, photometry, imaging, ephemeris
   data_uri TEXT,
   source_url TEXT,
   retrieved_at TIMESTAMP DEFAULT (datetime('now')),
+  -- ephemeris/position fields (added via targeted ingestion)
+  ra TEXT,
+  dec TEXT,
+  mag TEXT,
+  mag_type TEXT,
+  delta_au REAL,
+  r_au REAL,
+  notes TEXT,
   FOREIGN KEY (object_id) REFERENCES objects(id) ON DELETE CASCADE
 );
 
