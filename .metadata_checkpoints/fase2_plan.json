@@ -2,13 +2,12 @@
   "phase": "fase2",
   "mode": "corta_aliases_only",
   "executed": [
-    "aliases"
-  ],
-  "pending": [
+    "aliases",
     "physical_params",
     "composition",
     "activity"
   ],
+  "pending": [],
   "status": "completed",
   "started_at": "2026-11-02T00:55:57.665697Z",
   "finished_at": "2026-11-02T00:55:57.737905Z",
@@ -24,5 +23,13 @@
     "current_lot": 0,
     "done": [],
     "pending": []
-  }
+  },
+  "started_at_rest": "2026-11-04T01:31:46.372596Z",
+  "objects_processed_rest": 3,
+  "rest_counts": {
+    "physical_params": 3,
+    "composition": 3,
+    "activity": 3
+  },
+  "finished_at_rest": "2026-11-04T01:31:46.420920Z"
 }

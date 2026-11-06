@@ -1,0 +1,22 @@
+{
+  "started_at": "2026-11-04T01:31:46.361893Z",
+  "done_object_ids": [
+    1,
+    2,
+    3
+  ],
+  "done_designations": [
+    "1I/'Oumuamua",
+    "2I/Borisov",
+    "3I/ATLAS"
+  ],
+  "counts": {
+    "physical_params": 3,
+    "composition": 3,
+    "activity": 3
+  },
+  "last_object_id": 3,
+  "status": "completed",
+  "updated_at": "2026-11-04T01:31:46.420274Z",
+  "finished_at": "2026-11-04T01:31:46.419829Z"
+}
