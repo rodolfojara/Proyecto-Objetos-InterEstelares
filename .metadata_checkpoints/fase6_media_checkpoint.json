@@ -1,19 +1,16 @@
 {
-  "started_at": "2026-11-05T07:06:07.722189Z",
+  "started_at": "2026-11-06T06:41:01.505946Z",
   "done_urls": [
     "https://www.youtube.com/watch?v=NNOb3xrjOhE",
-    "https://www.youtube.com/watch?v=UTJk2ZGaxaA",
-    "https://www.youtube.com/watch?v=WjDVFJobYTY",
     "https://www.youtube.com/watch?v=ZtQHgCEVZ4o",
-    "https://www.youtube.com/watch?v=dlali9WWqDI",
     "https://www.youtube.com/watch?v=fbL1ZoAQgUU",
     "https://www.youtube.com/watch?v=hGJt2KDps-s",
     "https://www.youtube.com/watch?v=u4tzK89ZfmA"
   ],
-  "added": 8,
-  "linked": 7,
+  "added": 0,
+  "linked": 0,
   "last_url": "https://www.youtube.com/watch?v=hGJt2KDps-s",
   "status": "completed",
-  "updated_at": "2026-11-05T07:23:13.426519Z",
-  "finished_at": "2026-11-05T07:23:13.426122Z"
+  "updated_at": "2026-11-06T06:41:02.807306Z",
+  "finished_at": "2026-11-06T06:41:02.806921Z"
 }

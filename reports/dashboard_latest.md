@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-06 03:37:08  
+**Actualizado:** 2026-11-06 03:41:15  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -65,7 +65,7 @@
 - 2018-06-10: [Spinup and Disruption of Interstellar Asteroids by Mechanical Torques, and Implications for 1I/2017 U1 (‘Oumuamua)](https://doi.org/10.3847/1538-4357/aac3db)
 
 ### Recursos audiovisuales (YouTube)
-- [Everything We Know About 'Oumuamua (Astrum)](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
+- [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
 
 ---
 
@@ -169,17 +169,17 @@
 - 2026-10-23: [An Enriched Methane D/H Ratio in the Interstellar Object 3I/ATLAS](https://doi.org/10.1038/s41550-026-03002-5)
 
 ### Recursos audiovisuales (YouTube)
-- [NASA Spacecraft Observe Interstellar Comet 3I/ATLAS](https://www.youtube.com/watch?v=ZtQHgCEVZ4o) (relevancia 5)
-- [Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (relevancia 4)
+- [NASA Spacecraft Observe Interstellar Comet 3I/ATLAS as It Approaches Mars](https://www.youtube.com/watch?v=ZtQHgCEVZ4o) (relevancia 5)
+- [FEATURES: Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (relevancia 4)
 
 ---
 
 ## Recursos generales
-- [NASA Spacecraft Observe Interstellar Comet 3I/ATLAS](https://www.youtube.com/watch?v=ZtQHgCEVZ4o) (relevancia 5)
+- [NASA Spacecraft Observe Interstellar Comet 3I/ATLAS as It Approaches Mars](https://www.youtube.com/watch?v=ZtQHgCEVZ4o) (relevancia 5)
 - [NASA Reveals Alien Composition of 2I/Borisov, 1st Interstellar Comet](https://www.youtube.com/watch?v=NNOb3xrjOhE) (relevancia 5)
-- [First Interstellar Asteroid Wows Scientists (NASA/JPL related)](https://www.youtube.com/watch?v=fbL1ZoAQgUU) (relevancia 5)
-- [Everything We Know About 'Oumuamua (Astrum)](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
-- [Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (relevancia 4)
+- [First Interstellar Asteroid Wows Scientists](https://www.youtube.com/watch?v=fbL1ZoAQgUU) (relevancia 5)
+- [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
+- [FEATURES: Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (relevancia 4)
 
 ## Cómo evoluciona esta página
 

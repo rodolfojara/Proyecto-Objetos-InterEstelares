@@ -6,9 +6,13 @@ Add YouTube links manually or from search results with checkpoint/reanudación
 import argparse
 import json
 import os
+import re
 import sqlite3
+import ssl
 import sys
 import time
+import urllib.parse
+import urllib.request
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
@@ -75,10 +79,39 @@ def extract_video_id(url):
     return None
 
 
+def fetch_oembed(url, timeout=20):
+    """Obtiene metadatos reales del video vía YouTube oEmbed (validación)."""
+    try:
+        api = 'https://www.youtube.com/oembed?format=json&url=' + urllib.parse.quote(url, safe='')
+        ctx = ssl._create_unverified_context()
+        req = urllib.request.Request(api, headers={'User-Agent': 'ISO-Tracker/1.0 (media validation)'})
+        with urllib.request.urlopen(req, timeout=timeout, context=ctx) as r:
+            data = json.loads(r.read().decode('utf-8'))
+        return {
+            'title': (data.get('title') or '').strip(),
+            'author_name': (data.get('author_name') or '').strip(),
+            'provider': data.get('provider_name') or '',
+        }
+    except Exception as e:
+        log(f"  ! oEmbed no disponible para {url}: {e}")
+        return None
+
+
+def _norm(s):
+    return re.sub(r'[^a-z0-9]+', ' ', (s or '').lower()).strip()
+
+
+def relevance_hint(text):
+    t = _norm(text)
+    keys = ['oumuamua', 'borisov', 'atlas', '1i', '2i', '3i', 'interstellar', 'interestelar', 'comet', 'asteroid']
+    return any(k in t for k in keys)
+
+
 def main():
     parser = argparse.ArgumentParser(description='Fase 6 - Multimedia curator resumable')
     parser.add_argument('--reanudar', action='store_true', help='Reanudar desde checkpoint')
     parser.add_argument('--force', action='store_true', help='Forzar re-ejecución desde cero')
+    parser.add_argument('--skip-validate', action='store_true', help='Omitir validación oEmbed (no recomendado)')
     args = parser.parse_args()
 
     start_time = time.time()
@@ -160,20 +193,42 @@ def main():
                 continue
 
             vid = extract_video_id(url)
+            oembed = None
+            if not args.skip_validate:
+                oembed = fetch_oembed(url)
+            cfg_title = item.get('title') or ''
+            cfg_channel = item.get('channel') or ''
+            real_title = (oembed.get('title') if oembed else '') or cfg_title
+            real_channel = (oembed.get('author_name') if oembed else '') or cfg_channel
+            notes = item.get('notes', '') or ''
+            if oembed:
+                log(f"  [validado] título real: {real_title} | canal: {real_channel}")
+                if not relevance_hint(real_title + ' ' + real_channel):
+                    log(f"  ! ALERTA: el título/canal no parece relacionado con objetos interestelares. Revisar: {url}")
+                if cfg_title and _norm(cfg_title) and _norm(cfg_title) not in _norm(real_title) and _norm(real_title) not in _norm(cfg_title):
+                    # if config had a specific (non-generic) title that doesn't match, warn
+                    if 'video relacionado' not in _norm(cfg_title):
+                        log(f"  ! ALERTA: título config difiere del real. Config='{cfg_title}' Real='{real_title}'")
+            elif not args.skip_validate:
+                log(f"  ! Validación oEmbed falló; se usará metadata del config (revisar manualmente).")
             try:
                 cur.execute('''INSERT OR IGNORE INTO media_resources(type,url,video_id,title,channel,relevance_score,added_by,provenance_url,notes)
                                VALUES(?,?,?,?,?,?,?,?,?)''',
-                            ('youtube', url, vid, item.get('title'), item.get('channel'), item.get('relevance_score', 3),
-                             'curador_multimedia', url, item.get('notes', '')))
+                            ('youtube', url, vid, real_title, real_channel, item.get('relevance_score', 3),
+                             'curador_multimedia', url, notes))
                 if cur.rowcount > 0:
                     added += 1
                     log(f"  + Añadido media_resource: {url}")
                 else:
                     log(f"  ~ Ya existe en media_resources: {url}")
-                # Try to link to objects based on keywords
+                    # refrescar metadata validada
+                    if oembed:
+                        cur.execute('UPDATE media_resources SET title=?, channel=? WHERE url=? AND (title IS NULL OR title!=? OR channel IS NULL OR channel!=?)',
+                                    (real_title, real_channel, url, real_title, real_channel))
+                # Try to link to objects based on keywords (usar título/canal verificados)
                 cur.execute('SELECT id, designation FROM objects')
                 for obj in cur.fetchall():
-                    desc = (url + ' ' + str(item.get('title', '')) + ' ' + str(item.get('notes', ''))).lower()
+                    desc = (url + ' ' + str(real_title) + ' ' + str(real_channel) + ' ' + str(notes)).lower()
                     desig = str(obj[1]).lower()
                     linked = False
                     if ('oumuamua' in desc and 'oumuamua' in desig) or ('borisov' in desc and 'borisov' in desig) or \
