@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-06 03:26:24  
+**Actualizado:** 2026-11-06 03:37:08  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -12,7 +12,7 @@
 - **2I/Borisov** (2I/2019 Q4 (Borisov)): descubierto 2019-08-30 — active. Second interstellar object. Active comet with visible coma, composition studied extensively.
 - **3I/ATLAS** (3I/2025 N1 (ATLAS)): descubierto 2025-07-01 — active. Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
 
-**BD:** 247 publicaciones, 3 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 8 recursos multimedia.
+**BD:** 247 publicaciones, 3 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
 
 ---
 
@@ -66,7 +66,6 @@
 
 ### Recursos audiovisuales (YouTube)
 - [Everything We Know About 'Oumuamua (Astrum)](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
-- [Video relacionado con 1I/'Oumuamua](https://www.youtube.com/watch?v=UTJk2ZGaxaA) (relevancia 4)
 
 ---
 
@@ -119,7 +118,6 @@
 
 ### Recursos audiovisuales (YouTube)
 - [NASA Reveals Alien Composition of 2I/Borisov, 1st Interstellar Comet](https://www.youtube.com/watch?v=NNOb3xrjOhE) (relevancia 5)
-- [Video relacionado con 2I/Borisov](https://www.youtube.com/watch?v=WjDVFJobYTY) (relevancia 4)
 
 ---
 
@@ -173,7 +171,6 @@
 ### Recursos audiovisuales (YouTube)
 - [NASA Spacecraft Observe Interstellar Comet 3I/ATLAS](https://www.youtube.com/watch?v=ZtQHgCEVZ4o) (relevancia 5)
 - [Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (relevancia 4)
-- [Video relacionado con 3I/ATLAS](https://www.youtube.com/watch?v=dlali9WWqDI) (relevancia 4)
 
 ---
 
@@ -183,9 +180,6 @@
 - [First Interstellar Asteroid Wows Scientists (NASA/JPL related)](https://www.youtube.com/watch?v=fbL1ZoAQgUU) (relevancia 5)
 - [Everything We Know About 'Oumuamua (Astrum)](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
 - [Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (relevancia 4)
-- [Video relacionado con 3I/ATLAS](https://www.youtube.com/watch?v=dlali9WWqDI) (relevancia 4)
-- [Video relacionado con 2I/Borisov](https://www.youtube.com/watch?v=WjDVFJobYTY) (relevancia 4)
-- [Video relacionado con 1I/'Oumuamua](https://www.youtube.com/watch?v=UTJk2ZGaxaA) (relevancia 4)
 
 ## Cómo evoluciona esta página
 

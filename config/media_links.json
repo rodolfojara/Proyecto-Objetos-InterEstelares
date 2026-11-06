@@ -1,13 +1,6 @@
 {
   "links": [
     {
-      "url": "https://www.youtube.com/watch?v=UTJk2ZGaxaA",
-      "title": "Video relacionado con 1I/'Oumuamua",
-      "channel": "",
-      "relevance_score": 4,
-      "notes": "Añadido manualmente - revisar con curador"
-    },
-    {
       "url": "https://www.youtube.com/watch?v=u4tzK89ZfmA",
       "title": "Everything We Know About 'Oumuamua (Astrum)",
       "channel": "Astrum",
@@ -22,25 +15,11 @@
       "notes": "Científico, enfoque factual"
     },
     {
-      "url": "https://www.youtube.com/watch?v=WjDVFJobYTY",
-      "title": "Video relacionado con 2I/Borisov",
-      "channel": "",
-      "relevance_score": 4,
-      "notes": "Añadido manualmente - revisar con curador"
-    },
-    {
       "url": "https://www.youtube.com/watch?v=NNOb3xrjOhE",
       "title": "NASA Reveals Alien Composition of 2I/Borisov, 1st Interstellar Comet",
       "channel": "NASA",
       "relevance_score": 5,
       "notes": "Explicativo con datos científicos"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=dlali9WWqDI",
-      "title": "Video relacionado con 3I/ATLAS",
-      "channel": "",
-      "relevance_score": 4,
-      "notes": "Añadido manualmente - revisar con curador"
     },
     {
       "url": "https://www.youtube.com/watch?v=ZtQHgCEVZ4o",
@@ -57,5 +36,5 @@
       "notes": "Resumen amplio, útil para contexto"
     }
   ],
-  "instructions": "URLs de vídeos de YouTube (watch?v=...). Se hace curación con filtrado por relevancia/canal científico. Ejecuta curate_media.py para añadirlos a la BD."
+  "instructions": "URLs de vídeos de YouTube (watch?v=...). Se hace curación con filtrado por relevancia/canal científico. Ejecuta curate_media.py para añadirlos a la BD. Verificar siempre el contenido real del video antes de agregar."
 }
