@@ -1,5 +1,8 @@
 # Sistema de Seguimiento y Análisis de Objetos Interestelares (ISO Tracker)
 
+![Interstellar objects and the ISO Tracker project](docs/images/cover-objetos-interestelares.png)
+
+
 Sistema multi-agente/orquestado para recolectar, normalizar, versionar, correlacionar y presentar información sobre objetos interestelares (1I/'Oumuamua, 2I/Borisov, 3I/ATLAS) y futuros descubrimientos.
 
 ## Estado del proyecto
