@@ -7,8 +7,8 @@ Sistema multi-agente/orquestado para recolectar, normalizar, versionar, correlac
 
 ## Estado del proyecto
 - **Estructura e implementación (fabricación):** Fases 0-6 implementadas estructuralmente (esquema, agentes, skills, orquestador, reportes, multimedia)
-- **Ejecución:** Fase 0: Preparación - **EJECUTADA** | Fase 1: Ingesta histórica inicial - **EJECUTADA**
-- **Pendientes de ejecución:** Fase 2: Agentes base - Pendiente | Fase 3: Validación y correlación - Pendiente | Fase 4: Búsqueda retrospectiva - Pendiente | Fase 5: Automatización/Orquestador - Pendiente | Fase 6: Curador multimedia - Pendiente
+- **Ejecución:** Fases 0-6 **EJECUTADAS** (Fase 2-6 con patrón `--reanudar`/`--force` y checkpoints en `.metadata_checkpoints/`).
+- **Página resumen (dashboard):** [`reports/dashboard_latest.md`](reports/dashboard_latest.md) — vista evolutiva con características, órbita, actividad, publicaciones y multimedia (se regenera desde `data/db/iso.db`).
 
 > Cuando se mencione una fase por número (Fase 0, Fase 1, ..., Fase 5), se entiende tal como está definida en este proyecto.
 
@@ -194,15 +194,28 @@ python scripts/orchestrator/generate_infographic_prompt.py
 
 Tras ejecutarlo, la consola te mostrará la ruta exacta del archivo generado. Ahí tendrás el prompt con los datos actuales del sistema (fechas de descubrimiento, elementos orbitales, actividad y comparativa entre 1I, 2I y 3I).
 
+## Dashboard (página resumen evolutiva)
+
+Página Markdown generada desde la base de datos con características, parámetros orbitales, actividad, composición (cuando esté disponible), publicaciones recientes y recursos multimedia por objeto. Se actualiza al regenerar con nuevos datos.
+
+- **Script:** `scripts/orchestrator/generate_dashboard.py` (`--reanudar` / `--force`)
+- **Salida:** [`reports/dashboard_latest.md`](reports/dashboard_latest.md) (y copia con timestamp en `reports/`)
+
+```bash
+cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
+python scripts/orchestrator/generate_dashboard.py --force
+```
+
 ## Estado de las fases
 - **Infraestructura (implementación estructural):** Fases 0-6 - **IMPLEMENTADAS**
 - **Fase 0:** Preparación - **EJECUTADA**
 - **Fase 1:** Ingesta histórica inicial - **EJECUTADA**
-- **Fase 2:** Agentes base y skills - **IMPLEMENTADA, PENDIENTE DE EJECUCIÓN**
-- **Fase 3:** Validación, correlación y reportes - **IMPLEMENTADA, PENDIENTE DE EJECUCIÓN**
-- **Fase 4:** Búsqueda retrospectiva - **IMPLEMENTADA, PENDIENTE DE EJECUCIÓN**
-- **Fase 5:** Orquestador completo y automatización - **IMPLEMENTADA, PENDIENTE DE EJECUCIÓN**
-- **Fase 6:** Curador multimedia (YouTube) - **IMPLEMENTADA, PENDIENTE DE EJECUCIÓN**
+- **Fase 2:** Agentes base y skills (aliases, physical_params, composition, activity) - **EJECUTADA** (`run_fase2_aliases.py`, `run_fase2_rest.py`, `--reanudar`/`--force`)
+- **Fase 3:** Validación, correlación y reportes - **EJECUTADA** (`generate_report.py`, `generate_infographic_prompt.py`, `--reanudar`/`--force`)
+- **Fase 4:** Búsqueda retrospectiva - **EJECUTADA** (`run_retro_search.py`, `--reanudar`/`--force`)
+- **Fase 5:** Orquestador completo y automatización - **EJECUTADA** (verificación/orquestación vía `scripts/utils/check_status.py`)
+- **Fase 6:** Curador multimedia (YouTube) - **EJECUTADA** (`curate_media.py`, curación manual desde `config/media_links.json`, `--reanudar`/`--force`)
+- **Dashboard evolutivo:** **IMPLEMENTADO Y GENERADO** (`generate_dashboard.py` → `reports/dashboard_latest.md`)
 
 ---
-*Sistema ISO Tracker - Infraestructura 0-6 implementada; solo fases 0-1 ejecutadas, fases 2-6 pendientes de ejecución.*
+*Sistema ISO Tracker - Fases 0-6 ejecutadas; dashboard evolutivo disponible en `reports/dashboard_latest.md`.*
