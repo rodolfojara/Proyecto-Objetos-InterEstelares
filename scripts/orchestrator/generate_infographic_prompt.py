@@ -68,10 +68,10 @@ def generate_prompt(resumable=False, force=False):
             pass
 
     cp = load_checkpoint()
-    if not resumable and not force and cp.get('status') == 'completed' and cp.get('prompts_generated'):
-        log("Ya completado según checkpoint. Usa --reanudar o --force para generar nuevo prompt.")
-        if not resumable:
-            sys.exit(0)
+    # Por defecto regenerar en ejecuciones normales/orquestador; --reanudar solo omite si ya completado.
+    if resumable and not force and cp.get('status') == 'completed' and cp.get('prompts_generated'):
+        log("Ya completado según checkpoint (reanudar). Usa --force para regenerar.")
+        sys.exit(0)
 
     now = datetime.now()
     date_str = now.strftime('%Y-%m-%d_%H-%M-%S')

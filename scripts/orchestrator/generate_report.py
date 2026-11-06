@@ -110,12 +110,10 @@ def generate_report(resumable=False, force=False):
             pass
 
     cp = load_checkpoint()
-    if not resumable and not force and cp.get('status') == 'completed' and cp.get('reports_generated'):
-        log("Ya completado según checkpoint. Usa --reanudar o --force para generar nuevo reporte.")
-        # Still allow generating a new timestamped report if explicitly called; but respect checkpoint style
-        # Follow Fase 2 behavior: if completed and not reanudar/force, exit
-        if not resumable:
-            sys.exit(0)
+    # Por defecto regenerar en ejecuciones normales/orquestador; --reanudar solo omite si ya completado.
+    if resumable and not force and cp.get('status') == 'completed' and cp.get('reports_generated'):
+        log("Ya completado según checkpoint (reanudar). Usa --force para regenerar.")
+        sys.exit(0)
 
     conn = get_conn()
     try:

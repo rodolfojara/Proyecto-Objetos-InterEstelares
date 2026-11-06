@@ -99,10 +99,10 @@ def generate_dashboard(resumable=False, force=False):
         log("Checkpoint eliminado por --force")
 
     cp = load_checkpoint()
-    if not resumable and not force and cp.get('status') == 'completed' and cp.get('last_dashboard'):
-        log("Ya completado según checkpoint. Usa --reanudar o --force.")
-        if not resumable:
-            sys.exit(0)
+    # Por defecto regenerar (útil en ejecución normal/orquestador) salvo --reanudar explícito.
+    if resumable and not force and cp.get('status') == 'completed' and cp.get('last_dashboard'):
+        log("Ya completado según checkpoint (reanudar). Usa --force para regenerar.")
+        sys.exit(0)
 
     now = datetime.now()
     out_path = os.path.join(OUT_DIR, f"dashboard_objetos_interestelares_{now.strftime('%Y-%m-%d_%H-%M-%S')}.md")

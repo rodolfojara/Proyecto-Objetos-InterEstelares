@@ -27,19 +27,23 @@
       "name": "Agentes base y skills",
       "status": "completed",
       "scripts": [
-        "apply_patch_fase2.py"
+        "apply_patch_fase2.py",
+        "scripts/orchestrator/ingest_physical_sbdb.py",
+        "scripts/orchestrator/ingest_physical_curated.py"
       ],
-      "description": "vigilante, recolector, normalizador y skills reutilizables"
+      "description": "vigilante, recolector, normalizador y skills reutilizables; incluye parámetros físicos (SBDB/curados)"
     },
     {
       "id": 3,
       "name": "Validación, correlación y reportes",
       "status": "completed",
       "scripts": [
+        "scripts/orchestrator/ingest_ephemeris_horizons.py",
         "scripts/orchestrator/generate_report.py",
-        "scripts/orchestrator/generate_infographic_prompt.py"
+        "scripts/orchestrator/generate_infographic_prompt.py",
+        "scripts/orchestrator/generate_dashboard.py"
       ],
-      "description": "validador, correlacionador, presentador y generador de reportes"
+      "description": "validador, correlacionador, presentador y generador de reportes; refresca efemérides/ubicación y dashboard"
     },
     {
       "id": 4,
@@ -60,6 +64,16 @@
         "scripts/utils/check_status.py"
       ],
       "description": "Orquestador maestro y sistema de automatización"
+    },
+    {
+      "id": 6,
+      "name": "Curador multimedia",
+      "status": "completed",
+      "scripts": [
+        "scripts/orchestrator/curate_media.py",
+        "scripts/orchestrator/update_report_with_media.py"
+      ],
+      "description": "Curación de recursos multimedia (YouTube) y reporte con media"
     }
   ],
   "execution": {
