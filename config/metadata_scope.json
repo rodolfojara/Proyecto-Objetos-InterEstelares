@@ -47,6 +47,17 @@
       "query_arxiv": "3I/ATLAS",
       "query_crossref": ["3I/ATLAS", "C/2025 N1", "interstellar comet ATLAS 3I"],
       "regex": "3i\\s*/\\s*atlas|3i\\s+atlas|2025\\s*n1|(?:interstellar|comet|cometary|hyperboli)[\\s\\S]{0,6000}\\b3i\\b|\\b3i\\b[\\s\\S]{0,6000}(?:interstellar|comet|cometary|hyperboli)"
+    },
+    {
+      "designation": "3I/ATLAS",
+      "desde": "2026-07-03",
+      "hasta": "2026-11-06",
+      "metodo": "arxiv+crossref",
+      "query": "3I/ATLAS",
+      "query_arxiv": "3I/ATLAS",
+      "query_crossref": ["3I/ATLAS", "C/2025 N1", "interstellar comet ATLAS 3I"],
+      "regex": "3i\\s*/\\s*atlas|3i\\s+atlas|2025\\s*n1|(?:interstellar|comet|cometary|hyperboli)[\\s\\S]{0,6000}\\b3i\\b|\\b3i\\b[\\s\\S]{0,6000}(?:interstellar|comet|cometary|hyperboli)",
+      "nota": "actualización incremental (post primera ventana)"
     }
   ]
 }

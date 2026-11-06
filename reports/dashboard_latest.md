@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-06 03:04:12  
+**Actualizado:** 2026-11-06 03:26:24  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -12,7 +12,7 @@
 - **2I/Borisov** (2I/2019 Q4 (Borisov)): descubierto 2019-08-30 — active. Second interstellar object. Active comet with visible coma, composition studied extensively.
 - **3I/ATLAS** (3I/2025 N1 (ATLAS)): descubierto 2025-07-01 — active. Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
 
-**BD:** 209 publicaciones, 3 observaciones, 14 parámetros físicos, 3 registros de composición, 6 registros de actividad, 8 recursos multimedia.
+**BD:** 247 publicaciones, 3 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 8 recursos multimedia.
 
 ---
 
@@ -164,11 +164,11 @@
 - Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%273I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-06%27&STOP_TIME=%272026-11-07%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
 
 ### Análisis/publicaciones recientes (resumen)
-- 2026-06-30: [Prospects for Panspermia via Interstellar Objects like 3I/ATLAS](https://arxiv.org/abs/2607.00202)
-- 2026-06-24: [Periodic Wobble of the Post-Perihelion Jet Structure Around 3I/ATLAS](https://arxiv.org/abs/2602.18512)
-- 2026-06-19: [Dust colour, phase behaviour, and Monte Carlo modelling of interstellar comet 3I/ATLAS from 4 au pre- to 4 au post-perihelion](https://doi.org/10.1093/mnras/stag1164)
-- 2026-06-10: [JCMT Constraints on the Early-Time HCN and CO Emission and HCN Temporal Evolution of 3I/ATLAS](https://doi.org/10.33232/001c.163250)
-- 2026-06-09: [Post-perihelion Coma Composition of the Interstellar Comet 3I/ATLAS from Optical Spectroscopy](https://doi.org/10.3847/2041-8213/ae73fe)
+- 2026-11-05: [Spatial Profiles of 3I/ATLAS CN and Ni Outgassing from Keck/KCWI Integral Field Spectroscopy](https://doi.org/10.3847/1538-3881/aeaff7)
+- 2026-11: [Characterization of the anisotropic dust activity of interstellar comet 3I/ATLAS](https://doi.org/10.1051/0004-6361/202663204)
+- 2026-10-28: [Nongravitational Motion of 3I/ATLAS Far from the Sun: Robust Detection, Weak Constraints on the Activity Law](https://doi.org/10.1051/0004-6361/202662573)
+- 2026-10-27: [JWST/MIRI Observations of Amorphous Silicates in Interstellar Comet 3I/ATLAS](https://arxiv.org/abs/2610.37540)
+- 2026-10-23: [An Enriched Methane D/H Ratio in the Interstellar Object 3I/ATLAS](https://doi.org/10.1038/s41550-026-03002-5)
 
 ### Recursos audiovisuales (YouTube)
 - [NASA Spacecraft Observe Interstellar Comet 3I/ATLAS](https://www.youtube.com/watch?v=ZtQHgCEVZ4o) (relevancia 5)
