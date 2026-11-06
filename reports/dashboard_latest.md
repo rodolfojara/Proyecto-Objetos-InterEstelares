@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-05 22:13:15  
+**Actualizado:** 2026-11-06 02:35:32  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -38,14 +38,20 @@
 - Distancia heliocéntrica (rh, au): N/D
 - Fuente: https://www.nature.com/articles/nature25020 (confianza 4)
 
-### Características físicas (volumen, dimensiones, etc.)
-- N/D / pendiente de ingestión detallada (dimensiones, forma, volumen, albedo, rotación, masa estimada).
+### Características físicas (tamaño, dimensiones, magnitud, etc.)
+- **Tamaño estimado:** N/D
+- **Dimensiones/forma:** N/D
+- **Magnitud absoluta (H) / magnitud observada reciente:** N/D (sin observaciones con magnitud registradas en BD)
+- **Volumen/masa/albedo/rotación:** N/D
+- *Pendiente de ingestión detallada desde fuentes consolidadas (MPC/JPL/papers).*
 
 ### Composición
 - N/D / pendiente de consolidación de mediciones espectroscópicas y tasas de producción.
 
-### Última observación / ubicación
-- N/D (no hay observaciones registradas en BD; pendiente de ingestión de efemérides/observaciones).
+### Última observación / ubicación aproximada
+- **Última observación registrada:** N/D
+- **Magnitud observada (último dato):** N/D
+- **Ubicación aproximada (última observación):** N/D — pendiente de ingestión de efemérides/observaciones (p. ej. JPL Horizons/MPC).
 
 ### Análisis/publicaciones recientes (resumen)
 - 2018-10-31: [Spin Evolution and Cometary Interpretation of the Interstellar Minor Object 1I/2017 ’Oumuamua](https://doi.org/10.3847/2041-8213/aae977)
@@ -82,14 +88,20 @@
 - Distancia heliocéntrica (rh, au): 2.0
 - Fuente: https://www.nature.com/articles/s41550-019-0931-8 (confianza 5)
 
-### Características físicas (volumen, dimensiones, etc.)
-- N/D / pendiente de ingestión detallada (dimensiones, forma, volumen, albedo, rotación, masa estimada).
+### Características físicas (tamaño, dimensiones, magnitud, etc.)
+- **Tamaño estimado:** N/D
+- **Dimensiones/forma:** N/D
+- **Magnitud absoluta (H) / magnitud observada reciente:** N/D (sin observaciones con magnitud registradas en BD)
+- **Volumen/masa/albedo/rotación:** N/D
+- *Pendiente de ingestión detallada desde fuentes consolidadas (MPC/JPL/papers).*
 
 ### Composición
 - N/D / pendiente de consolidación de mediciones espectroscópicas y tasas de producción.
 
-### Última observación / ubicación
-- N/D (no hay observaciones registradas en BD; pendiente de ingestión de efemérides/observaciones).
+### Última observación / ubicación aproximada
+- **Última observación registrada:** N/D
+- **Magnitud observada (último dato):** N/D
+- **Ubicación aproximada (última observación):** N/D — pendiente de ingestión de efemérides/observaciones (p. ej. JPL Horizons/MPC).
 
 ### Análisis/publicaciones recientes (resumen)
 - 2020-08-25: [Infrared Observations of 2I/Borisov near Perihelion](https://doi.org/10.3847/1538-3881/aba8f8)
@@ -126,14 +138,20 @@
 - Distancia heliocéntrica (rh, au): 4.5
 - Fuente: https://science.nasa.gov/solar-system/comets/3i-atlas/ (confianza 4)
 
-### Características físicas (volumen, dimensiones, etc.)
-- N/D / pendiente de ingestión detallada (dimensiones, forma, volumen, albedo, rotación, masa estimada).
+### Características físicas (tamaño, dimensiones, magnitud, etc.)
+- **Tamaño estimado:** N/D
+- **Dimensiones/forma:** N/D
+- **Magnitud absoluta (H) / magnitud observada reciente:** N/D (sin observaciones con magnitud registradas en BD)
+- **Volumen/masa/albedo/rotación:** N/D
+- *Pendiente de ingestión detallada desde fuentes consolidadas (MPC/JPL/papers).*
 
 ### Composición
 - N/D / pendiente de consolidación de mediciones espectroscópicas y tasas de producción.
 
-### Última observación / ubicación
-- N/D (no hay observaciones registradas en BD; pendiente de ingestión de efemérides/observaciones).
+### Última observación / ubicación aproximada
+- **Última observación registrada:** N/D
+- **Magnitud observada (último dato):** N/D
+- **Ubicación aproximada (última observación):** N/D — pendiente de ingestión de efemérides/observaciones (p. ej. JPL Horizons/MPC).
 
 ### Análisis/publicaciones recientes (resumen)
 - 2026-06-30: [Prospects for Panspermia via Interstellar Objects like 3I/ATLAS](https://arxiv.org/abs/2607.00202)

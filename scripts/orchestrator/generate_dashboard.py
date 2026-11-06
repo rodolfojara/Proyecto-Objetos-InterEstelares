@@ -189,14 +189,18 @@ def generate_dashboard(resumable=False, force=False):
             # physical
             phys = q(cur, "SELECT * FROM physical_params WHERE object_id=? ORDER BY confidence DESC, retrieved_at DESC", (oid,))
             lines.append("")
-            lines.append("### Características físicas (volumen, dimensiones, etc.)")
+            lines.append("### Características físicas (tamaño, dimensiones, magnitud, etc.)")
             real_phys = [r for r in phys if not is_placeholder_text(r['value_text']) and r['param'] != 'notes']
             if real_phys:
                 for r in real_phys:
                     val = r['value_text'] if r['value_text'] is not None else r['value']
                     lines.append(f"- {r['param']}: {fmt(val)} {fmt(r['unit'], '')} (fuente: {fmt(r['source_url'])})")
             else:
-                lines.append("- N/D / pendiente de ingestión detallada (dimensiones, forma, volumen, albedo, rotación, masa estimada).")
+                lines.append("- **Tamaño estimado:** N/D")
+                lines.append("- **Dimensiones/forma:** N/D")
+                lines.append("- **Magnitud absoluta (H) / magnitud observada reciente:** N/D (sin observaciones con magnitud registradas en BD)")
+                lines.append("- **Volumen/masa/albedo/rotación:** N/D")
+                lines.append("- *Pendiente de ingestión detallada desde fuentes consolidadas (MPC/JPL/papers).*")
 
             # composition
             comp = q(cur, "SELECT * FROM composition WHERE object_id=? ORDER BY confidence DESC, retrieved_at DESC", (oid,))
@@ -212,17 +216,20 @@ def generate_dashboard(resumable=False, force=False):
             # last observation / location
             obs = q(cur, "SELECT * FROM observations WHERE object_id=? ORDER BY observation_date DESC, retrieved_at DESC LIMIT 1", (oid,))
             lines.append("")
-            lines.append("### Última observación / ubicación")
+            lines.append("### Última observación / ubicación aproximada")
             if obs:
                 r = obs[0]
                 rdict = dict(r)
                 lines.append(f"- Fecha: {fmt(rdict.get('observation_date'))}")
                 lines.append(f"- Telescopio/Instrumento: {fmt(rdict.get('telescope'))} / {fmt(rdict.get('instrument'))}")
                 lines.append(f"- Tipo: {fmt(rdict.get('type'))}")
-                lines.append(f"- Ubicación/efeméride: N/D (pendiente de integrar posición/RA-Dec en observaciones)")
+                lines.append("- Magnitud observada: N/D (campo no registrado en tabla `observations` actual)")
+                lines.append("- Posición/ubicación aproximada (RA-Dec/distancia): N/D (pendiente de integrar efemérides)")
                 lines.append(f"- Fuente: {fmt(rdict.get('source_url'))}")
             else:
-                lines.append("- N/D (no hay observaciones registradas en BD; pendiente de ingestión de efemérides/observaciones).")
+                lines.append("- **Última observación registrada:** N/D")
+                lines.append("- **Magnitud observada (último dato):** N/D")
+                lines.append("- **Ubicación aproximada (última observación):** N/D — pendiente de ingestión de efemérides/observaciones (p. ej. JPL Horizons/MPC).")
 
             # recent publications
             pubs = q(cur, """
