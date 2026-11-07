@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-06 23:49:44  
+**Actualizado:** 2026-11-06 23:51:40  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -12,7 +12,7 @@
 - **2I/Borisov** (2I/2019 Q4 (Borisov)): descubierto 2019-08-30 — active. Second interstellar object. Active comet with visible coma, composition studied extensively.
 - **3I/ATLAS** (3I/2025 N1 (ATLAS)): descubierto 2025-07-01 — active. Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
 
-**BD:** 294 publicaciones, 3 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
+**BD:** 300 publicaciones, 3 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
 
 ---
 
@@ -110,11 +110,11 @@
 - Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%272I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-06%27&STOP_TIME=%272026-11-07%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
 
 ### Análisis/publicaciones recientes (resumen)
-- 2025-09-07: [Quantitative Mapping of the Loeb Scale](https://arxiv.org/abs/2509.06253)
-- 2025-08-06: [The Loeb Scale: Astronomical Classification of Interstellar Objects](https://arxiv.org/abs/2508.09167)
-- 2025-07-01: [Interstellar Visitors and Elusive Extrasolar Meteorites](https://doi.org/10.22201/ia.14052059p.2025.59.19)
-- 2025-04-01: [Cometary observations in light-polluted environments: a case study of interstellar comet 2I/Borisov](https://doi.org/10.1007/s10509-025-04424-9)
-- 2025-01-17: [Predicting Interstellar Object Chemodynamics with Gaia](https://doi.org/10.3847/1538-3881/ad9eb3)
+- 2026-10-01: [The Highly Unusual Behavior and Chemical Composition of Interstellar Comet 2I/Borisov](https://doi.org/10.3847/psj/ae9f3d)
+- 2026-09-25: [On the Compositions of Interstellar Objects](https://arxiv.org/abs/2609.30827)
+- 2026-06-09: [Physical meaning and interpretive limits of correlations among cometary secular light-curve parameters](https://doi.org/10.1093/mnras/stag1096)
+- 2026-04-01: [A Portrait throughout Perihelion of the NH 2 -rich Interstellar Comet 2I/Borisov](https://doi.org/10.3847/psj/ae5244)
+- 2026-03-10: [Technical Bulletin C4-2026-03-A](https://doi.org/10.5281/zenodo.18947246)
 
 ### Recursos audiovisuales (YouTube)
 - [NASA Reveals Alien Composition of 2I/Borisov, 1st Interstellar Comet](https://www.youtube.com/watch?v=NNOb3xrjOhE) (relevancia 5)
