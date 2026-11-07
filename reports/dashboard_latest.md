@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-07 00:00:55  
+**Actualizado:** 2026-11-07 00:18:00  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -12,7 +12,7 @@
 - **2I/Borisov** (2I/2019 Q4 (Borisov)): descubierto 2019-08-30 — active. Second interstellar object. Active comet with visible coma, composition studied extensively.
 - **3I/ATLAS** (3I/2025 N1 (ATLAS)): descubierto 2025-07-01 — active. Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
 
-**BD:** 407 publicaciones, 3 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
+**BD:** 407 publicaciones, 6 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
 
 ---
 
@@ -49,13 +49,13 @@
 - N/D / pendiente de consolidación de mediciones espectroscópicas y tasas de producción.
 
 ### Última observación / ubicación aproximada
-- Fecha: 2026-11-06
+- Fecha: 2026-11-07
 - Tipo/Fuente instrumental: ephemeris / JPL Horizons ephemeris
-- Magnitud (APmag (efeméride)): 39.591
-- Ubicación aproximada (RA, Dec): 23 51 50.94 , +24 21 09.9
-- Distancia: Δ=54.4642216853347 au, r=55.21707336126 au
-- Nota: Efeméride OBSERVER geocéntrica (Horizons) para 2026-11-06 UTC; ubicación aproximada (no observación astrométrica registrada).
-- Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%271I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-06%27&STOP_TIME=%272026-11-07%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
+- Magnitud (APmag (efeméride)): 39.594
+- Ubicación aproximada (RA, Dec): 23 51 47.91 , +24 20 33.7
+- Distancia: Δ=54.4892272556137 au, r=55.23265754285 au
+- Nota: Efeméride OBSERVER geocéntrica (Horizons) para 2026-11-07 UTC; ubicación aproximada (no observación astrométrica registrada).
+- Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%271I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-07%27&STOP_TIME=%272026-11-08%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
 
 ### Análisis/publicaciones recientes (resumen)
 - 2026-09-21: [1I/'Oumuamua-like objects's SFDs with older, current and future surveys](https://arxiv.org/abs/2609.25488)
@@ -65,6 +65,7 @@
 - 2026-01-27: [Rapid Response Missions to Interstellar Objects Using Lyapunov Wait-in-Orbit Constellations](https://doi.org/10.2514/1.a36446)
 
 ### Recursos audiovisuales (YouTube)
+- [First Interstellar Asteroid Wows Scientists](https://www.youtube.com/watch?v=fbL1ZoAQgUU) (relevancia 5)
 - [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
 
 ---
@@ -101,13 +102,13 @@
 - N/D / pendiente de consolidación de mediciones espectroscópicas y tasas de producción.
 
 ### Última observación / ubicación aproximada
-- Fecha: 2026-11-06
+- Fecha: 2026-11-07
 - Tipo/Fuente instrumental: ephemeris / JPL Horizons ephemeris
-- Magnitud (APmag (efeméride)): 29.908
-- Ubicación aproximada (RA, Dec): 17 59 02.37 , -53 26 13.3
-- Distancia: Δ=49.8898042303077 au, r=49.30655133817 au
-- Nota: Efeméride OBSERVER geocéntrica (Horizons) para 2026-11-06 UTC; ubicación aproximada (no observación astrométrica registrada).
-- Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%272I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-06%27&STOP_TIME=%272026-11-07%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
+- Magnitud (APmag (efeméride)): 29.910
+- Ubicación aproximada (RA, Dec): 17 59 08.54 , -53 25 46.1
+- Distancia: Δ=49.9194160569659 au, r=49.32548357448 au
+- Nota: Efeméride OBSERVER geocéntrica (Horizons) para 2026-11-07 UTC; ubicación aproximada (no observación astrométrica registrada).
+- Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%272I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-07%27&STOP_TIME=%272026-11-08%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
 
 ### Análisis/publicaciones recientes (resumen)
 - 2026-10-01: [The Highly Unusual Behavior and Chemical Composition of Interstellar Comet 2I/Borisov](https://doi.org/10.3847/psj/ae9f3d)
@@ -153,13 +154,13 @@
 - N/D / pendiente de consolidación de mediciones espectroscópicas y tasas de producción.
 
 ### Última observación / ubicación aproximada
-- Fecha: 2026-11-06
+- Fecha: 2026-11-07
 - Tipo/Fuente instrumental: ephemeris / JPL Horizons ephemeris
-- Magnitud (APmag (efeméride)): 25.661
-- Ubicación aproximada (RA, Dec): 07 06 43.72 , +19 16 28.3
-- Distancia: Δ=12.5601284219453 au, r=13.04636373748 au
-- Nota: Efeméride OBSERVER geocéntrica (Horizons) para 2026-11-06 UTC; ubicación aproximada (no observación astrométrica registrada).
-- Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%273I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-06%27&STOP_TIME=%272026-11-07%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
+- Magnitud (APmag (efeméride)): 25.673
+- Ubicación aproximada (RA, Dec): 07 06 26.65 , +19 16 38.4
+- Distancia: Δ=12.5785011181949 au, r=13.08027133394 au
+- Nota: Efeméride OBSERVER geocéntrica (Horizons) para 2026-11-07 UTC; ubicación aproximada (no observación astrométrica registrada).
+- Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%273I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-07%27&STOP_TIME=%272026-11-08%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
 
 ### Análisis/publicaciones recientes (resumen)
 - 2026-11-05: [Spatial Profiles of 3I/ATLAS CN and Ni Outgassing from Keck/KCWI Integral Field Spectroscopy](https://doi.org/10.3847/1538-3881/aeaff7)

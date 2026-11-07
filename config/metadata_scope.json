@@ -191,6 +191,18 @@
       "regex_excluir_titulo": "\\b3i\\s*/?\\s*atlas\\b|\\bc\\s*/\\s*2025\\s*n1\\b|\\binterstellar\\s+(?:comet|object)\\s+3i\\b"
     },
     {
+      "alias": "2i-2026",
+      "designation": "2I/Borisov",
+      "desde": "2026-11-07",
+      "hasta": "2026-11-07",
+      "metodo": "openalex",
+      "query": "Borisov",
+      "regex": "2i\\s*/\\s*|(?:c\\s*/\\s*)?2019\\s*q4",
+      "regex_titulo": "(?=.*\\bborisov\\b)(?=.*(?:comet|interstellar|hyperboli))|(?=.*\\b(2i|2019\\s*q4)\\b)(?=.*interstellar)|(?=.*interstellar\\s+(?:comet|object|interloper))(?!.*\\b(3i|c/2025\\s*n1|oumuamua|1i/?)\\b)",
+      "nota": "cola 1 día hasta fecha actual (2026-11-07)",
+      "regex_excluir_titulo": "\\b3i\\s*/?\\s*atlas\\b|\\bc\\s*/\\s*2025\\s*n1\\b|\\binterstellar\\s+(?:comet|object)\\s+3i\\b"
+    },
+    {
       "alias": "3i-2025",
       "designation": "3I/ATLAS",
       "desde": "2025-07-02",
@@ -220,6 +232,22 @@
       ],
       "regex": "3i\\s*/\\s*atlas|3i\\s+atlas|2025\\s*n1|(?:interstellar|comet|cometary|hyperboli)[\\s\\S]{0,6000}\\b3i\\b|\\b3i\\b[\\s\\S]{0,6000}(?:interstellar|comet|cometary|hyperboli)",
       "nota": "actualización incremental (post primera ventana)"
+    },
+    {
+      "alias": "3i-2026b",
+      "designation": "3I/ATLAS",
+      "desde": "2026-11-07",
+      "hasta": "2026-11-07",
+      "metodo": "arxiv+crossref",
+      "query": "3I/ATLAS",
+      "query_arxiv": "3I/ATLAS",
+      "query_crossref": [
+        "3I/ATLAS",
+        "C/2025 N1",
+        "interstellar comet ATLAS 3I"
+      ],
+      "regex": "3i\\s*/\\s*atlas|3i\\s+atlas|2025\\s*n1|(?:interstellar|comet|cometary|hyperboli)[\\s\\S]{0,6000}\\b3i\\b|\\b3i\\b[\\s\\S]{0,6000}(?:interstellar|comet|cometary|hyperboli)",
+      "nota": "cola 1 día hasta fecha actual (2026-11-07)"
     }
   ]
 }
