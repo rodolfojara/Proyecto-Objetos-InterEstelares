@@ -623,11 +623,16 @@ def _verificar_ventana(con, oid, ventana, esperados):
 def main():
     dry = '--dry-run' in sys.argv
     solo = None
+    alias_filter = None
     for i, arg in enumerate(sys.argv):
         if arg == '--solo' and i + 1 < len(sys.argv):
             solo = sys.argv[i + 1]
         elif arg.startswith('--solo='):
             solo = arg.split('=', 1)[1]
+        elif arg in ('--alias', '--ventana', '--periodo') and i + 1 < len(sys.argv):
+            alias_filter = sys.argv[i + 1]
+        elif arg.startswith('--alias=') or arg.startswith('--ventana=') or arg.startswith('--periodo='):
+            alias_filter = arg.split('=', 1)[1]
     with open(CONFIG, encoding='utf-8') as f:
         cfg = json.load(f)
 
@@ -649,7 +654,13 @@ def main():
     for ventana in cfg['ventanas']:
         if solo and solo.lower() not in ventana['designation'].lower():
             continue
-        print('\n== %s | %s a %s ==' % (ventana['designation'], ventana['desde'], ventana['hasta']))
+        if alias_filter:
+            v_alias = (ventana.get('alias') or '').lower()
+            af = alias_filter.lower().replace(' ', '')
+            if af != v_alias and af not in v_alias:
+                continue
+        alias_txt = (' [%s]' % ventana['alias']) if ventana.get('alias') else ''
+        print('\n== %s%s | %s a %s ==' % (ventana['designation'], alias_txt, ventana['desde'], ventana['hasta']))
         fila = con.execute('SELECT id FROM objects WHERE designation = ?', (ventana['designation'],)).fetchone()
         if not fila:
             print('  ! objeto no encontrado en la DB')

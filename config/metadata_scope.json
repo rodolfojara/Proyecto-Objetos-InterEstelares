@@ -1,8 +1,8 @@
 {
-  "descripcion": "Alcance del pase inicial de metadatos bibliograficos (solo papers, sin datos cientificos).",
+  "descripcion": "Alcance de metadatos bibliograficos por ventanas (inicial anual + tramos posteriores + cola hasta fecha).",
   "fuente": "openalex",
   "agente": "recolector",
-  "criterio_ventana": "un ano desde la fecha de designacion I de cada objeto",
+  "criterio_ventana": "ventanas por objeto/periodo; alias tipo 1i-2018 = periodo 2018-2019. Ejecutar por --alias o --solo.",
   "campos_permitidos": [
     "arxiv_id",
     "doi",
@@ -22,6 +22,7 @@
   ],
   "ventanas": [
     {
+      "alias": "1i-2017",
       "designation": "1I/'Oumuamua",
       "desde": "2017-11-06",
       "hasta": "2018-11-06",
@@ -30,6 +31,80 @@
       "regex": "oumuamua"
     },
     {
+      "alias": "1i-2018",
+      "designation": "1I/'Oumuamua",
+      "desde": "2018-11-07",
+      "hasta": "2019-11-06",
+      "metodo": "openalex",
+      "query": "Oumuamua",
+      "regex": "oumuamua"
+    },
+    {
+      "alias": "1i-2019",
+      "designation": "1I/'Oumuamua",
+      "desde": "2019-11-07",
+      "hasta": "2020-11-06",
+      "metodo": "openalex",
+      "query": "Oumuamua",
+      "regex": "oumuamua"
+    },
+    {
+      "alias": "1i-2020",
+      "designation": "1I/'Oumuamua",
+      "desde": "2020-11-07",
+      "hasta": "2021-11-06",
+      "metodo": "openalex",
+      "query": "Oumuamua",
+      "regex": "oumuamua"
+    },
+    {
+      "alias": "1i-2021",
+      "designation": "1I/'Oumuamua",
+      "desde": "2021-11-07",
+      "hasta": "2022-11-06",
+      "metodo": "openalex",
+      "query": "Oumuamua",
+      "regex": "oumuamua"
+    },
+    {
+      "alias": "1i-2022",
+      "designation": "1I/'Oumuamua",
+      "desde": "2022-11-07",
+      "hasta": "2023-11-06",
+      "metodo": "openalex",
+      "query": "Oumuamua",
+      "regex": "oumuamua"
+    },
+    {
+      "alias": "1i-2023",
+      "designation": "1I/'Oumuamua",
+      "desde": "2023-11-07",
+      "hasta": "2024-11-06",
+      "metodo": "openalex",
+      "query": "Oumuamua",
+      "regex": "oumuamua"
+    },
+    {
+      "alias": "1i-2024",
+      "designation": "1I/'Oumuamua",
+      "desde": "2024-11-07",
+      "hasta": "2025-11-06",
+      "metodo": "openalex",
+      "query": "Oumuamua",
+      "regex": "oumuamua"
+    },
+    {
+      "alias": "1i-2025",
+      "designation": "1I/'Oumuamua",
+      "desde": "2025-11-07",
+      "hasta": "2026-11-06",
+      "metodo": "openalex",
+      "query": "Oumuamua",
+      "regex": "oumuamua",
+      "nota": "cola hasta fecha (puede ser < 1 año)"
+    },
+    {
+      "alias": "2i-2019",
       "designation": "2I/Borisov",
       "desde": "2019-09-24",
       "hasta": "2020-09-24",
@@ -39,23 +114,94 @@
       "regex_titulo": "(?=.*\\bborisov\\b)(?=.*(?:comet|interstellar|hyperboli))|interstellar\\s+(?:comet|object|interloper)"
     },
     {
+      "alias": "2i-2020",
+      "designation": "2I/Borisov",
+      "desde": "2020-09-25",
+      "hasta": "2021-09-24",
+      "metodo": "openalex",
+      "query": "Borisov",
+      "regex": "2i\\s*/\\s*|(?:c\\s*/\\s*)?2019\\s*q4",
+      "regex_titulo": "(?=.*\\bborisov\\b)(?=.*(?:comet|interstellar|hyperboli))|interstellar\\s+(?:comet|object|interloper)"
+    },
+    {
+      "alias": "2i-2021",
+      "designation": "2I/Borisov",
+      "desde": "2021-09-25",
+      "hasta": "2022-09-24",
+      "metodo": "openalex",
+      "query": "Borisov",
+      "regex": "2i\\s*/\\s*|(?:c\\s*/\\s*)?2019\\s*q4",
+      "regex_titulo": "(?=.*\\bborisov\\b)(?=.*(?:comet|interstellar|hyperboli))|interstellar\\s+(?:comet|object|interloper)"
+    },
+    {
+      "alias": "2i-2022",
+      "designation": "2I/Borisov",
+      "desde": "2022-09-25",
+      "hasta": "2023-09-24",
+      "metodo": "openalex",
+      "query": "Borisov",
+      "regex": "2i\\s*/\\s*|(?:c\\s*/\\s*)?2019\\s*q4",
+      "regex_titulo": "(?=.*\\bborisov\\b)(?=.*(?:comet|interstellar|hyperboli))|interstellar\\s+(?:comet|object|interloper)"
+    },
+    {
+      "alias": "2i-2023",
+      "designation": "2I/Borisov",
+      "desde": "2023-09-25",
+      "hasta": "2024-09-24",
+      "metodo": "openalex",
+      "query": "Borisov",
+      "regex": "2i\\s*/\\s*|(?:c\\s*/\\s*)?2019\\s*q4",
+      "regex_titulo": "(?=.*\\bborisov\\b)(?=.*(?:comet|interstellar|hyperboli))|interstellar\\s+(?:comet|object|interloper)"
+    },
+    {
+      "alias": "2i-2024",
+      "designation": "2I/Borisov",
+      "desde": "2024-09-25",
+      "hasta": "2025-09-24",
+      "metodo": "openalex",
+      "query": "Borisov",
+      "regex": "2i\\s*/\\s*|(?:c\\s*/\\s*)?2019\\s*q4",
+      "regex_titulo": "(?=.*\\bborisov\\b)(?=.*(?:comet|interstellar|hyperboli))|interstellar\\s+(?:comet|object|interloper)"
+    },
+    {
+      "alias": "2i-2025",
+      "designation": "2I/Borisov",
+      "desde": "2025-09-25",
+      "hasta": "2026-11-06",
+      "metodo": "openalex",
+      "query": "Borisov",
+      "regex": "2i\\s*/\\s*|(?:c\\s*/\\s*)?2019\\s*q4",
+      "regex_titulo": "(?=.*\\bborisov\\b)(?=.*(?:comet|interstellar|hyperboli))|interstellar\\s+(?:comet|object|interloper)",
+      "nota": "cola hasta fecha (puede ser < 1 año)"
+    },
+    {
+      "alias": "3i-2025",
       "designation": "3I/ATLAS",
       "desde": "2025-07-02",
       "hasta": "2026-07-02",
       "metodo": "arxiv+crossref",
       "query": "3I/ATLAS",
       "query_arxiv": "3I/ATLAS",
-      "query_crossref": ["3I/ATLAS", "C/2025 N1", "interstellar comet ATLAS 3I"],
+      "query_crossref": [
+        "3I/ATLAS",
+        "C/2025 N1",
+        "interstellar comet ATLAS 3I"
+      ],
       "regex": "3i\\s*/\\s*atlas|3i\\s+atlas|2025\\s*n1|(?:interstellar|comet|cometary|hyperboli)[\\s\\S]{0,6000}\\b3i\\b|\\b3i\\b[\\s\\S]{0,6000}(?:interstellar|comet|cometary|hyperboli)"
     },
     {
+      "alias": "3i-2026",
       "designation": "3I/ATLAS",
       "desde": "2026-07-03",
       "hasta": "2026-11-06",
       "metodo": "arxiv+crossref",
       "query": "3I/ATLAS",
       "query_arxiv": "3I/ATLAS",
-      "query_crossref": ["3I/ATLAS", "C/2025 N1", "interstellar comet ATLAS 3I"],
+      "query_crossref": [
+        "3I/ATLAS",
+        "C/2025 N1",
+        "interstellar comet ATLAS 3I"
+      ],
       "regex": "3i\\s*/\\s*atlas|3i\\s+atlas|2025\\s*n1|(?:interstellar|comet|cometary|hyperboli)[\\s\\S]{0,6000}\\b3i\\b|\\b3i\\b[\\s\\S]{0,6000}(?:interstellar|comet|cometary|hyperboli)",
       "nota": "actualización incremental (post primera ventana)"
     }
