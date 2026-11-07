@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-06 03:41:15  
+**Actualizado:** 2026-11-06 23:36:47  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -12,7 +12,7 @@
 - **2I/Borisov** (2I/2019 Q4 (Borisov)): descubierto 2019-08-30 — active. Second interstellar object. Active comet with visible coma, composition studied extensively.
 - **3I/ATLAS** (3I/2025 N1 (ATLAS)): descubierto 2025-07-01 — active. Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
 
-**BD:** 247 publicaciones, 3 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
+**BD:** 268 publicaciones, 3 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
 
 ---
 
@@ -110,11 +110,11 @@
 - Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%272I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-06%27&STOP_TIME=%272026-11-07%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
 
 ### Análisis/publicaciones recientes (resumen)
-- 2020-08-25: [Infrared Observations of 2I/Borisov near Perihelion](https://doi.org/10.3847/1538-3881/aba8f8)
-- 2020-07-16: [The Crucial Role of Ground- and Space-Based Remote Sensing Studies of Cometary Volatiles in the Next Decade (2023-2032)](https://arxiv.org/abs/2007.08568)
-- 2020-06-17: [Characterization of the Nucleus, Morphology, and Activity of Interstellar Comet 2I/Borisov by Optical and Near-infrared GROWTH, Apache Point, IRTF, ZTF, and Keck Observations](https://doi.org/10.3847/1538-3881/ab9305)
-- 2020-06-01: [Outburst and Splitting of Interstellar Comet 2I/Borisov](https://doi.org/10.3847/2041-8213/ab99cb)
-- 2020-04-28: [Visible and near-infrared observations of interstellar comet 2I/Borisov with the 10.4-m GTC and the 3.6-m TNG telescopes](https://doi.org/10.1093/mnras/staa1190)
+- 2021-09-14: [Sending a spacecraft to interstellar comet 2I/Borisov](https://doi.org/10.1016/j.actaastro.2021.09.006)
+- 2021-09-01: [Assessments of Aperiodic Comet Impact Effects on Earth](https://doi.org/10.1134/s1069351321050190)
+- 2021-08-30: [Preliminary Evidence That Protoplanetary Disks Eject More Mass Than They Retain](https://arxiv.org/abs/2108.13429)
+- 2021-08-11: [Dust Production of Interstellar Comet 2I/Borisov Throughout Perihelion](https://doi.org/10.3847/1538-3881/ac0fd8)
+- 2021-07-30: [Interstellar objects outnumber Solar system objects in the Oort cloud](https://doi.org/10.1093/mnrasl/slab084)
 
 ### Recursos audiovisuales (YouTube)
 - [NASA Reveals Alien Composition of 2I/Borisov, 1st Interstellar Comet](https://www.youtube.com/watch?v=NNOb3xrjOhE) (relevancia 5)
