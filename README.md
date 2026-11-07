@@ -2,6 +2,8 @@
 
 ![Interstellar objects and the ISO Tracker project](docs/images/cover-objetos-interestelares.png)
 
+**Infografía — Objetos Interestelares (1I, 2I, 3I):**
+![Infografía: Objetos Interestelares 1I 'Oumuamua, 2I Borisov, 3I ATLAS](docs/images/Infografia%20Objetos%20Interestelares.png)
 
 Sistema multi-agente/orquestado para recolectar, normalizar, versionar, correlacionar y presentar información sobre objetos interestelares (1I/'Oumuamua, 2I/Borisov, 3I/ATLAS) y futuros descubrimientos.
 
