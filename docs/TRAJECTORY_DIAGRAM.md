@@ -1,5 +1,10 @@
 # Diagrama de trayectorias (1I, 2I, 3I) y ubicación aproximada
 
+## Diagrama actual (trayectorias y posición aproximada)
+![Trayectorias planas y posición aproximada actual de 1I, 2I y 3I](images/1i%202i%203i%20Trayectoria%20plana.png)
+
+*Fuente de la imagen: `docs/images/1i 2i 3i Trayectoria plana.png` (agregada al repositorio). Es una representación referencial/esquemática de trayectorias y situación aproximada. Para posiciones precisas a una fecha usar efemérides JPL Horizons (y ver “Última observación / ubicación aproximada” en `reports/dashboard_latest.md`).*
+
 ## Estado actual de datos en la BD (limitaciones)
 - **`orbital_elements`** (confianza alta, fuentes MPC MPEC): tenemos `e, q, i, epoch, e_hyperbolic_v_inf` para 1I/'Oumuamua, 2I/Borisov y 3I/ATLAS.
 - **Faltan para una órbita 3D completa:** `Ω` (longitud del nodo ascendente), `ω` (argumento del perihelio) / `arg_peri`, `node`, anomalía/estado en una fecha, y efemérides. Sin esto, no se puede trazar con precisión la trayectoria orientada en el plano del sistema solar.

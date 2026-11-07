@@ -124,6 +124,12 @@ def generate_dashboard(resumable=False, force=False):
         lines.append("")
         for o in objects:
             lines.append(f"- **{o['designation']}** ({o['name']}): descubierto {o['discovery_date']} — {o['status']}. {o['notes'] or ''}")
+        traj_img = os.path.join(BASE_DIR, 'docs', 'images', '1i 2i 3i Trayectoria plana.png')
+        if os.path.exists(traj_img):
+            lines.append("")
+            lines.append("![Trayectorias y posición aproximada actual de 1I, 2I y 3I](../docs/images/1i%202i%203i%20Trayectoria%20plana.png)")
+            lines.append("")
+            lines.append("*Esquema de trayectorias/posición aproximada (referencial). Para posiciones precisas: efemérides JPL Horizons (ver “Última observación / ubicación aproximada” por objeto).*")
         # counts
         counts = {}
         for t in ['publications','object_aliases','physical_params','composition','activity','orbital_elements','observations','media_resources']:
@@ -290,6 +296,17 @@ def generate_dashboard(resumable=False, force=False):
                 lines.append(f"- [{title}]({m['url']}) (relevancia {m['relevance_score']})")
             lines.append("")
 
+        lines.append("## Situación actual percibida (resumen final)")
+        lines.append("")
+        traj_img = os.path.join(BASE_DIR, 'docs', 'images', '1i 2i 3i Trayectoria plana.png')
+        if os.path.exists(traj_img):
+            lines.append("![Trayectorias y posición aproximada actual de 1I, 2I y 3I](../docs/images/1i%202i%203i%20Trayectoria%20plana.png)")
+            lines.append("")
+        lines.append("- **1I/'Oumuamua**: objeto interestelar (no se detectó coma/polvo concluyente), en alejamiento; última ubicación **aproximada** por efeméride Horizons (geocéntrica) — ver sección del objeto. Muy débil/lejana para observación directa rutinaria.")
+        lines.append("- **2I/Borisov**: cometa interestelar activo (coma/polvo), ya muy distante post-perihelio; ubicación aproximada por efeméride Horizons.")
+        lines.append("- **3I/ATLAS**: cometa interestelar activo (alta v∞), en seguimiento; ubicación aproximada por efeméride Horizons (más cercano que 1I/2I en distancia actual, sujeto a actualización).")
+        lines.append("- *Las posiciones/magnitudes mostradas son efemérides calculadas (aprox., no astrometría registrada en BD). Actualizar con `ingest_ephemeris_horizons.py` + regenerar dashboard.*")
+        lines.append("")
         lines.append("## Cómo evoluciona esta página")
         lines.append("")
         lines.append("- Este dashboard se regenera desde la base de datos (`data/db/iso.db`) y refleja el estado actual.")

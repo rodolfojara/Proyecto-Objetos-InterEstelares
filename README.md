@@ -198,6 +198,11 @@ Tras ejecutarlo, la consola te mostrará la ruta exacta del archivo generado. Ah
 
 Página Markdown generada desde la base de datos con características, parámetros orbitales, actividad, composición (cuando esté disponible), publicaciones recientes y recursos multimedia por objeto. Se actualiza al regenerar con nuevos datos.
 
+### Situación actual percibida (trayectorias y posición aproximada)
+![Trayectorias planas y posición aproximada actual de 1I, 2I y 3I](docs/images/1i%202i%203i%20Trayectoria%20plana.png)
+
+*Representación referencial/esquemática. Posiciones/magnitudes precisas y actuales: efemérides JPL Horizons (ver dashboard).*
+
 - **Script:** `scripts/orchestrator/generate_dashboard.py` (`--reanudar` / `--force`)
 - **Salida:** [`reports/dashboard_latest.md`](reports/dashboard_latest.md) (y copia con timestamp en `reports/`)
 

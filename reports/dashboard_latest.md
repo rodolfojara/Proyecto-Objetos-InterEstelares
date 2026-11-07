@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-07 00:18:00  
+**Actualizado:** 2026-11-07 02:22:41  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -11,6 +11,10 @@
 - **1I/'Oumuamua** (1I/2017 U1 ('Oumuamua)): descubierto 2017-10-19 — active. First interstellar object detected. No obvious coma detected initially; non-gravitational acceleration debated.
 - **2I/Borisov** (2I/2019 Q4 (Borisov)): descubierto 2019-08-30 — active. Second interstellar object. Active comet with visible coma, composition studied extensively.
 - **3I/ATLAS** (3I/2025 N1 (ATLAS)): descubierto 2025-07-01 — active. Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
+
+![Trayectorias y posición aproximada actual de 1I, 2I y 3I](../docs/images/1i%202i%203i%20Trayectoria%20plana.png)
+
+*Esquema de trayectorias/posición aproximada (referencial). Para posiciones precisas: efemérides JPL Horizons (ver “Última observación / ubicación aproximada” por objeto).*
 
 **BD:** 407 publicaciones, 6 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
 
@@ -181,6 +185,15 @@
 - [First Interstellar Asteroid Wows Scientists](https://www.youtube.com/watch?v=fbL1ZoAQgUU) (relevancia 5)
 - [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
 - [FEATURES: Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (relevancia 4)
+
+## Situación actual percibida (resumen final)
+
+![Trayectorias y posición aproximada actual de 1I, 2I y 3I](../docs/images/1i%202i%203i%20Trayectoria%20plana.png)
+
+- **1I/'Oumuamua**: objeto interestelar (no se detectó coma/polvo concluyente), en alejamiento; última ubicación **aproximada** por efeméride Horizons (geocéntrica) — ver sección del objeto. Muy débil/lejana para observación directa rutinaria.
+- **2I/Borisov**: cometa interestelar activo (coma/polvo), ya muy distante post-perihelio; ubicación aproximada por efeméride Horizons.
+- **3I/ATLAS**: cometa interestelar activo (alta v∞), en seguimiento; ubicación aproximada por efeméride Horizons (más cercano que 1I/2I en distancia actual, sujeto a actualización).
+- *Las posiciones/magnitudes mostradas son efemérides calculadas (aprox., no astrometría registrada en BD). Actualizar con `ingest_ephemeris_horizons.py` + regenerar dashboard.*
 
 ## Cómo evoluciona esta página
 
