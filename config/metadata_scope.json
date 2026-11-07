@@ -46,7 +46,9 @@
       "hasta": "2020-11-06",
       "metodo": "openalex",
       "query": "Oumuamua",
-      "regex": "oumuamua"
+      "regex": "oumuamua",
+      "regex_excluir_titulo": "\\b2i\\s*/?\\s*borisov\\b|\\bc\\s*/\\s*2019\\s*q4\\b|\\binterstellar\\s+comet\\s+2i\\b|\\b3i\\s*/?\\s*atlas\\b|\\bc\\s*/\\s*2025\\s*n1\\b|\\binterstellar\\s+(?:comet|object)\\s+3i\\b",
+      "nota": "regex_excluir_titulo: excluye títulos foco 2I/3I"
     },
     {
       "alias": "1i-2020",
@@ -55,7 +57,9 @@
       "hasta": "2021-11-06",
       "metodo": "openalex",
       "query": "Oumuamua",
-      "regex": "oumuamua"
+      "regex": "oumuamua",
+      "regex_excluir_titulo": "\\b2i\\s*/?\\s*borisov\\b|\\bc\\s*/\\s*2019\\s*q4\\b|\\binterstellar\\s+comet\\s+2i\\b|\\b3i\\s*/?\\s*atlas\\b|\\bc\\s*/\\s*2025\\s*n1\\b|\\binterstellar\\s+(?:comet|object)\\s+3i\\b",
+      "nota": "regex_excluir_titulo: excluye títulos foco 2I/3I"
     },
     {
       "alias": "1i-2021",
@@ -64,7 +68,9 @@
       "hasta": "2022-11-06",
       "metodo": "openalex",
       "query": "Oumuamua",
-      "regex": "oumuamua"
+      "regex": "oumuamua",
+      "regex_excluir_titulo": "\\b2i\\s*/?\\s*borisov\\b|\\bc\\s*/\\s*2019\\s*q4\\b|\\binterstellar\\s+comet\\s+2i\\b|\\b3i\\s*/?\\s*atlas\\b|\\bc\\s*/\\s*2025\\s*n1\\b|\\binterstellar\\s+(?:comet|object)\\s+3i\\b",
+      "nota": "regex_excluir_titulo: excluye títulos foco 2I/3I"
     },
     {
       "alias": "1i-2022",
@@ -73,7 +79,9 @@
       "hasta": "2023-11-06",
       "metodo": "openalex",
       "query": "Oumuamua",
-      "regex": "oumuamua"
+      "regex": "oumuamua",
+      "regex_excluir_titulo": "\\b2i\\s*/?\\s*borisov\\b|\\bc\\s*/\\s*2019\\s*q4\\b|\\binterstellar\\s+comet\\s+2i\\b|\\b3i\\s*/?\\s*atlas\\b|\\bc\\s*/\\s*2025\\s*n1\\b|\\binterstellar\\s+(?:comet|object)\\s+3i\\b",
+      "nota": "regex_excluir_titulo: excluye títulos foco 2I/3I"
     },
     {
       "alias": "1i-2023",
@@ -82,7 +90,9 @@
       "hasta": "2024-11-06",
       "metodo": "openalex",
       "query": "Oumuamua",
-      "regex": "oumuamua"
+      "regex": "oumuamua",
+      "regex_excluir_titulo": "\\b2i\\s*/?\\s*borisov\\b|\\bc\\s*/\\s*2019\\s*q4\\b|\\binterstellar\\s+comet\\s+2i\\b|\\b3i\\s*/?\\s*atlas\\b|\\bc\\s*/\\s*2025\\s*n1\\b|\\binterstellar\\s+(?:comet|object)\\s+3i\\b",
+      "nota": "regex_excluir_titulo: excluye títulos foco 2I/3I"
     },
     {
       "alias": "1i-2024",
@@ -91,7 +101,9 @@
       "hasta": "2025-11-06",
       "metodo": "openalex",
       "query": "Oumuamua",
-      "regex": "oumuamua"
+      "regex": "oumuamua",
+      "regex_excluir_titulo": "\\b2i\\s*/?\\s*borisov\\b|\\bc\\s*/\\s*2019\\s*q4\\b|\\binterstellar\\s+comet\\s+2i\\b|\\b3i\\s*/?\\s*atlas\\b|\\bc\\s*/\\s*2025\\s*n1\\b|\\binterstellar\\s+(?:comet|object)\\s+3i\\b",
+      "nota": "regex_excluir_titulo: excluye títulos foco 2I/3I"
     },
     {
       "alias": "1i-2025",
@@ -101,7 +113,8 @@
       "metodo": "openalex",
       "query": "Oumuamua",
       "regex": "oumuamua",
-      "nota": "cola hasta fecha (puede ser < 1 año)"
+      "nota": "cola hasta fecha (puede ser < 1 año) | regex_excluir_titulo: excluye títulos foco 2I/3I",
+      "regex_excluir_titulo": "\\b2i\\s*/?\\s*borisov\\b|\\bc\\s*/\\s*2019\\s*q4\\b|\\binterstellar\\s+comet\\s+2i\\b|\\b3i\\s*/?\\s*atlas\\b|\\bc\\s*/\\s*2025\\s*n1\\b|\\binterstellar\\s+(?:comet|object)\\s+3i\\b"
     },
     {
       "alias": "2i-2019",

@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-06 23:53:01  
+**Actualizado:** 2026-11-06 23:54:18  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -12,7 +12,7 @@
 - **2I/Borisov** (2I/2019 Q4 (Borisov)): descubierto 2019-08-30 — active. Second interstellar object. Active comet with visible coma, composition studied extensively.
 - **3I/ATLAS** (3I/2025 N1 (ATLAS)): descubierto 2025-07-01 — active. Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
 
-**BD:** 334 publicaciones, 3 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
+**BD:** 347 publicaciones, 3 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
 
 ---
 
@@ -58,11 +58,11 @@
 - Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%271I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-06%27&STOP_TIME=%272026-11-07%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
 
 ### Análisis/publicaciones recientes (resumen)
-- 2019-11-06: [Dependence of Light Curves on Phase Angle and Asteroid Shape](https://doi.org/10.3847/1538-3881/ab4ce4)
-- 2019-10-25: [Detection of CN Gas in Interstellar Object 2I/Borisov](https://doi.org/10.3847/2041-8213/ab49fc)
-- 2019-10-14: [Initial characterization of interstellar comet 2I/Borisov](https://doi.org/10.1038/s41550-019-0931-8)
-- 2019-10-10: [Hidden Planets: Implications from ’Oumuamua and DSHARP](https://doi.org/10.3847/2041-8213/ab4422)
-- 2019-09-01: [Radio Flares from Collisions of Neutron Stars with Interstellar Asteroids](https://doi.org/10.3847/2515-5172/ab43de)
+- 2020-11-01: [Oumuamuas Passing through Molecular Clouds](https://doi.org/10.3847/1538-4357/abb9ae)
+- 2020-10-29: [Observable Signatures of the Ejection Speed of Interstellar Objects from Their Birth Systems](https://doi.org/10.3847/2041-8213/abc170)
+- 2020-09-14: [Where is Waldo (and his friends)? A comparison of anomaly detection algorithms for time-domain astronomy](https://arxiv.org/abs/2009.06760)
+- 2020-09-01: [’Oumuamua as a Cometary Fractal Aggregate: The “Dust Bunny” Model](https://doi.org/10.3847/2041-8213/abafa7)
+- 2020-08-01: [Solar System Encounters with Open Star Clusters](https://doi.org/10.1134/s106377292009005x)
 
 ### Recursos audiovisuales (YouTube)
 - [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
