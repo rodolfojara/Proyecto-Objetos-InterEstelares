@@ -109,11 +109,11 @@
       "alias": "1i-2025",
       "designation": "1I/'Oumuamua",
       "desde": "2025-11-07",
-      "hasta": "2026-11-06",
+      "hasta": "2026-11-07",
       "metodo": "openalex",
       "query": "Oumuamua",
       "regex": "oumuamua",
-      "nota": "cola hasta fecha (puede ser < 1 año) | regex_excluir_titulo: excluye títulos foco 2I/3I",
+      "nota": "cola hasta fecha actual (2026-11-07, < 1 año) | regex_excluir_titulo: excluye títulos foco 2I/3I",
       "regex_excluir_titulo": "\\b2i\\s*/?\\s*borisov\\b|\\bc\\s*/\\s*2019\\s*q4\\b|\\binterstellar\\s+comet\\s+2i\\b|\\b3i\\s*/?\\s*atlas\\b|\\bc\\s*/\\s*2025\\s*n1\\b|\\binterstellar\\s+(?:comet|object)\\s+3i\\b"
     },
     {

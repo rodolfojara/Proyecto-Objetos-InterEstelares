@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-06 23:59:31  
+**Actualizado:** 2026-11-07 00:00:55  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -12,7 +12,7 @@
 - **2I/Borisov** (2I/2019 Q4 (Borisov)): descubierto 2019-08-30 — active. Second interstellar object. Active comet with visible coma, composition studied extensively.
 - **3I/ATLAS** (3I/2025 N1 (ATLAS)): descubierto 2025-07-01 — active. Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
 
-**BD:** 405 publicaciones, 3 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
+**BD:** 407 publicaciones, 3 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
 
 ---
 
@@ -58,11 +58,11 @@
 - Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%271I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-06%27&STOP_TIME=%272026-11-07%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
 
 ### Análisis/publicaciones recientes (resumen)
-- 2025-09-07: [Quantitative Mapping of the Loeb Scale](https://arxiv.org/abs/2509.06253)
-- 2025-08-06: [The Loeb Scale: Astronomical Classification of Interstellar Objects](https://arxiv.org/abs/2508.09167)
-- 2025-07-01: [Interstellar Visitors and Elusive Extrasolar Meteorites](https://doi.org/10.22201/ia.14052059p.2025.59.19)
-- 2025-02-09: [Configuration of single giant planet systems generating ‘Oumuamua-like interstellar asteroids](https://doi.org/10.1093/mnras/staf234)
-- 2025-01-17: [Predicting Interstellar Object Chemodynamics with Gaia](https://doi.org/10.3847/1538-3881/ad9eb3)
+- 2026-09-21: [1I/'Oumuamua-like objects's SFDs with older, current and future surveys](https://arxiv.org/abs/2609.25488)
+- 2026-08-22: [Radiolytic Production, Trapping, and Desorption of H2 at Elevated Temperatures in Amorphous and Crystalline Astrophysical and Planetary H2O Ice Analogs](https://doi.org/10.1021/acsearthspacechem.6c00205)
+- 2026-07-31: [Capture of interstellar objects during stellar encounters](https://doi.org/10.1051/0004-6361/202660697)
+- 2026-02-13: [A Two-Dimensional Analytic Solution for the Generation of Hyperbolic Trajectories Via A Single Close Encounter with Applications To Interstellar Objects](https://arxiv.org/abs/2602.04806)
+- 2026-01-27: [Rapid Response Missions to Interstellar Objects Using Lyapunov Wait-in-Orbit Constellations](https://doi.org/10.2514/1.a36446)
 
 ### Recursos audiovisuales (YouTube)
 - [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
