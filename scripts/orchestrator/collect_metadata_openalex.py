@@ -307,8 +307,12 @@ def filtrar(ventana, candidatos):
     patron = re.compile(ventana['regex'], re.IGNORECASE)
     patron_titulo = (re.compile(ventana['regex_titulo'], re.IGNORECASE)
                      if ventana.get('regex_titulo') else None)
+    patron_excluir_titulo = (re.compile(ventana['regex_excluir_titulo'], re.IGNORECASE)
+                             if ventana.get('regex_excluir_titulo') else None)
 
     def coincide(registro):
+        if patron_excluir_titulo and patron_excluir_titulo.search(registro['title'] or ''):
+            return False
         if patron.search(registro['title'] + ' ' + registro['abstract']):
             return True
         return bool(patron_titulo and patron_titulo.search(registro['title']))

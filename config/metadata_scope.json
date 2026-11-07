@@ -161,7 +161,9 @@
       "metodo": "openalex",
       "query": "Borisov",
       "regex": "2i\\s*/\\s*|(?:c\\s*/\\s*)?2019\\s*q4",
-      "regex_titulo": "(?=.*\\bborisov\\b)(?=.*(?:comet|interstellar|hyperboli))|interstellar\\s+(?:comet|object|interloper)"
+      "regex_titulo": "(?=.*\\bborisov\\b)(?=.*(?:comet|interstellar|hyperboli))|(?=.*\\b(2i|2019\\s*q4)\\b)(?=.*interstellar)|(?=.*interstellar\\s+(?:comet|object|interloper))(?!.*\\b(3i|c/2025\\s*n1|oumuamua|1i/?)\\b)",
+      "nota": "regex_titulo ajustado: excluye menciones 1I/3I en match genérico",
+      "regex_excluir_titulo": "\\b3i\\s*/?\\s*atlas\\b|\\bc\\s*/\\s*2025\\s*n1\\b|\\binterstellar\\s+(?:comet|object)\\s+3i\\b"
     },
     {
       "alias": "2i-2025",
@@ -171,8 +173,9 @@
       "metodo": "openalex",
       "query": "Borisov",
       "regex": "2i\\s*/\\s*|(?:c\\s*/\\s*)?2019\\s*q4",
-      "regex_titulo": "(?=.*\\bborisov\\b)(?=.*(?:comet|interstellar|hyperboli))|interstellar\\s+(?:comet|object|interloper)",
-      "nota": "cola hasta fecha (puede ser < 1 año)"
+      "regex_titulo": "(?=.*\\bborisov\\b)(?=.*(?:comet|interstellar|hyperboli))|(?=.*\\b(2i|2019\\s*q4)\\b)(?=.*interstellar)|(?=.*interstellar\\s+(?:comet|object|interloper))(?!.*\\b(3i|c/2025\\s*n1|oumuamua|1i/?)\\b)",
+      "nota": "cola hasta fecha (puede ser < 1 año) | regex_titulo ajustado: excluye menciones 1I/3I en match genérico",
+      "regex_excluir_titulo": "\\b3i\\s*/?\\s*atlas\\b|\\bc\\s*/\\s*2025\\s*n1\\b|\\binterstellar\\s+(?:comet|object)\\s+3i\\b"
     },
     {
       "alias": "3i-2025",
