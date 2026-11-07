@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-07 02:22:41  
+**Actualizado:** 2026-11-07 02:28:42  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -190,10 +190,11 @@
 
 ![Trayectorias y posición aproximada actual de 1I, 2I y 3I](../docs/images/1i%202i%203i%20Trayectoria%20plana.png)
 
-- **1I/'Oumuamua**: objeto interestelar (no se detectó coma/polvo concluyente), en alejamiento; última ubicación **aproximada** por efeméride Horizons (geocéntrica) — ver sección del objeto. Muy débil/lejana para observación directa rutinaria.
-- **2I/Borisov**: cometa interestelar activo (coma/polvo), ya muy distante post-perihelio; ubicación aproximada por efeméride Horizons.
-- **3I/ATLAS**: cometa interestelar activo (alta v∞), en seguimiento; ubicación aproximada por efeméride Horizons (más cercano que 1I/2I en distancia actual, sujeto a actualización).
-- *Las posiciones/magnitudes mostradas son efemérides calculadas (aprox., no astrometría registrada en BD). Actualizar con `ingest_ephemeris_horizons.py` + regenerar dashboard.*
+- **1I/'Oumuamua** (2026-11-07, efeméride Horizons aprox.): objeto interestelar (sin coma/polvo concluyente), en alejamiento; muy débil/lejana para observación directa rutinaria. **Posición/distancia:** AR (RA)=23 51 47.91, Dec=+24 20 33.7; Δ=54.4892272556137 au; r=55.23265754285 au; mag (APmag (efeméride))=39.594.
+- **2I/Borisov** (2026-11-07, efeméride Horizons aprox.): cometa interestelar activo (coma/polvo), ya muy distante post-perihelio. **Posición/distancia:** AR (RA)=17 59 08.54, Dec=-53 25 46.1; Δ=49.9194160569659 au; r=49.32548357448 au; mag (APmag (efeméride))=29.910.
+- **3I/ATLAS** (2026-11-07, efeméride Horizons aprox.): cometa interestelar activo (alta v∞), en seguimiento; más cercano que 1I/2I en distancia actual (sujeto a actualización). **Posición/distancia:** AR (RA)=07 06 26.65, Dec=+19 16 38.4; Δ=12.5785011181949 au; r=13.08027133394 au; mag (APmag (efeméride))=25.673.
+
+- *RA = Ascensión Recta, Dec = Declinación (coordenadas ecuatoriales, geocéntricas, efeméride). Δ = distancia a la Tierra, r = distancia al Sol. Valores calculados (aprox., no astrometría registrada en BD). Actualizar: `ingest_ephemeris_horizons.py` + regenerar dashboard.*
 
 ## Cómo evoluciona esta página
 

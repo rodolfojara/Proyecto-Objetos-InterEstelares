@@ -302,10 +302,32 @@ def generate_dashboard(resumable=False, force=False):
         if os.path.exists(traj_img):
             lines.append("![Trayectorias y posición aproximada actual de 1I, 2I y 3I](../docs/images/1i%202i%203i%20Trayectoria%20plana.png)")
             lines.append("")
-        lines.append("- **1I/'Oumuamua**: objeto interestelar (no se detectó coma/polvo concluyente), en alejamiento; última ubicación **aproximada** por efeméride Horizons (geocéntrica) — ver sección del objeto. Muy débil/lejana para observación directa rutinaria.")
-        lines.append("- **2I/Borisov**: cometa interestelar activo (coma/polvo), ya muy distante post-perihelio; ubicación aproximada por efeméride Horizons.")
-        lines.append("- **3I/ATLAS**: cometa interestelar activo (alta v∞), en seguimiento; ubicación aproximada por efeméride Horizons (más cercano que 1I/2I en distancia actual, sujeto a actualización).")
-        lines.append("- *Las posiciones/magnitudes mostradas son efemérides calculadas (aprox., no astrometría registrada en BD). Actualizar con `ingest_ephemeris_horizons.py` + regenerar dashboard.*")
+        obs_summ = {
+            1: "objeto interestelar (sin coma/polvo concluyente), en alejamiento; muy débil/lejana para observación directa rutinaria.",
+            2: "cometa interestelar activo (coma/polvo), ya muy distante post-perihelio.",
+            3: "cometa interestelar activo (alta v∞), en seguimiento; más cercano que 1I/2I en distancia actual (sujeto a actualización).",
+        }
+        for o in objects:
+            oid = o['id']; des = o['designation']
+            obs = q(cur, "SELECT * FROM observations WHERE object_id=? ORDER BY observation_date DESC, retrieved_at DESC LIMIT 1", (oid,))
+            base = obs_summ.get(oid, "")
+            if obs:
+                rdict = dict(obs[0])
+                ra = rdict.get('ra'); dec = rdict.get('dec')
+                delta = rdict.get('delta_au'); rhel = rdict.get('r_au')
+                mag = rdict.get('mag'); magt = rdict.get('mag_type') or 'mag'
+                odate = rdict.get('observation_date')
+                parts = []
+                if ra or dec: parts.append(f"AR (RA)={fmt(ra)}, Dec={fmt(dec)}")
+                if delta is not None: parts.append(f"Δ={delta} au")
+                if rhel is not None: parts.append(f"r={rhel} au")
+                if mag is not None and str(mag).strip(): parts.append(f"mag ({magt})={mag}")
+                pos = "; ".join(parts) if parts else "N/D"
+                lines.append(f"- **{des}** ({odate}, efeméride Horizons aprox.): {base} **Posición/distancia:** {pos}.")
+            else:
+                lines.append(f"- **{des}**: {base} Ubicación aproximada: N/D.")
+        lines.append("")
+        lines.append("- *RA = Ascensión Recta, Dec = Declinación (coordenadas ecuatoriales, geocéntricas, efeméride). Δ = distancia a la Tierra, r = distancia al Sol. Valores calculados (aprox., no astrometría registrada en BD). Actualizar: `ingest_ephemeris_horizons.py` + regenerar dashboard.*")
         lines.append("")
         lines.append("## Cómo evoluciona esta página")
         lines.append("")
