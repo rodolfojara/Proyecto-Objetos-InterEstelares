@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-06 23:56:51  
+**Actualizado:** 2026-11-06 23:57:39  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -12,7 +12,7 @@
 - **2I/Borisov** (2I/2019 Q4 (Borisov)): descubierto 2019-08-30 — active. Second interstellar object. Active comet with visible coma, composition studied extensively.
 - **3I/ATLAS** (3I/2025 N1 (ATLAS)): descubierto 2025-07-01 — active. Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
 
-**BD:** 381 publicaciones, 3 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
+**BD:** 399 publicaciones, 3 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
 
 ---
 
@@ -58,11 +58,11 @@
 - Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%271I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-06%27&STOP_TIME=%272026-11-07%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
 
 ### Análisis/publicaciones recientes (resumen)
-- 2022-11-04: [Physical Considerations for an Intercept Mission to a 1I/’Oumuamua-Like Interstellar Object](https://doi.org/10.1142/s2251171723400019)
-- 2022-11-01: [A Meteor of Apparent Interstellar Origin in the CNEOS Fireball Catalog](https://doi.org/10.3847/1538-4357/ac8eac)
-- 2022-09-03: [Optimum Location to Intercept Interstellar Objects with Build-and-wait Missions](https://arxiv.org/abs/2209.01392)
-- 2022-09-02: [Observable tests for the light-sail scenario of interstellar objects](https://doi.org/10.1051/0004-6361/202244119)
-- 2022-08-01: [Misaligned Circumbinary Disks as Efficient Progenitors of Interstellar Asteroids](https://doi.org/10.3847/2041-8213/ac8880)
+- 2023-11-06: [Breakthrough Sun Diving: The Rectilinear Option](https://doi.org/10.59332/jbis-076-08-0283)
+- 2023-10-26: [Oort cloud perturbations as a source of hyperbolic Earth impactors](https://doi.org/10.1016/j.icarus.2023.115844)
+- 2023-10-02: [Astronomical Anomalies: Their Role in the Quest for Extraterrestrial Life](https://arxiv.org/abs/2310.14895)
+- 2023-10-01: [X-Rays Trace the Volatile Content of Interstellar Objects](https://doi.org/10.3847/1538-4357/ace970)
+- 2023-10-01: [Fitting the Light Curve of 1I/‘Oumuamua with a Nonprincipal Axis Rotational Model and Outgassing Torques](https://doi.org/10.3847/psj/acf617)
 
 ### Recursos audiovisuales (YouTube)
 - [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
