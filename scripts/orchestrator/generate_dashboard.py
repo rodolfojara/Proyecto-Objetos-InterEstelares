@@ -123,7 +123,10 @@ def generate_dashboard(resumable=False, force=False):
         lines.append("## Resumen general")
         lines.append("")
         for o in objects:
-            lines.append(f"- **{o['designation']}** ({o['name']}): descubierto {o['discovery_date']} — {o['status']}. {o['notes'] or ''}")
+            pubr = q(cur, "SELECT COUNT(*), MIN(p.published_at), MAX(p.published_at) FROM object_publications op JOIN publications p ON p.id=op.publication_id WHERE op.object_id=?", (o['id'],))
+            pn, pmin, pmax = (pubr[0][0], pubr[0][1], pubr[0][2]) if pubr else (0, None, None)
+            prange = f"{pmin} a {pmax}" if pmin or pmax else "N/D"
+            lines.append(f"- **{o['designation']}** ({o['name']}): descubierto {o['discovery_date']} — {o['status']}. **{pn} papers** vinculados (publicados {prange}). {o['notes'] or ''}")
         traj_img = os.path.join(BASE_DIR, 'docs', 'images', '1i 2i 3i Trayectoria plana.png')
         if os.path.exists(traj_img):
             lines.append("")
@@ -160,6 +163,11 @@ def generate_dashboard(resumable=False, force=False):
                 lines.append(f"- **Aliases/designaciones:** {', '.join([a['alias'] for a in aliases])}")
             else:
                 lines.append("- **Aliases/designaciones:** N/D")
+
+            pubr = q(cur, "SELECT COUNT(*), MIN(p.published_at), MAX(p.published_at) FROM object_publications op JOIN publications p ON p.id=op.publication_id WHERE op.object_id=?", (oid,))
+            pn, pmin, pmax = (pubr[0][0], pubr[0][1], pubr[0][2]) if pubr else (0, None, None)
+            prange = f"{pmin} a {pmax}" if pmin or pmax else "N/D"
+            lines.append(f"- **Publicaciones (papers) vinculadas:** {pn} (rango de publicación: {prange})")
 
             # orbital
             orb = q(cur, "SELECT * FROM orbital_elements WHERE object_id=? ORDER BY confidence DESC, retrieved_at DESC", (oid,))

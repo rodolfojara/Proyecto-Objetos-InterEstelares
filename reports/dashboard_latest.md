@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-07 02:28:42  
+**Actualizado:** 2026-11-08 12:23:57  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -8,9 +8,9 @@
 
 ## Resumen general
 
-- **1I/'Oumuamua** (1I/2017 U1 ('Oumuamua)): descubierto 2017-10-19 — active. First interstellar object detected. No obvious coma detected initially; non-gravitational acceleration debated.
-- **2I/Borisov** (2I/2019 Q4 (Borisov)): descubierto 2019-08-30 — active. Second interstellar object. Active comet with visible coma, composition studied extensively.
-- **3I/ATLAS** (3I/2025 N1 (ATLAS)): descubierto 2025-07-01 — active. Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
+- **1I/'Oumuamua** (1I/2017 U1 ('Oumuamua)): descubierto 2017-10-19 — active. **189 papers** vinculados (publicados 2017-11-07 a 2026-09-21). First interstellar object detected. No obvious coma detected initially; non-gravitational acceleration debated.
+- **2I/Borisov** (2I/2019 Q4 (Borisov)): descubierto 2019-08-30 — active. **99 papers** vinculados (publicados 2019-09-24 a 2026-10-01). Second interstellar object. Active comet with visible coma, composition studied extensively.
+- **3I/ATLAS** (3I/2025 N1 (ATLAS)): descubierto 2025-07-01 — active. **161 papers** vinculados (publicados 2025-07-09 a 2026-11-05). Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
 
 ![Trayectorias y posición aproximada actual de 1I, 2I y 3I](../docs/images/1i%202i%203i%20Trayectoria%20plana.png)
 
@@ -26,6 +26,7 @@
 - **Estado:** active
 - **Notas:** First interstellar object detected. No obvious coma detected initially; non-gravitational acceleration debated.
 - **Aliases/designaciones:** 1I/2017 U1, 1I/2017 U1 ('Oumuamua), 2017 U1, A/2017 U1, C/2017 U1 (PANSTARRS)
+- **Publicaciones (papers) vinculadas:** 189 (rango de publicación: 2017-11-07 a 2026-09-21)
 
 ### Parámetros orbitales (última solución conocida en BD)
 - Época: 2017-10-25
@@ -80,6 +81,7 @@
 - **Estado:** active
 - **Notas:** Second interstellar object. Active comet with visible coma, composition studied extensively.
 - **Aliases/designaciones:** 2019 Q4, 2I/2019 Q4, 2I/2019 Q4 (Borisov), C/2019 Q4 (Borisov), gb00234
+- **Publicaciones (papers) vinculadas:** 99 (rango de publicación: 2019-09-24 a 2026-10-01)
 
 ### Parámetros orbitales (última solución conocida en BD)
 - Época: 2019-09-30
@@ -132,6 +134,7 @@
 - **Estado:** active
 - **Notas:** Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
 - **Aliases/designaciones:** 2025 N1, 3I/2025 N1, 3I/2025 N1 (ATLAS), A11pl3Z, C/2025 N1 (ATLAS)
+- **Publicaciones (papers) vinculadas:** 161 (rango de publicación: 2025-07-09 a 2026-11-05)
 
 ### Parámetros orbitales (última solución conocida en BD)
 - Época: 2025-07-01
