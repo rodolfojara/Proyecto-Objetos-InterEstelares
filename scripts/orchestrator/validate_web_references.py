@@ -29,7 +29,13 @@ def log(msg):
     os.makedirs(LOG_DIR, exist_ok=True)
     ts = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
     line = f"[{ts}] {msg}"
-    print(line)
+    try:
+        print(line)
+    except UnicodeEncodeError:
+        try:
+            sys.stdout.buffer.write((line + '\n').encode(sys.stdout.encoding or 'utf-8', 'replace'))
+        except Exception:
+            print(line.encode('ascii', 'replace').decode('ascii'))
     with open(LOG_FILE, 'a', encoding='utf-8') as f:
         f.write(line + '\n')
 

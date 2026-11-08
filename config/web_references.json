@@ -1,4 +1,174 @@
 {
-  "instructions": "Curación manual de referencias web (complemento a YouTube/papers). Método: fuentes confiables primero; luego evaluar cada referencia (consistencia/calidad) y guardar solo las que aportan sobre el promedio ('goyita': punto de vista interesante, dato inesperado, etc.), con nota. Una fuente desactualizada puede aceptarse si está bien informada/adecuadamente reportada y aporta (histórico/causa). NO hay búsqueda/scraping automático: agrega aquí solo URLs que hayas analizado. Flujo: (1) agregar entradas con status=pending (o accepted) y tu evaluación; (2) opcionalmente ejecutar validate_web_references.py para obtener sugerencias/flags del agente; (3) revisar y ajustar status/value/evaluation_note; (4) ejecutar curate_web_references.py para ingestar. status: pending|accepted|watch|rejected. value_score: 1-10 (10=mejor). rejected se guarda con nota pero NO se muestra en reportes.",
-  "links": []
+  "instructions": "Curación manual de referencias web (complemento a YouTube/papers). Método: fuentes confiables primero; luego evaluar cada referencia (consistencia/calidad) y guardar solo las que aportan sobre el promedio ('goyita'), con nota. Desactualizada no descalifica si está bien informada/adecuadamente reportada y aporta. NO hay búsqueda/scraping automático. Flujo: (1) agregar/evaluar -> (2) opcional validate_web_references.py -> (3) revisar status/value/evaluation_note -> (4) curate_web_references.py -> (5) generar dashboard. status: pending|accepted|watch|rejected (rejected guardada con nota, no mostrada). value_score 1-10.",
+  "links": [
+    {
+      "url": "https://science.nasa.gov/solar-system/comets/2i-borisov/",
+      "title": "Comet 2I/Borisov",
+      "source": "NASA Science",
+      "source_date": "2024-11-03",
+      "ref_type": "institucional",
+      "summary": "Página de referencia institucional sobre 2I/Borisov: descubrimiento (Gennady Borisov, 2019-08-30), confirmación interestelar, observaciones Hubble (polvo/núcleo, fragmentación reportada 2020), estimación de tamaño (~975 m), velocidad/órbita hiperbólica, comparación con 'Oumuamua y contexto de origen/ejección.",
+      "evaluation_note": "Fuente primaria/confiable (NASA). Aporta síntesis clara y datos concretos (tamaño, velocidad, hitos de observación, fragmentación) útiles como ancla de contexto; coherente con la base del proyecto. Buena referencia de consulta rápida.",
+      "value_score": 8,
+      "confidence": 5,
+      "historical_well_informed": false,
+      "status": "accepted",
+      "objects": [
+        "2I/Borisov"
+      ],
+      "tags": [
+        "institucional",
+        "resumen",
+        "Hubble",
+        "órbita",
+        "tamaño"
+      ],
+      "notes": "Prueba de flujo (curación + validador + ingesta).",
+      "agent_review": {
+        "ts": "2026-11-08T20:43:59.699592Z",
+        "domain": "science.nasa.gov",
+        "flags": [
+          "trusted_domain",
+          "relevance_match",
+          "http_ok"
+        ],
+        "http": {
+          "ok": true,
+          "code": 200,
+          "error": null
+        },
+        "suggested_status": "accepted",
+        "suggested_value": 6,
+        "note": "Sugerencia automática (reglas). La decisión final de calidad/aceptación y la \"goyita\" la define el curador humano."
+      },
+      "agent_suggested_status": "accepted",
+      "agent_suggested_value": 6
+    },
+    {
+      "url": "https://science.nasa.gov/solar-system/comets/oumuamua/",
+      "title": "'Oumuamua",
+      "source": "NASA Science",
+      "source_date": "2025-11-13",
+      "ref_type": "institucional",
+      "summary": "Referencia institucional sobre 1I/'Oumuamua: descubrimiento (Pan-STARRS1, 2017-10-19), nombre IAU/hawaiano, morfología elongada, variación de brillo/rotación, ausencia de coma detectada, trayectoria/velocidad de salida y observaciones (VLT, Hubble, Spitzer).",
+      "evaluation_note": "Fuente primaria/confiable. Aporta contexto de identificación y propiedades observadas clave (elongación, inercia aparente, no coma) con cautela adecuada; útil como línea base frente a hipótesis posteriores. Consistente con literatura/cautela científica.",
+      "value_score": 8,
+      "confidence": 5,
+      "historical_well_informed": false,
+      "status": "accepted",
+      "objects": [
+        "1I/'Oumuamua"
+      ],
+      "tags": [
+        "institucional",
+        "resumen",
+        "descubrimiento",
+        "morfología",
+        "trayectoria"
+      ],
+      "notes": "Prueba de flujo.",
+      "agent_review": {
+        "ts": "2026-11-08T20:44:00.508927Z",
+        "domain": "science.nasa.gov",
+        "flags": [
+          "trusted_domain",
+          "relevance_match",
+          "http_ok"
+        ],
+        "http": {
+          "ok": true,
+          "code": 200,
+          "error": null
+        },
+        "suggested_status": "accepted",
+        "suggested_value": 6,
+        "note": "Sugerencia automática (reglas). La decisión final de calidad/aceptación y la \"goyita\" la define el curador humano."
+      },
+      "agent_suggested_status": "accepted",
+      "agent_suggested_value": 6
+    },
+    {
+      "url": "https://science.nasa.gov/solar-system/comets/3i-atlas/",
+      "title": "Comet 3I/ATLAS",
+      "source": "NASA Science",
+      "source_date": "2026-05-28",
+      "ref_type": "institucional",
+      "summary": "Hub institucional actualizado de 3I/ATLAS: cronología de observaciones por misiones (Hubble, JWST, SPHEREx, MAVEN, MRO, Europa Clipper, TESS, etc.), distancias clave, y acceso a galería/noticias/FAQs.",
+      "evaluation_note": "Fuente primaria/confiable y actualizada. Alto valor por la línea de tiempo multi-misión y enlaces a observaciones concretas; excelente para seguimiento evolutivo de 3I. Aporta más que un resumen estático (índice operativo de evidencia).",
+      "value_score": 9,
+      "confidence": 5,
+      "historical_well_informed": false,
+      "status": "accepted",
+      "objects": [
+        "3I/ATLAS"
+      ],
+      "tags": [
+        "institucional",
+        "observaciones",
+        "multi-misión",
+        "seguimiento",
+        "actualizado"
+      ],
+      "notes": "Prueba de flujo.",
+      "agent_review": {
+        "ts": "2026-11-08T20:44:01.435390Z",
+        "domain": "science.nasa.gov",
+        "flags": [
+          "trusted_domain",
+          "relevance_match",
+          "http_ok"
+        ],
+        "http": {
+          "ok": true,
+          "code": 200,
+          "error": null
+        },
+        "suggested_status": "accepted",
+        "suggested_value": 6,
+        "note": "Sugerencia automática (reglas). La decisión final de calidad/aceptación y la \"goyita\" la define el curador humano."
+      },
+      "agent_suggested_status": "accepted",
+      "agent_suggested_value": 6
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/%CA%BBOumuamua",
+      "title": "ʻOumuamua (Wikipedia)",
+      "source": "Wikipedia",
+      "source_date": "",
+      "ref_type": "secundaria",
+      "summary": "Artículo enciclopédico agregador sobre 1I/'Oumuamua con múltiples referencias.",
+      "evaluation_note": "RECHAZADA para la base curada: útil como índice exploratorio, pero es fuente secundaria agregada (editable), con mezcla de niveles de evidencia; no aporta valor neto sobre las fuentes primarias/institucionales ya registradas y requiere verificación ref. por ref. Se mantiene el registro y el motivo por trazabilidad (no se muestra en reportes).",
+      "value_score": 3,
+      "confidence": 2,
+      "historical_well_informed": false,
+      "status": "rejected",
+      "objects": [
+        "1I/'Oumuamua"
+      ],
+      "tags": [
+        "secundaria",
+        "agregador"
+      ],
+      "notes": "Prueba: rechazada con nota (debe quedar guardada pero oculta).",
+      "agent_review": {
+        "ts": "2026-11-08T20:44:01.887752Z",
+        "domain": "en.wikipedia.org",
+        "flags": [
+          "caution_domain",
+          "relevance_match",
+          "http_ok"
+        ],
+        "http": {
+          "ok": true,
+          "code": 200,
+          "error": null
+        },
+        "suggested_status": "watch",
+        "suggested_value": 4,
+        "note": "Sugerencia automática (reglas). La decisión final de calidad/aceptación y la \"goyita\" la define el curador humano."
+      },
+      "agent_suggested_status": "watch",
+      "agent_suggested_value": 4
+    }
+  ]
 }

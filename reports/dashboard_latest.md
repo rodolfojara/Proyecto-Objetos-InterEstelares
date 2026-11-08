@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-08 17:27:14  
+**Actualizado:** 2026-11-08 17:47:15  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -16,7 +16,7 @@
 
 *Esquema de trayectorias/posición aproximada (referencial). Para posiciones precisas: efemérides JPL Horizons (ver “Última observación / ubicación aproximada” por objeto).*
 
-**BD:** 407 publicaciones, 6 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia, 0 referencias web curadas (0 visibles: accepted/watch; rechazadas guardadas con nota, no mostradas).
+**BD:** 407 publicaciones, 6 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia, 4 referencias web curadas (3 visibles: accepted/watch; rechazadas guardadas con nota, no mostradas).
 
 ---
 
@@ -74,7 +74,10 @@
 - [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5) — Explicativo científico - buen resumen
 
 ### Referencias web curadas (complemento)
-- N/D (agrega referencias evaluadas en `config/web_references.json` y ejecuta `scripts/orchestrator/curate_web_references.py`; validador opcional: `validate_web_references.py`). Las rechazadas se guardan con nota pero no se muestran.
+- ['Oumuamua](https://science.nasa.gov/solar-system/comets/oumuamua/) — *NASA Science, 2025-11-13* · valor 8/10 · conf. 5/5
+  - **Resumen:** Referencia institucional sobre 1I/'Oumuamua: descubrimiento (Pan-STARRS1, 2017-10-19), nombre IAU/hawaiano, morfología elongada, variación de brillo/rotación, ausencia de coma detectada, trayectoria/velocidad de salida y observaciones (VLT, Hubble, Spitzer).
+  - **Aporte/evaluación:** Fuente primaria/confiable. Aporta contexto de identificación y propiedades observadas clave (elongación, inercia aparente, no coma) con cautela adecuada; útil como línea base frente a hipótesis posteriores. Consistente con literatura/cautela científica.
+  - *Tags:* institucional, resumen, descubrimiento, morfología, trayectoria
 
 ---
 
@@ -130,7 +133,10 @@
 - [NASA Reveals Alien Composition of 2I/Borisov, 1st Interstellar Comet](https://www.youtube.com/watch?v=NNOb3xrjOhE) (relevancia 5) — Explicativo con datos científicos
 
 ### Referencias web curadas (complemento)
-- N/D (agrega referencias evaluadas en `config/web_references.json` y ejecuta `scripts/orchestrator/curate_web_references.py`; validador opcional: `validate_web_references.py`). Las rechazadas se guardan con nota pero no se muestran.
+- [Comet 2I/Borisov](https://science.nasa.gov/solar-system/comets/2i-borisov/) — *NASA Science, 2024-11-03* · valor 8/10 · conf. 5/5
+  - **Resumen:** Página de referencia institucional sobre 2I/Borisov: descubrimiento (Gennady Borisov, 2019-08-30), confirmación interestelar, observaciones Hubble (polvo/núcleo, fragmentación reportada 2020), estimación de tamaño (~975 m), velocidad/órbita hiperbólica, comparación con 'Oumuamua y contexto de origen/ejección.
+  - **Aporte/evaluación:** Fuente primaria/confiable (NASA). Aporta síntesis clara y datos concretos (tamaño, velocidad, hitos de observación, fragmentación) útiles como ancla de contexto; coherente con la base del proyecto. Buena referencia de consulta rápida.
+  - *Tags:* institucional, resumen, Hubble, órbita, tamaño
 
 ---
 
@@ -187,7 +193,10 @@
 - [FEATURES: Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (relevancia 4) — Resumen amplio, útil para contexto
 
 ### Referencias web curadas (complemento)
-- N/D (agrega referencias evaluadas en `config/web_references.json` y ejecuta `scripts/orchestrator/curate_web_references.py`; validador opcional: `validate_web_references.py`). Las rechazadas se guardan con nota pero no se muestran.
+- [Comet 3I/ATLAS](https://science.nasa.gov/solar-system/comets/3i-atlas/) — *NASA Science, 2026-05-28* · valor 9/10 · conf. 5/5
+  - **Resumen:** Hub institucional actualizado de 3I/ATLAS: cronología de observaciones por misiones (Hubble, JWST, SPHEREx, MAVEN, MRO, Europa Clipper, TESS, etc.), distancias clave, y acceso a galería/noticias/FAQs.
+  - **Aporte/evaluación:** Fuente primaria/confiable y actualizada. Alto valor por la línea de tiempo multi-misión y enlaces a observaciones concretas; excelente para seguimiento evolutivo de 3I. Aporta más que un resumen estático (índice operativo de evidencia).
+  - *Tags:* institucional, observaciones, multi-misión, seguimiento, actualizado
 
 ---
 
@@ -197,6 +206,13 @@
 - [First Interstellar Asteroid Wows Scientists](https://www.youtube.com/watch?v=fbL1ZoAQgUU) (relevancia 5)
 - [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
 - [FEATURES: Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (relevancia 4)
+
+## Referencias web curadas destacadas (Top 3, jerarquía por valor 1-10)
+
+*Complemento a papers/YouTube. Evaluadas ref. por ref.; incluye fuentes desactualizadas si están bien informadas y aportan. Las rechazadas quedan registradas con nota (no mostradas).*
+1. **[Comet 3I/ATLAS](https://science.nasa.gov/solar-system/comets/3i-atlas/)** — NASA Science, 2026-05-28 (valor 9/10, conf. 5/5): Fuente primaria/confiable y actualizada. Alto valor por la línea de tiempo multi-misión y enlaces a observaciones concretas; excelente para seguimiento evolutivo de 3I. Aporta m...
+2. **['Oumuamua](https://science.nasa.gov/solar-system/comets/oumuamua/)** — NASA Science, 2025-11-13 (valor 8/10, conf. 5/5): Fuente primaria/confiable. Aporta contexto de identificación y propiedades observadas clave (elongación, inercia aparente, no coma) con cautela adecuada; útil como línea base fr...
+3. **[Comet 2I/Borisov](https://science.nasa.gov/solar-system/comets/2i-borisov/)** — NASA Science, 2024-11-03 (valor 8/10, conf. 5/5): Fuente primaria/confiable (NASA). Aporta síntesis clara y datos concretos (tamaño, velocidad, hitos de observación, fragmentación) útiles como ancla de contexto; coherente con l...
 
 ## Situación actual percibida (resumen final)
 

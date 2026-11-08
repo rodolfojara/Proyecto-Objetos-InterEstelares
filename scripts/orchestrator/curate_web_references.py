@@ -32,7 +32,13 @@ def log(msg):
     os.makedirs(LOG_DIR, exist_ok=True)
     ts = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
     line = f"[{ts}] {msg}"
-    print(line)
+    try:
+        print(line)
+    except UnicodeEncodeError:
+        try:
+            sys.stdout.buffer.write((line + '\n').encode(sys.stdout.encoding or 'utf-8', 'replace'))
+        except Exception:
+            print(line.encode('ascii', 'replace').decode('ascii'))
     with open(LOG_FILE, 'a', encoding='utf-8') as f:
         f.write(line + '\n')
 
@@ -232,7 +238,7 @@ def main():
                 cur.execute('''INSERT INTO curated_references(url,title,source,domain,source_date,ref_type,summary,evaluation_note,value_score,
                                confidence,historical_well_informed,status,tags,agent_review,agent_suggested_status,agent_suggested_value,
                                added_by,provenance_url,retrieved_at,last_checked_at,notes)
-                               VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',
+                               VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)''',
                             (url, title, source, dom, source_date, ref_type, summary, evaluation_note, value_score, confidence, hist, status, tags,
                              agent_review, agent_suggested_status, agent_suggested_value, 'curador_referencias_web', prov, now, now if meta.get('ok') else None, notes))
                 added += 1
