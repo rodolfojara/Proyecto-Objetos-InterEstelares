@@ -1,0 +1,4 @@
+{
+  "instructions": "Curación manual de referencias web (complemento a YouTube/papers). Método: fuentes confiables primero; luego evaluar cada referencia (consistencia/calidad) y guardar solo las que aportan sobre el promedio ('goyita': punto de vista interesante, dato inesperado, etc.), con nota. Una fuente desactualizada puede aceptarse si está bien informada/adecuadamente reportada y aporta (histórico/causa). NO hay búsqueda/scraping automático: agrega aquí solo URLs que hayas analizado. Flujo: (1) agregar entradas con status=pending (o accepted) y tu evaluación; (2) opcionalmente ejecutar validate_web_references.py para obtener sugerencias/flags del agente; (3) revisar y ajustar status/value/evaluation_note; (4) ejecutar curate_web_references.py para ingestar. status: pending|accepted|watch|rejected. value_score: 1-10 (10=mejor). rejected se guarda con nota pero NO se muestra en reportes.",
+  "links": []
+}

@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-08 12:23:57  
+**Actualizado:** 2026-11-08 17:27:14  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -16,7 +16,7 @@
 
 *Esquema de trayectorias/posición aproximada (referencial). Para posiciones precisas: efemérides JPL Horizons (ver “Última observación / ubicación aproximada” por objeto).*
 
-**BD:** 407 publicaciones, 6 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia.
+**BD:** 407 publicaciones, 6 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia, 0 referencias web curadas (0 visibles: accepted/watch; rechazadas guardadas con nota, no mostradas).
 
 ---
 
@@ -70,8 +70,11 @@
 - 2026-01-27: [Rapid Response Missions to Interstellar Objects Using Lyapunov Wait-in-Orbit Constellations](https://doi.org/10.2514/1.a36446)
 
 ### Recursos audiovisuales (YouTube)
-- [First Interstellar Asteroid Wows Scientists](https://www.youtube.com/watch?v=fbL1ZoAQgUU) (relevancia 5)
-- [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
+- [First Interstellar Asteroid Wows Scientists](https://www.youtube.com/watch?v=fbL1ZoAQgUU) (relevancia 5) — Científico, enfoque factual
+- [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5) — Explicativo científico - buen resumen
+
+### Referencias web curadas (complemento)
+- N/D (agrega referencias evaluadas en `config/web_references.json` y ejecuta `scripts/orchestrator/curate_web_references.py`; validador opcional: `validate_web_references.py`). Las rechazadas se guardan con nota pero no se muestran.
 
 ---
 
@@ -124,7 +127,10 @@
 - 2026-03-10: [Technical Bulletin C4-2026-03-A](https://doi.org/10.5281/zenodo.18947246)
 
 ### Recursos audiovisuales (YouTube)
-- [NASA Reveals Alien Composition of 2I/Borisov, 1st Interstellar Comet](https://www.youtube.com/watch?v=NNOb3xrjOhE) (relevancia 5)
+- [NASA Reveals Alien Composition of 2I/Borisov, 1st Interstellar Comet](https://www.youtube.com/watch?v=NNOb3xrjOhE) (relevancia 5) — Explicativo con datos científicos
+
+### Referencias web curadas (complemento)
+- N/D (agrega referencias evaluadas en `config/web_references.json` y ejecuta `scripts/orchestrator/curate_web_references.py`; validador opcional: `validate_web_references.py`). Las rechazadas se guardan con nota pero no se muestran.
 
 ---
 
@@ -177,12 +183,15 @@
 - 2026-10-23: [An Enriched Methane D/H Ratio in the Interstellar Object 3I/ATLAS](https://doi.org/10.1038/s41550-026-03002-5)
 
 ### Recursos audiovisuales (YouTube)
-- [NASA Spacecraft Observe Interstellar Comet 3I/ATLAS as It Approaches Mars](https://www.youtube.com/watch?v=ZtQHgCEVZ4o) (relevancia 5)
-- [FEATURES: Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (relevancia 4)
+- [NASA Spacecraft Observe Interstellar Comet 3I/ATLAS as It Approaches Mars](https://www.youtube.com/watch?v=ZtQHgCEVZ4o) (relevancia 5) — Oficial, actual y bien fundamentado
+- [FEATURES: Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (relevancia 4) — Resumen amplio, útil para contexto
+
+### Referencias web curadas (complemento)
+- N/D (agrega referencias evaluadas en `config/web_references.json` y ejecuta `scripts/orchestrator/curate_web_references.py`; validador opcional: `validate_web_references.py`). Las rechazadas se guardan con nota pero no se muestran.
 
 ---
 
-## Recursos generales
+## Recursos multimedia (globales)
 - [NASA Spacecraft Observe Interstellar Comet 3I/ATLAS as It Approaches Mars](https://www.youtube.com/watch?v=ZtQHgCEVZ4o) (relevancia 5)
 - [NASA Reveals Alien Composition of 2I/Borisov, 1st Interstellar Comet](https://www.youtube.com/watch?v=NNOb3xrjOhE) (relevancia 5)
 - [First Interstellar Asteroid Wows Scientists](https://www.youtube.com/watch?v=fbL1ZoAQgUU) (relevancia 5)

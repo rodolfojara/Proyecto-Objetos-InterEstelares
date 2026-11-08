@@ -1,0 +1,20 @@
+{
+  "description": "Reglas/filtros para el agente validador (validate_web_references.py). Ajusta estas reglas tras revisar resultados: el 'aprendizaje' es iterativo y controlado por ti (agregar/afinar patrones y umbrales).",
+  "trusted_domains": [
+    "science.nasa.gov", "nasa.gov", "jpl.nasa.gov", "ssd.jpl.nasa.gov", "eyes.nasa.gov",
+    "minorplanetcenter.net", "iau.org", "esa.int", "eso.org", "cfa.harvard.edu",
+    "stsci.edu", "webbtelescope.org", "hubblesite.org", "noirlab.edu", "arxiv.org",
+    "nature.com", "science.org", "iopscience.iop.org", "aanda.org", "academic.oup.com"
+  ],
+  "caution_domains": [
+    "wikipedia.org", "medium.com", "reddit.com", "facebook.com", "x.com", "twitter.com"
+  ],
+  "relevance_keywords": [
+    "oumuamua", "'oumuamua", "1i", "1i/2017", "borisov", "2i", "2i/2019",
+    "atlas", "3i", "3i/2025", "interstellar", "interestelar", "hyperbolic", "hiperb",
+    "iso ", "comet", "cometa", "asteroid", "asteroide"
+  ],
+  "title_exclude_patterns": [],
+  "min_value_suggestion": 5,
+  "notes": "title_exclude_patterns: regex (case-insensitive) para sugerir rechazo/alerta si el título calza (ej. sensacionalismo). Agrega patrones a medida que revises."
+}

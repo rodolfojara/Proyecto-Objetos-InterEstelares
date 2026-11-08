@@ -135,14 +135,19 @@ def generate_dashboard(resumable=False, force=False):
             lines.append("*Esquema de trayectorias/posición aproximada (referencial). Para posiciones precisas: efemérides JPL Horizons (ver “Última observación / ubicación aproximada” por objeto).*")
         # counts
         counts = {}
-        for t in ['publications','object_aliases','physical_params','composition','activity','orbital_elements','observations','media_resources']:
+        for t in ['publications','object_aliases','physical_params','composition','activity','orbital_elements','observations','media_resources','curated_references','curated_reference_object_links']:
             try:
                 cur.execute(f"SELECT COUNT(*) FROM {t}")
                 counts[t] = cur.fetchone()[0]
             except Exception:
-                counts[t] = 'ERR'
+                counts[t] = 0
+        try:
+            cur.execute("SELECT COUNT(*) FROM curated_references WHERE status IN ('accepted','watch')")
+            counts['curated_refs_visible'] = cur.fetchone()[0]
+        except Exception:
+            counts['curated_refs_visible'] = 0
         lines.append("")
-        lines.append(f"**BD:** {counts.get('publications',0)} publicaciones, {counts.get('observations',0)} observaciones, {counts.get('physical_params',0)} parámetros físicos, {counts.get('composition',0)} registros de composición, {counts.get('activity',0)} registros de actividad, {counts.get('media_resources',0)} recursos multimedia.")
+        lines.append(f"**BD:** {counts.get('publications',0)} publicaciones, {counts.get('observations',0)} observaciones, {counts.get('physical_params',0)} parámetros físicos, {counts.get('composition',0)} registros de composición, {counts.get('activity',0)} registros de actividad, {counts.get('media_resources',0)} recursos multimedia, {counts.get('curated_references',0)} referencias web curadas ({counts.get('curated_refs_visible',0)} visibles: accepted/watch; rechazadas guardadas con nota, no mostradas).")
         lines.append("")
         lines.append("---")
         lines.append("")
@@ -275,21 +280,69 @@ def generate_dashboard(resumable=False, force=False):
                 lines.append("- N/D")
 
             # media
-            media = q(cur, """
-                SELECT m.url, m.title, m.relevance_score
-                FROM media_resources m
-                JOIN media_object_links mol ON mol.media_id = m.id
-                WHERE mol.object_id = ?
-                ORDER BY m.relevance_score DESC, m.id DESC
-            """, (oid,))
             lines.append("")
             lines.append("### Recursos audiovisuales (YouTube)")
-            if media:
-                for m in media:
-                    title = m['title'] or m['url']
-                    lines.append(f"- [{title}]({m['url']}) (relevancia {m['relevance_score']})")
-            else:
-                lines.append("- N/D")
+            try:
+                media = q(cur, """
+                SELECT m.url, m.title, m.relevance_score, m.notes
+                FROM media_resources m
+                JOIN media_object_links mol ON mol.media_id = m.id
+                WHERE mol.object_id=? AND m.type='youtube'
+                ORDER BY m.relevance_score DESC, m.id DESC
+                """, (oid,))
+                if media:
+                    for m in media:
+                        md = dict(m)
+                        title = (md.get('title') or md.get('url') or 'Video').strip()
+                        url = md.get('url') or ''
+                        rel = md.get('relevance_score') or ''
+                        notes = md.get('notes') or ''
+                        suffix = f" (relevancia {rel})" if rel != '' else ''
+                        lines.append(f"- [{title}]({url}){suffix}" + (f" — {notes}" if notes else ""))
+                else:
+                    lines.append("- N/D (ejecuta `scripts/orchestrator/curate_media.py` con URLs reales en `config/media_links.json`)")
+            except Exception as e:
+                lines.append(f"- N/D (tabla multimedia no disponible: {e})")
+
+            # curated web references (complement)
+            lines.append("")
+            lines.append("### Referencias web curadas (complemento)")
+            try:
+                refs = q(cur, """
+                SELECT r.url, r.title, r.source, r.source_date, r.ref_type, r.summary, r.evaluation_note,
+                       r.value_score, r.confidence, r.historical_well_informed, r.tags, r.status
+                FROM curated_references r
+                JOIN curated_reference_object_links l ON l.ref_id = r.id
+                WHERE l.object_id=? AND r.status IN ('accepted','watch')
+                ORDER BY COALESCE(r.value_score,0) DESC, COALESCE(r.confidence,0) DESC, r.id DESC
+                """, (oid,))
+                if refs:
+                    for r in refs:
+                        rd = dict(r)
+                        title = (rd.get('title') or rd.get('url') or 'Referencia').strip()
+                        url = rd.get('url') or ''
+                        src = rd.get('source') or ''
+                        sdate = rd.get('source_date') or ''
+                        meta = ', '.join([x for x in [src, sdate] if x])
+                        val = rd.get('value_score'); conf = rd.get('confidence')
+                        badges = []
+                        if val is not None: badges.append(f"valor {val}/10")
+                        if conf is not None: badges.append(f"conf. {conf}/5")
+                        if rd.get('historical_well_informed'): badges.append("histórica bien informada")
+                        if rd.get('status') == 'watch': badges.append("en observación")
+                        btxt = f" · {' · '.join(badges)}" if badges else ''
+                        mtxt = f" — *{meta}*" if meta else ''
+                        lines.append(f"- [{title}]({url}){mtxt}{btxt}")
+                        if rd.get('summary'):
+                            lines.append(f"  - **Resumen:** {rd.get('summary')}")
+                        if rd.get('evaluation_note'):
+                            lines.append(f"  - **Aporte/evaluación:** {rd.get('evaluation_note')}")
+                        if rd.get('tags'):
+                            lines.append(f"  - *Tags:* {rd.get('tags')}")
+                else:
+                    lines.append("- N/D (agrega referencias evaluadas en `config/web_references.json` y ejecuta `scripts/orchestrator/curate_web_references.py`; validador opcional: `validate_web_references.py`). Las rechazadas se guardan con nota pero no se muestran.")
+            except Exception as e:
+                lines.append(f"- N/D (tabla de referencias no disponible: {e})")
 
             lines.append("")
             lines.append("---")
@@ -298,11 +351,37 @@ def generate_dashboard(resumable=False, force=False):
         # general media
         all_media = q(cur, "SELECT url, title, relevance_score FROM media_resources ORDER BY relevance_score DESC, id DESC")
         if all_media:
-            lines.append("## Recursos generales")
-            for m in all_media:
-                title = m['title'] or m['url']
-                lines.append(f"- [{title}]({m['url']}) (relevancia {m['relevance_score']})")
+            lines.append("## Recursos multimedia (globales)")
+            for m in all_media[:12]:
+                md = dict(m)
+                title = md.get('title') or md.get('url')
+                lines.append(f"- [{title}]({md.get('url')}) (relevancia {md.get('relevance_score')})")
             lines.append("")
+
+        try:
+            top_refs = q(cur, """
+                SELECT url, title, source, source_date, summary, evaluation_note, value_score, confidence, historical_well_informed
+                FROM curated_references WHERE status IN ('accepted','watch')
+                ORDER BY COALESCE(value_score,0) DESC, COALESCE(confidence,0) DESC, id DESC
+            """)
+            if top_refs:
+                TOP_N = 10
+                lines.append(f"## Referencias web curadas destacadas (Top {min(TOP_N, len(top_refs))}, jerarquía por valor 1-10)")
+                lines.append("")
+                lines.append("*Complemento a papers/YouTube. Evaluadas ref. por ref.; incluye fuentes desactualizadas si están bien informadas y aportan. Las rechazadas quedan registradas con nota (no mostradas).*")
+                for i, r in enumerate(top_refs[:TOP_N], 1):
+                    rd = dict(r)
+                    title = (rd.get('title') or rd.get('url') or 'Referencia').strip()
+                    meta = ', '.join([x for x in [rd.get('source'), rd.get('source_date')] if x])
+                    val = rd.get('value_score'); conf = rd.get('confidence')
+                    hist = ' · histórica bien informada' if rd.get('historical_well_informed') else ''
+                    blurb = (rd.get('evaluation_note') or rd.get('summary') or '').strip()
+                    if len(blurb) > 180:
+                        blurb = blurb[:177] + '...'
+                    lines.append(f"{i}. **[{title}]({rd.get('url')})** — {meta} (valor {val}/10, conf. {conf}/5{hist})" + (f": {blurb}" if blurb else ""))
+                lines.append("")
+        except Exception:
+            pass
 
         lines.append("## Situación actual percibida (resumen final)")
         lines.append("")
