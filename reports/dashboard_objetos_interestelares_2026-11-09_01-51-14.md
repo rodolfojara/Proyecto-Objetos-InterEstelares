@@ -1,0 +1,239 @@
+# Dashboard: Objetos Interestelares (ISO Tracker)
+
+**Actualizado:** 2026-11-09 01:51:14  
+**Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
+**Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
+
+---
+
+## Resumen general
+
+- **1I/'Oumuamua** (1I/2017 U1 ('Oumuamua)): descubierto 2017-10-19 — active. **189 papers** vinculados (publicados 2017-11-07 a 2026-09-21). First interstellar object detected. No obvious coma detected initially; non-gravitational acceleration debated.
+- **2I/Borisov** (2I/2019 Q4 (Borisov)): descubierto 2019-08-30 — active. **99 papers** vinculados (publicados 2019-09-24 a 2026-10-01). Second interstellar object. Active comet with visible coma, composition studied extensively.
+- **3I/ATLAS** (3I/2025 N1 (ATLAS)): descubierto 2025-07-01 — active. **161 papers** vinculados (publicados 2025-07-09 a 2026-11-05). Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
+
+![Trayectorias y posición aproximada actual de 1I, 2I y 3I](../docs/images/1i%202i%203i%20Trayectoria%20plana.png)
+
+*Esquema de trayectorias/posición aproximada (referencial). Para posiciones precisas: efemérides JPL Horizons (ver “Última observación / ubicación aproximada” por objeto).*
+
+**BD:** 407 publicaciones, 6 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia, 4 referencias web curadas (3 visibles: accepted/watch; rechazadas guardadas con nota, no mostradas).
+
+## Actividad de referencias (estilo contribution graph)
+
+Frecuencia por fecha de **publicación/origen** (papers, YouTube, referencias web). 3 mini-grids apiladas, ventanas de 12 meses navegables (rango completo) con límites al inicio/fin.
+
+![Actividad de referencias — últimos 12 meses](../docs/images/ref_activity_latest.svg)
+
+[←/→ Navegar rango completo (ventanas de 12 meses)](../docs/REFERENCE_ACTIVITY.md)
+
+---
+
+## 1I/'Oumuamua (1I/2017 U1 ('Oumuamua))
+
+- **Descubrimiento:** 2017-10-19
+- **Estado:** active
+- **Notas:** First interstellar object detected. No obvious coma detected initially; non-gravitational acceleration debated.
+- **Aliases/designaciones:** 1I/2017 U1, 1I/2017 U1 ('Oumuamua), 2017 U1, A/2017 U1, C/2017 U1 (PANSTARRS)
+- **Publicaciones (papers) vinculadas:** 189 (rango de publicación: 2017-11-07 a 2026-09-21)
+
+### Parámetros orbitales (última solución conocida en BD)
+- Época: 2017-10-25
+- Excentricidad (e): 1.19951
+- Perihelio (q, au): 0.255916
+- Inclinación (i, °): 122.676
+- Velocidad hiperbólica v∞ (km/s): 26.33
+- Fuente: https://minorplanetcenter.net/mpec/K17/K17UI3.html (confianza 5)
+
+### Actividad / coma / polvo
+- Actividad detectada: No
+- Coma detectada: No
+- Polvo detectado: No
+- Distancia heliocéntrica (rh, au): N/D
+- Fuente: https://www.nature.com/articles/nature25020 (confianza 4)
+
+### Características físicas (tamaño, dimensiones, magnitud, etc.)
+- rotation_period: 7.937 h (fuente: https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=1I&phys-par=1)
+- absolute_magnitude_H: 22.08 mag (fuente: https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=1I&phys-par=1)
+- dimensions_estimate: Hasta ~400 m de largo; relación de ejes posiblemente ~10:1 (estimación, incierta). m (fuente: https://science.nasa.gov/solar-system/comets/oumuamua/)
+- size_estimate: Longitud estimada ~100–1000 m (altamente incierta); forma muy elongada. m (fuente: https://science.nasa.gov/solar-system/comets/oumuamua/)
+- albedo_estimate: Desconocido/incierto; superficies oscuras tipo asteroidal/cometario han sido propuestas.  (fuente: https://science.nasa.gov/solar-system/comets/oumuamua/)
+
+### Composición
+- N/D / pendiente de consolidación de mediciones espectroscópicas y tasas de producción.
+
+### Última observación / ubicación aproximada
+- Fecha: 2026-11-07
+- Tipo/Fuente instrumental: ephemeris / JPL Horizons ephemeris
+- Magnitud (APmag (efeméride)): 39.594
+- Ubicación aproximada (RA, Dec): 23 51 47.91 , +24 20 33.7
+- Distancia: Δ=54.4892272556137 au, r=55.23265754285 au
+- Nota: Efeméride OBSERVER geocéntrica (Horizons) para 2026-11-07 UTC; ubicación aproximada (no observación astrométrica registrada).
+- Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%271I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-07%27&STOP_TIME=%272026-11-08%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
+
+### Análisis/publicaciones recientes (resumen)
+- 2026-09-21: [1I/'Oumuamua-like objects's SFDs with older, current and future surveys](https://arxiv.org/abs/2609.25488)
+- 2026-08-22: [Radiolytic Production, Trapping, and Desorption of H2 at Elevated Temperatures in Amorphous and Crystalline Astrophysical and Planetary H2O Ice Analogs](https://doi.org/10.1021/acsearthspacechem.6c00205)
+- 2026-07-31: [Capture of interstellar objects during stellar encounters](https://doi.org/10.1051/0004-6361/202660697)
+- 2026-02-13: [A Two-Dimensional Analytic Solution for the Generation of Hyperbolic Trajectories Via A Single Close Encounter with Applications To Interstellar Objects](https://arxiv.org/abs/2602.04806)
+- 2026-01-27: [Rapid Response Missions to Interstellar Objects Using Lyapunov Wait-in-Orbit Constellations](https://doi.org/10.2514/1.a36446)
+
+### Recursos audiovisuales (YouTube)
+- [First Interstellar Asteroid Wows Scientists](https://www.youtube.com/watch?v=fbL1ZoAQgUU) (relevancia 5) — Científico, enfoque factual
+- [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5) — Explicativo científico - buen resumen
+
+### Referencias web curadas (complemento)
+- ['Oumuamua](https://science.nasa.gov/solar-system/comets/oumuamua/) — *NASA Science, 2025-11-13* · valor 8/10 · conf. 5/5
+  - **Resumen:** Referencia institucional sobre 1I/'Oumuamua: descubrimiento (Pan-STARRS1, 2017-10-19), nombre IAU/hawaiano, morfología elongada, variación de brillo/rotación, ausencia de coma detectada, trayectoria/velocidad de salida y observaciones (VLT, Hubble, Spitzer).
+  - **Aporte/evaluación:** Fuente primaria/confiable. Aporta contexto de identificación y propiedades observadas clave (elongación, inercia aparente, no coma) con cautela adecuada; útil como línea base frente a hipótesis posteriores. Consistente con literatura/cautela científica.
+  - *Tags:* institucional, resumen, descubrimiento, morfología, trayectoria
+
+---
+
+## 2I/Borisov (2I/2019 Q4 (Borisov))
+
+- **Descubrimiento:** 2019-08-30
+- **Estado:** active
+- **Notas:** Second interstellar object. Active comet with visible coma, composition studied extensively.
+- **Aliases/designaciones:** 2019 Q4, 2I/2019 Q4, 2I/2019 Q4 (Borisov), C/2019 Q4 (Borisov), gb00234
+- **Publicaciones (papers) vinculadas:** 99 (rango de publicación: 2019-09-24 a 2026-10-01)
+
+### Parámetros orbitales (última solución conocida en BD)
+- Época: 2019-09-30
+- Excentricidad (e): 3.35648
+- Perihelio (q, au): 2.00662
+- Inclinación (i, °): 44.0525
+- Velocidad hiperbólica v∞ (km/s): 32.3
+- Fuente: https://minorplanetcenter.net/mpec/K19/K19RA6.html (confianza 5)
+
+### Actividad / coma / polvo
+- Actividad detectada: Sí
+- Coma detectada: Sí
+- Polvo detectado: Sí
+- Distancia heliocéntrica (rh, au): 2.0
+- Fuente: https://www.nature.com/articles/s41550-019-0931-8 (confianza 5)
+
+### Características físicas (tamaño, dimensiones, magnitud, etc.)
+- comet_total_mag_slope_K1: 4.5  (fuente: https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=2I&phys-par=1)
+- comet_total_magnitude_M1: 13.8 mag (fuente: https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=2I&phys-par=1)
+- size_estimate: Núcleo pequeño, orden sub-km a ~1 km de diámetro equivalente (incierto por coma). km (fuente: https://science.nasa.gov/solar-system/comets/2i-borisov/)
+- nucleus_radius_estimate: Radio del núcleo estimado ~0.2–0.5 km (límite superior ~≤0.5 km en algunos estudios). km (fuente: https://science.nasa.gov/solar-system/comets/2i-borisov/)
+
+### Composición
+- N/D / pendiente de consolidación de mediciones espectroscópicas y tasas de producción.
+
+### Última observación / ubicación aproximada
+- Fecha: 2026-11-07
+- Tipo/Fuente instrumental: ephemeris / JPL Horizons ephemeris
+- Magnitud (APmag (efeméride)): 29.910
+- Ubicación aproximada (RA, Dec): 17 59 08.54 , -53 25 46.1
+- Distancia: Δ=49.9194160569659 au, r=49.32548357448 au
+- Nota: Efeméride OBSERVER geocéntrica (Horizons) para 2026-11-07 UTC; ubicación aproximada (no observación astrométrica registrada).
+- Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%272I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-07%27&STOP_TIME=%272026-11-08%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
+
+### Análisis/publicaciones recientes (resumen)
+- 2026-10-01: [The Highly Unusual Behavior and Chemical Composition of Interstellar Comet 2I/Borisov](https://doi.org/10.3847/psj/ae9f3d)
+- 2026-09-25: [On the Compositions of Interstellar Objects](https://arxiv.org/abs/2609.30827)
+- 2026-06-09: [Physical meaning and interpretive limits of correlations among cometary secular light-curve parameters](https://doi.org/10.1093/mnras/stag1096)
+- 2026-04-01: [A Portrait throughout Perihelion of the NH 2 -rich Interstellar Comet 2I/Borisov](https://doi.org/10.3847/psj/ae5244)
+- 2026-03-10: [Technical Bulletin C4-2026-03-A](https://doi.org/10.5281/zenodo.18947246)
+
+### Recursos audiovisuales (YouTube)
+- [NASA Reveals Alien Composition of 2I/Borisov, 1st Interstellar Comet](https://www.youtube.com/watch?v=NNOb3xrjOhE) (relevancia 5) — Explicativo con datos científicos
+
+### Referencias web curadas (complemento)
+- [Comet 2I/Borisov](https://science.nasa.gov/solar-system/comets/2i-borisov/) — *NASA Science, 2024-11-03* · valor 8/10 · conf. 5/5
+  - **Resumen:** Página de referencia institucional sobre 2I/Borisov: descubrimiento (Gennady Borisov, 2019-08-30), confirmación interestelar, observaciones Hubble (polvo/núcleo, fragmentación reportada 2020), estimación de tamaño (~975 m), velocidad/órbita hiperbólica, comparación con 'Oumuamua y contexto de origen/ejección.
+  - **Aporte/evaluación:** Fuente primaria/confiable (NASA). Aporta síntesis clara y datos concretos (tamaño, velocidad, hitos de observación, fragmentación) útiles como ancla de contexto; coherente con la base del proyecto. Buena referencia de consulta rápida.
+  - *Tags:* institucional, resumen, Hubble, órbita, tamaño
+
+---
+
+## 3I/ATLAS (3I/2025 N1 (ATLAS))
+
+- **Descubrimiento:** 2025-07-01
+- **Estado:** active
+- **Notas:** Third interstellar object. Hyperbolic, high v_inf (~58 km/s), active, subject of intense follow-up.
+- **Aliases/designaciones:** 2025 N1, 3I/2025 N1, 3I/2025 N1 (ATLAS), A11pl3Z, C/2025 N1 (ATLAS)
+- **Publicaciones (papers) vinculadas:** 161 (rango de publicación: 2025-07-09 a 2026-11-05)
+
+### Parámetros orbitales (última solución conocida en BD)
+- Época: 2025-07-01
+- Excentricidad (e): 6.14
+- Perihelio (q, au): 1.356
+- Inclinación (i, °): 175.11
+- Velocidad hiperbólica v∞ (km/s): 58.0
+- Fuente: https://minorplanetcenter.net/mpec/K25/K25N12.html (confianza 5)
+
+### Actividad / coma / polvo
+- Actividad detectada: Sí
+- Coma detectada: Sí
+- Polvo detectado: Sí
+- Distancia heliocéntrica (rh, au): 4.5
+- Fuente: https://science.nasa.gov/solar-system/comets/3i-atlas/ (confianza 4)
+
+### Características físicas (tamaño, dimensiones, magnitud, etc.)
+- comet_total_mag_slope_K1: 7.5  (fuente: https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=3I&phys-par=1)
+- comet_total_magnitude_M1: 11.8 mag (fuente: https://ssd-api.jpl.nasa.gov/sbdb.api?sstr=3I&phys-par=1)
+- size_estimate: Diámetro efectivo del núcleo no consolidado; se reportan límites/estimaciones preliminares con alta incertidumbre. km (fuente: https://science.nasa.gov/solar-system/comets/3i-atlas/)
+- nucleus_size_estimate: Tamaño del núcleo incierto; estimaciones tempranas con rango amplio (sub-km a varios km) sujetas a revisión por observaciones (HST/JWST/sondas). km (fuente: https://science.nasa.gov/solar-system/comets/3i-atlas/)
+
+### Composición
+- N/D / pendiente de consolidación de mediciones espectroscópicas y tasas de producción.
+
+### Última observación / ubicación aproximada
+- Fecha: 2026-11-07
+- Tipo/Fuente instrumental: ephemeris / JPL Horizons ephemeris
+- Magnitud (APmag (efeméride)): 25.673
+- Ubicación aproximada (RA, Dec): 07 06 26.65 , +19 16 38.4
+- Distancia: Δ=12.5785011181949 au, r=13.08027133394 au
+- Nota: Efeméride OBSERVER geocéntrica (Horizons) para 2026-11-07 UTC; ubicación aproximada (no observación astrométrica registrada).
+- Fuente: https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%273I%27&OBJ_DATA=NO&MAKE_EPHEM=YES&EPHEM_TYPE=OBSERVER&CENTER=%27500%40399%27&START_TIME=%272026-11-07%27&STOP_TIME=%272026-11-08%27&STEP_SIZE=%271+d%27&QUANTITIES=%271%2C9%2C19%2C20%27&CSV_FORMAT=YES
+
+### Análisis/publicaciones recientes (resumen)
+- 2026-11-05: [Spatial Profiles of 3I/ATLAS CN and Ni Outgassing from Keck/KCWI Integral Field Spectroscopy](https://doi.org/10.3847/1538-3881/aeaff7)
+- 2026-11: [Characterization of the anisotropic dust activity of interstellar comet 3I/ATLAS](https://doi.org/10.1051/0004-6361/202663204)
+- 2026-10-28: [Nongravitational Motion of 3I/ATLAS Far from the Sun: Robust Detection, Weak Constraints on the Activity Law](https://doi.org/10.1051/0004-6361/202662573)
+- 2026-10-27: [JWST/MIRI Observations of Amorphous Silicates in Interstellar Comet 3I/ATLAS](https://arxiv.org/abs/2610.37540)
+- 2026-10-23: [An Enriched Methane D/H Ratio in the Interstellar Object 3I/ATLAS](https://doi.org/10.1038/s41550-026-03002-5)
+
+### Recursos audiovisuales (YouTube)
+- [NASA Spacecraft Observe Interstellar Comet 3I/ATLAS as It Approaches Mars](https://www.youtube.com/watch?v=ZtQHgCEVZ4o) (relevancia 5) — Oficial, actual y bien fundamentado
+- [FEATURES: Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (relevancia 4) — Resumen amplio, útil para contexto
+
+### Referencias web curadas (complemento)
+- [Comet 3I/ATLAS](https://science.nasa.gov/solar-system/comets/3i-atlas/) — *NASA Science, 2026-05-28* · valor 9/10 · conf. 5/5
+  - **Resumen:** Hub institucional actualizado de 3I/ATLAS: cronología de observaciones por misiones (Hubble, JWST, SPHEREx, MAVEN, MRO, Europa Clipper, TESS, etc.), distancias clave, y acceso a galería/noticias/FAQs.
+  - **Aporte/evaluación:** Fuente primaria/confiable y actualizada. Alto valor por la línea de tiempo multi-misión y enlaces a observaciones concretas; excelente para seguimiento evolutivo de 3I. Aporta más que un resumen estático (índice operativo de evidencia).
+  - *Tags:* institucional, observaciones, multi-misión, seguimiento, actualizado
+
+---
+
+## Recursos multimedia (globales)
+- [NASA Spacecraft Observe Interstellar Comet 3I/ATLAS as It Approaches Mars](https://www.youtube.com/watch?v=ZtQHgCEVZ4o) (relevancia 5)
+- [NASA Reveals Alien Composition of 2I/Borisov, 1st Interstellar Comet](https://www.youtube.com/watch?v=NNOb3xrjOhE) (relevancia 5)
+- [First Interstellar Asteroid Wows Scientists](https://www.youtube.com/watch?v=fbL1ZoAQgUU) (relevancia 5)
+- [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
+- [FEATURES: Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (relevancia 4)
+
+## Referencias web curadas destacadas (Top 3, jerarquía por valor 1-10)
+
+*Complemento a papers/YouTube. Evaluadas ref. por ref.; incluye fuentes desactualizadas si están bien informadas y aportan. Las rechazadas quedan registradas con nota (no mostradas).*
+1. **[Comet 3I/ATLAS](https://science.nasa.gov/solar-system/comets/3i-atlas/)** — NASA Science, 2026-05-28 (valor 9/10, conf. 5/5): Fuente primaria/confiable y actualizada. Alto valor por la línea de tiempo multi-misión y enlaces a observaciones concretas; excelente para seguimiento evolutivo de 3I. Aporta m...
+2. **['Oumuamua](https://science.nasa.gov/solar-system/comets/oumuamua/)** — NASA Science, 2025-11-13 (valor 8/10, conf. 5/5): Fuente primaria/confiable. Aporta contexto de identificación y propiedades observadas clave (elongación, inercia aparente, no coma) con cautela adecuada; útil como línea base fr...
+3. **[Comet 2I/Borisov](https://science.nasa.gov/solar-system/comets/2i-borisov/)** — NASA Science, 2024-11-03 (valor 8/10, conf. 5/5): Fuente primaria/confiable (NASA). Aporta síntesis clara y datos concretos (tamaño, velocidad, hitos de observación, fragmentación) útiles como ancla de contexto; coherente con l...
+
+## Situación actual percibida (resumen final)
+
+![Trayectorias y posición aproximada actual de 1I, 2I y 3I](../docs/images/1i%202i%203i%20Trayectoria%20plana.png)
+
+- **1I/'Oumuamua** (2026-11-07, efeméride Horizons aprox.): objeto interestelar (sin coma/polvo concluyente), en alejamiento; muy débil/lejana para observación directa rutinaria. **Posición/distancia:** AR (RA)=23 51 47.91, Dec=+24 20 33.7; Δ=54.4892272556137 au; r=55.23265754285 au; mag (APmag (efeméride))=39.594.
+- **2I/Borisov** (2026-11-07, efeméride Horizons aprox.): cometa interestelar activo (coma/polvo), ya muy distante post-perihelio. **Posición/distancia:** AR (RA)=17 59 08.54, Dec=-53 25 46.1; Δ=49.9194160569659 au; r=49.32548357448 au; mag (APmag (efeméride))=29.910.
+- **3I/ATLAS** (2026-11-07, efeméride Horizons aprox.): cometa interestelar activo (alta v∞), en seguimiento; más cercano que 1I/2I en distancia actual (sujeto a actualización). **Posición/distancia:** AR (RA)=07 06 26.65, Dec=+19 16 38.4; Δ=12.5785011181949 au; r=13.08027133394 au; mag (APmag (efeméride))=25.673.
+
+- *RA = Ascensión Recta, Dec = Declinación (coordenadas ecuatoriales, geocéntricas, efeméride). Δ = distancia a la Tierra, r = distancia al Sol. Valores calculados (aprox., no astrometría registrada en BD). Actualizar: `ingest_ephemeris_horizons.py` + regenerar dashboard.*
+
+## Cómo evoluciona esta página
+
+- Este dashboard se regenera desde la base de datos (`data/db/iso.db`) y refleja el estado actual.
+- Al ingerir nuevas observaciones, parámetros físicos, composición o publicaciones, la próxima generación mostrará los cambios.
+- Los datos con baja confianza o placeholders se presentan como pendientes/N/D hasta ser reemplazados por mediciones consolidadas.

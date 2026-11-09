@@ -164,21 +164,6 @@ def generate_dashboard(resumable=False, force=False):
             lines.append("")
             lines.append("[←/→ Navegar rango completo (ventanas de 12 meses)](../docs/REFERENCE_ACTIVITY.md)")
             lines.append("")
-        # contribution-style activity (consistencia: refrescar con el dashboard)
-        try:
-            subprocess.run([sys.executable, os.path.join(BASE_DIR, 'scripts', 'orchestrator', 'generate_reference_activity.py'), '--force'], cwd=BASE_DIR, check=False, capture_output=True)
-        except Exception:
-            pass
-        act_svg = os.path.join(BASE_DIR, 'docs', 'images', 'ref_activity_latest.svg')
-        if os.path.exists(act_svg):
-            lines.append("## Actividad de referencias (estilo contribution graph)")
-            lines.append("")
-            lines.append("Frecuencia por fecha de **publicación/origen** (papers, YouTube, referencias web). 3 mini-grids apiladas, ventanas de 12 meses navegables (rango completo) con límites al inicio/fin.")
-            lines.append("")
-            lines.append("![Actividad de referencias — últimos 12 meses](../docs/images/ref_activity_latest.svg)")
-            lines.append("")
-            lines.append("[←/→ Navegar rango completo (ventanas de 12 meses)](../docs/REFERENCE_ACTIVITY.md)")
-            lines.append("")
         lines.append("---")
         lines.append("")
 
