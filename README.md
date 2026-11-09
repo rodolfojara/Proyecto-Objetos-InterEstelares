@@ -208,17 +208,94 @@ Página Markdown generada desde la base de datos con características, parámetr
 - **Script:** `scripts/orchestrator/generate_dashboard.py` (`--reanudar` / `--force`)
 - **Salida:** [`reports/dashboard_latest.md`](reports/dashboard_latest.md) (y copia con timestamp en `reports/`)
 
+<!-- REF_ACTIVITY_START -->
 ### Actividad de referencias (estilo contribution graph)
-Frecuencia por **fecha de publicación/origen** de las referencias utilizadas (Papers, YouTube, páginas web curadas). 3 mini-grids apiladas, rango completo en ventanas de 12 meses con navegación ←/→ y límites.
+Frecuencia por **fecha de publicación/origen** (Papers, YouTube, referencias web curadas). Rango completo **2017-11-07–2026-11-09** en 10 ventanas de 12 meses, 3 mini-grids apiladas. **Navega con ←/→ sin salir de esta página** (enlaces internos por ventana).
 
-![Actividad de referencias — últimos 12 meses](docs/images/ref_activity_latest.svg)
+<a id="refact-2017-11_2017-11"></a>
+<details>
+<summary><strong>2017-11 a 2017-11</strong> (ventana 1/10) &nbsp;|&nbsp; ← 12 meses anteriores *(límite inicial)* &nbsp;|&nbsp; [12 meses siguientes →](#refact-2017-12_2018-11)</summary>
 
-[←/→ Navegar rango completo (ventanas de 12 meses)](docs/REFERENCE_ACTIVITY.md)
+![Actividad de referencias 2017-11 a 2017-11](docs/images/ref_activity/refact_2017-11_2017-11.svg)
 
-```bash
-cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
-python scripts/orchestrator/generate_dashboard.py --force
-```
+</details>
+
+<a id="refact-2017-12_2018-11"></a>
+<details>
+<summary><strong>2017-12 a 2018-11</strong> (ventana 2/10) &nbsp;|&nbsp; [← 12 meses anteriores](#refact-2017-11_2017-11) &nbsp;|&nbsp; [12 meses siguientes →](#refact-2018-12_2019-11)</summary>
+
+![Actividad de referencias 2017-12 a 2018-11](docs/images/ref_activity/refact_2017-12_2018-11.svg)
+
+</details>
+
+<a id="refact-2018-12_2019-11"></a>
+<details>
+<summary><strong>2018-12 a 2019-11</strong> (ventana 3/10) &nbsp;|&nbsp; [← 12 meses anteriores](#refact-2017-12_2018-11) &nbsp;|&nbsp; [12 meses siguientes →](#refact-2019-12_2020-11)</summary>
+
+![Actividad de referencias 2018-12 a 2019-11](docs/images/ref_activity/refact_2018-12_2019-11.svg)
+
+</details>
+
+<a id="refact-2019-12_2020-11"></a>
+<details>
+<summary><strong>2019-12 a 2020-11</strong> (ventana 4/10) &nbsp;|&nbsp; [← 12 meses anteriores](#refact-2018-12_2019-11) &nbsp;|&nbsp; [12 meses siguientes →](#refact-2020-12_2021-11)</summary>
+
+![Actividad de referencias 2019-12 a 2020-11](docs/images/ref_activity/refact_2019-12_2020-11.svg)
+
+</details>
+
+<a id="refact-2020-12_2021-11"></a>
+<details>
+<summary><strong>2020-12 a 2021-11</strong> (ventana 5/10) &nbsp;|&nbsp; [← 12 meses anteriores](#refact-2019-12_2020-11) &nbsp;|&nbsp; [12 meses siguientes →](#refact-2021-12_2022-11)</summary>
+
+![Actividad de referencias 2020-12 a 2021-11](docs/images/ref_activity/refact_2020-12_2021-11.svg)
+
+</details>
+
+<a id="refact-2021-12_2022-11"></a>
+<details>
+<summary><strong>2021-12 a 2022-11</strong> (ventana 6/10) &nbsp;|&nbsp; [← 12 meses anteriores](#refact-2020-12_2021-11) &nbsp;|&nbsp; [12 meses siguientes →](#refact-2022-12_2023-11)</summary>
+
+![Actividad de referencias 2021-12 a 2022-11](docs/images/ref_activity/refact_2021-12_2022-11.svg)
+
+</details>
+
+<a id="refact-2022-12_2023-11"></a>
+<details>
+<summary><strong>2022-12 a 2023-11</strong> (ventana 7/10) &nbsp;|&nbsp; [← 12 meses anteriores](#refact-2021-12_2022-11) &nbsp;|&nbsp; [12 meses siguientes →](#refact-2023-12_2024-11)</summary>
+
+![Actividad de referencias 2022-12 a 2023-11](docs/images/ref_activity/refact_2022-12_2023-11.svg)
+
+</details>
+
+<a id="refact-2023-12_2024-11"></a>
+<details>
+<summary><strong>2023-12 a 2024-11</strong> (ventana 8/10) &nbsp;|&nbsp; [← 12 meses anteriores](#refact-2022-12_2023-11) &nbsp;|&nbsp; [12 meses siguientes →](#refact-2024-12_2025-11)</summary>
+
+![Actividad de referencias 2023-12 a 2024-11](docs/images/ref_activity/refact_2023-12_2024-11.svg)
+
+</details>
+
+<a id="refact-2024-12_2025-11"></a>
+<details>
+<summary><strong>2024-12 a 2025-11</strong> (ventana 9/10) &nbsp;|&nbsp; [← 12 meses anteriores](#refact-2023-12_2024-11) &nbsp;|&nbsp; [12 meses siguientes →](#refact-2025-12_2026-11)</summary>
+
+![Actividad de referencias 2024-12 a 2025-11](docs/images/ref_activity/refact_2024-12_2025-11.svg)
+
+</details>
+
+<a id="refact-2025-12_2026-11"></a>
+<details open>
+<summary><strong>2025-12 a 2026-11</strong> (ventana 10/10) — **ventana actual** &nbsp;|&nbsp; [← 12 meses anteriores](#refact-2024-12_2025-11) &nbsp;|&nbsp; 12 meses siguientes → *(límite final)*</summary>
+
+![Actividad de referencias 2025-12 a 2026-11](docs/images/ref_activity/refact_2025-12_2026-11.svg)
+
+</details>
+
+> Fecha = publicación/origen: papers `published_at`; YouTube `published_at` (fallback `added_at`); web `source_date` (fallback `retrieved_at`, solo aceptadas/en observación).
+
+También: [índice por páginas](docs/REFERENCE_ACTIVITY.md) · [imagen últimos 12 meses](docs/images/ref_activity_latest.svg)
+<!-- REF_ACTIVITY_END -->
 
 ## Estado de las fases
 - **Infraestructura (implementación estructural):** Fases 0-6 - **IMPLEMENTADAS**

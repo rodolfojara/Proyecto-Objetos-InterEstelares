@@ -164,6 +164,29 @@ def generate_dashboard(resumable=False, force=False):
             lines.append("")
             lines.append("[←/→ Navegar rango completo (ventanas de 12 meses)](../docs/REFERENCE_ACTIVITY.md)")
             lines.append("")
+        # Resumen de recursos (issue #3): YouTube y páginas web
+        try:
+            lines.append("## Resumen de recursos (YouTube y páginas web)")
+            lines.append("")
+            cur.execute("SELECT COALESCE(title,url) as t, url, COALESCE(published_at,'') as d, COALESCE(relevance_score,0) as s FROM media_resources ORDER BY relevance_score DESC, published_at DESC, id DESC")
+            yt_rows = [dict(r) for r in cur.fetchall()]
+            lines.append(f"- **YouTube (videos):** {len(yt_rows)} recurso(s) curado(s), con fecha de publicación (`published_at`) cuando está disponible (ver detalle por objeto y sección global).")
+            for rd in yt_rows:
+                d = f" ({rd['d']})" if rd.get('d') else ""
+                lines.append(f"  - [{rd['t']}]({rd['url']}){d} — relevancia {rd.get('s')}")
+            if not yt_rows:
+                lines.append("  - *(sin videos cargados)*")
+            cur.execute("SELECT title, url, COALESCE(source_date,'') d, COALESCE(value_score,0) v, status FROM curated_references WHERE status IN ('accepted','watch') ORDER BY COALESCE(value_score,0) DESC, id DESC")
+            wrows = [dict(r) for r in cur.fetchall()]
+            lines.append(f"- **Páginas web curadas (aceptadas/en observación):** {len(wrows)} visible(s) (evaluadas ref. por ref.; rechazadas guardadas con nota, no mostradas).")
+            for rd in wrows:
+                t = rd.get('title') or rd.get('url')
+                lines.append(f"  - [{t}]({rd.get('url')}) ({rd.get('d')}, valor {rd.get('v')}/10)")
+            if not wrows:
+                lines.append("  - *(aún no incorporadas; ver `config/web_references.json` + `curate_web_references.py`)*")
+            lines.append("")
+        except Exception:
+            pass
         lines.append("---")
         lines.append("")
 

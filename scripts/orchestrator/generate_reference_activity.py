@@ -233,6 +233,32 @@ def win_label(s, e):
     return f"{s.year}-{s.month:02d} a {e.year}-{e.month:02d}"
 
 
+def update_readme_section(fragment, readme_path):
+    if not os.path.exists(readme_path):
+        return False
+    with open(readme_path, 'r', encoding='utf-8') as f:
+        txt = f.read()
+    start = '<!-- REF_ACTIVITY_START -->'
+    end = '<!-- REF_ACTIVITY_END -->'
+    block = start + '\n' + fragment.rstrip() + '\n' + end
+    if start in txt and end in txt:
+        pre = txt[:txt.index(start)]
+        post = txt[txt.index(end) + len(end):]
+        txt = pre + block + post
+    else:
+        anchor = '## Estado de las fases'
+        hdr = '### Actividad de referencias (estilo contribution graph)'
+        if hdr in txt and anchor in txt:
+            pre = txt[:txt.index(hdr)]
+            txt = pre + block + '\n\n' + txt[txt.index(anchor):]
+        elif anchor in txt:
+            txt = txt.replace(anchor, block + '\n\n' + anchor)
+        else:
+            txt = txt.rstrip() + '\n\n' + block + '\n'
+    with open(readme_path, 'w', encoding='utf-8') as f:
+        f.write(txt)
+    return True
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--force', action='store_true')
@@ -258,7 +284,6 @@ def main():
         svg = render_svg(s, e, counts)
         with open(svg_path, 'w', encoding='utf-8') as f:
             f.write(svg)
-        # per-window markdown with arrows (bounds)
         prev_md = next_md = None
         if i > 0:
             ps, pe = wins[i-1]; prev_md = f"{win_name(ps,pe)}.md"
@@ -292,18 +317,16 @@ def main():
         with open(os.path.join(WIN_MD_DIR, f"{name}.md"), 'w', encoding='utf-8') as f:
             f.write('\n'.join(md))
 
-    # latest
     ls, le = wins[-1]
     lname = win_name(ls, le)
     import shutil
     shutil.copyfile(os.path.join(IMG_DIR, f"refact_{lname}.svg"), LATEST_SVG)
 
-    # navigator/index
     nav_lines = [
         "# Actividad de referencias (tipo contribution graph)",
         "",
         f"Rango completo de datos: **{dmin.isoformat()}** a **{dmax.isoformat()}** · {len(wins)} ventanas de 12 meses · 3 tipos apilados (Papers, YouTube, Referencias web).",
-        "Fecha usada = **publicación/origen** (ver nota en cada ventana).",
+        "Fecha usada = **publicación/origen** (ver nota en cada ventana). Navegación en la misma página disponible en el [README](../README.md#actividad-de-referencias-estilo-contribution-graph).",
         "",
         f"**Ventana actual (últimos 12 meses del rango): [{win_label(ls,le)}](ref_activity/{lname}.md)**",
         "",
@@ -320,8 +343,39 @@ def main():
     with open(NAV_MD, 'w', encoding='utf-8') as f:
         f.write('\n'.join(nav_lines))
 
-    print(f"ok windows={len(wins)} latest={win_label(ls,le)} -> {LATEST_SVG}, {NAV_MD}")
+    # README in-page navigable section (anchors + <details>, no JS)
+    readme_path = os.path.join(BASE_DIR, 'README.md')
+    frag = [
+        "### Actividad de referencias (estilo contribution graph)",
+        f"Frecuencia por **fecha de publicación/origen** (Papers, YouTube, referencias web curadas). Rango completo **{dmin.isoformat()}–{dmax.isoformat()}** en {len(wins)} ventanas de 12 meses, 3 mini-grids apiladas. **Navega con ←/→ sin salir de esta página** (enlaces internos por ventana).",
+        "",
+    ]
+    for i, (s, e) in enumerate(wins):
+        name = win_name(s, e)
+        anchor = f"refact-{name}"
+        prev_a = f"#refact-{win_name(*wins[i-1])}" if i > 0 else None
+        next_a = f"#refact-{win_name(*wins[i+1])}" if i < len(wins)-1 else None
+        prev_link = f"[← 12 meses anteriores]({prev_a})" if prev_a else "← 12 meses anteriores *(límite inicial)*"
+        next_link = f"[12 meses siguientes →]({next_a})" if next_a else "12 meses siguientes → *(límite final)*"
+        is_last = (i == len(wins)-1)
+        open_attr = " open" if is_last else ""
+        badge = " — **ventana actual**" if is_last else ""
+        frag.append(f'<a id="{anchor}"></a>')
+        frag.append(f'<details{open_attr}>')
+        frag.append(f'<summary><strong>{win_label(s,e)}</strong> (ventana {i+1}/{len(wins)}){badge} &nbsp;|&nbsp; {prev_link} &nbsp;|&nbsp; {next_link}</summary>')
+        frag.append('')
+        frag.append(f'![Actividad de referencias {win_label(s,e)}](docs/images/ref_activity/refact_{name}.svg)')
+        frag.append('')
+        frag.append('</details>')
+        frag.append('')
+    frag.append("> Fecha = publicación/origen: papers `published_at`; YouTube `published_at` (fallback `added_at`); web `source_date` (fallback `retrieved_at`, solo aceptadas/en observación).")
+    frag.append("")
+    frag.append("También: [índice por páginas](docs/REFERENCE_ACTIVITY.md) · [imagen últimos 12 meses](docs/images/ref_activity_latest.svg)")
+    update_readme_section('\n'.join(frag), readme_path)
+
+    print(f"ok windows={len(wins)} latest={win_label(ls,le)} -> {LATEST_SVG}, {NAV_MD}, README updated")
 
 
 if __name__ == '__main__':
     main()
+

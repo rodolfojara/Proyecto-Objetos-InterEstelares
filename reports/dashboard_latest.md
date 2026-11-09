@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-09 01:51:14  
+**Actualizado:** 2026-11-09 01:56:42  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -25,6 +25,19 @@ Frecuencia por fecha de **publicación/origen** (papers, YouTube, referencias we
 ![Actividad de referencias — últimos 12 meses](../docs/images/ref_activity_latest.svg)
 
 [←/→ Navegar rango completo (ventanas de 12 meses)](../docs/REFERENCE_ACTIVITY.md)
+
+## Resumen de recursos (YouTube y páginas web)
+
+- **YouTube (videos):** 5 recurso(s) curado(s), con fecha de publicación (`published_at`) cuando está disponible (ver detalle por objeto y sección global).
+  - [NASA Spacecraft Observe Interstellar Comet 3I/ATLAS as It Approaches Mars](https://www.youtube.com/watch?v=ZtQHgCEVZ4o) (2025-09-30) — relevancia 5
+  - [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (2025-04-22) — relevancia 5
+  - [NASA Reveals Alien Composition of 2I/Borisov, 1st Interstellar Comet](https://www.youtube.com/watch?v=NNOb3xrjOhE) (2020-04-20) — relevancia 5
+  - [First Interstellar Asteroid Wows Scientists](https://www.youtube.com/watch?v=fbL1ZoAQgUU) (2017-11-20) — relevancia 5
+  - [FEATURES: Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (2025-11-13) — relevancia 4
+- **Páginas web curadas (aceptadas/en observación):** 3 visible(s) (evaluadas ref. por ref.; rechazadas guardadas con nota, no mostradas).
+  - [Comet 3I/ATLAS](https://science.nasa.gov/solar-system/comets/3i-atlas/) (2026-05-28, valor 9/10)
+  - ['Oumuamua](https://science.nasa.gov/solar-system/comets/oumuamua/) (2025-11-13, valor 8/10)
+  - [Comet 2I/Borisov](https://science.nasa.gov/solar-system/comets/2i-borisov/) (2024-11-03, valor 8/10)
 
 ---
 

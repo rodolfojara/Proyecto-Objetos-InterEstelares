@@ -1,7 +1,7 @@
 # Actividad de referencias (tipo contribution graph)
 
 Rango completo de datos: **2017-11-07** a **2026-11-09** · 10 ventanas de 12 meses · 3 tipos apilados (Papers, YouTube, Referencias web).
-Fecha usada = **publicación/origen** (ver nota en cada ventana).
+Fecha usada = **publicación/origen** (ver nota en cada ventana). Navegación en la misma página disponible en el [README](../README.md#actividad-de-referencias-estilo-contribution-graph).
 
 **Ventana actual (últimos 12 meses del rango): [2025-12 a 2026-11](ref_activity/2025-12_2026-11.md)**
 
