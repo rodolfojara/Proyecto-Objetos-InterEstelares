@@ -97,6 +97,25 @@ def fetch_oembed(url, timeout=20):
         return None
 
 
+def fetch_publish_date(url, timeout=25):
+    """Extrae fecha de publicación del video (uploadDate/publishDate) desde la página watch (light parse)."""
+    try:
+        ctx = ssl._create_unverified_context()
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)', 'Accept-Language': 'en-US,en;q=0.9'})
+        with urllib.request.urlopen(req, timeout=timeout, context=ctx) as r:
+            html = r.read(2000000).decode('utf-8', 'ignore')
+        for pat in [r'"uploadDate"\s*:\s*"([^"]+)"', r'"publishDate"\s*:\s*"([^"]+)"', r'itemprop="uploadDate"\s+content="([^"]+)"', r'itemprop="datePublished"\s+content="([^"]+)"']:
+            m = re.search(pat, html)
+            if m:
+                val = m.group(1).strip()
+                # normalize to YYYY-MM-DD
+                dm = re.match(r'(\d{4}-\d{2}-\d{2})', val)
+                return dm.group(1) if dm else val
+    except Exception as e:
+        log(f"  ! No se pudo obtener fecha de publicación para {url}: {e}")
+    return None
+
+
 def _norm(s):
     return re.sub(r'[^a-z0-9]+', ' ', (s or '').lower()).strip()
 
@@ -201,31 +220,38 @@ def main():
             real_title = (oembed.get('title') if oembed else '') or cfg_title
             real_channel = (oembed.get('author_name') if oembed else '') or cfg_channel
             notes = item.get('notes', '') or ''
+            published_at = (item.get('published_at') or item.get('upload_date') or '').strip() or None
+            if not published_at and not args.skip_validate:
+                published_at = fetch_publish_date(url)
+                if published_at:
+                    log(f"  [fecha publicaci\u00f3n] {published_at}")
             if oembed:
-                log(f"  [validado] título real: {real_title} | canal: {real_channel}")
+                log(f"  [validado] t\u00edtulo real: {real_title} | canal: {real_channel}")
                 if not relevance_hint(real_title + ' ' + real_channel):
-                    log(f"  ! ALERTA: el título/canal no parece relacionado con objetos interestelares. Revisar: {url}")
+                    log(f"  ! ALERTA: el t\u00edtulo/canal no parece relacionado con objetos interestelares. Revisar: {url}")
                 if cfg_title and _norm(cfg_title) and _norm(cfg_title) not in _norm(real_title) and _norm(real_title) not in _norm(cfg_title):
                     # if config had a specific (non-generic) title that doesn't match, warn
                     if 'video relacionado' not in _norm(cfg_title):
-                        log(f"  ! ALERTA: título config difiere del real. Config='{cfg_title}' Real='{real_title}'")
+                        log(f"  ! ALERTA: t\u00edtulo config difiere del real. Config='{cfg_title}' Real='{real_title}'")
             elif not args.skip_validate:
-                log(f"  ! Validación oEmbed falló; se usará metadata del config (revisar manualmente).")
+                log(f"  ! Validaci\u00f3n oEmbed fall\u00f3; se usar\u00e1 metadata del config (revisar manualmente).")
             try:
-                cur.execute('''INSERT OR IGNORE INTO media_resources(type,url,video_id,title,channel,relevance_score,added_by,provenance_url,notes)
-                               VALUES(?,?,?,?,?,?,?,?,?)''',
-                            ('youtube', url, vid, real_title, real_channel, item.get('relevance_score', 3),
+                cur.execute('''INSERT OR IGNORE INTO media_resources(type,url,video_id,title,channel,published_at,relevance_score,added_by,provenance_url,notes)
+                               VALUES(?,?,?,?,?,?,?,?,?,?)''',
+                            ('youtube', url, vid, real_title, real_channel, published_at, item.get('relevance_score', 3),
                              'curador_multimedia', url, notes))
                 if cur.rowcount > 0:
                     added += 1
-                    log(f"  + Añadido media_resource: {url}")
+                    log(f"  + A\u00f1adido media_resource: {url}")
                 else:
                     log(f"  ~ Ya existe en media_resources: {url}")
-                    # refrescar metadata validada
-                    if oembed:
-                        cur.execute('UPDATE media_resources SET title=?, channel=? WHERE url=? AND (title IS NULL OR title!=? OR channel IS NULL OR channel!=?)',
-                                    (real_title, real_channel, url, real_title, real_channel))
-                # Try to link to objects based on keywords (usar título/canal verificados)
+                    # refrescar metadata validada + poblar published_at si falta
+                    if oembed or published_at:
+                        cur.execute('''UPDATE media_resources
+                                       SET title=COALESCE(?, title), channel=COALESCE(?, channel),
+                                           published_at=COALESCE(published_at, ?)
+                                       WHERE url=?''',
+                                    (real_title if oembed else None, real_channel if oembed else None, published_at, url))
                 cur.execute('SELECT id, designation FROM objects')
                 for obj in cur.fetchall():
                     desc = (url + ' ' + str(real_title) + ' ' + str(real_channel) + ' ' + str(notes)).lower()

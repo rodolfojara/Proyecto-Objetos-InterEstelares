@@ -1,7 +1,7 @@
 # Estado de carga (ISO Tracker) — qué hay cargado y hasta dónde
 
 > Documento operativo para saber **qué fue lo último cargado** por objeto/fuente y cómo continuar sin perder trazabilidad. Actualizar este archivo (o regenerar sus valores desde BD/config) cada vez que se complete una ingesta.
-> Última revisión: **2026-11-08**.
+> Última revisión: **2026-11-09**.
 
 ## Resumen por objeto (metadatos/papers — OpenAlex)
 
@@ -29,9 +29,9 @@
 
 | Fuente | Config | Registros en BD | Estado |
 |---|---|---:|---|
-| YouTube (validados oEmbed, relevancia/canal) | `config/media_links.json` | 5 (en `media_resources`/links) | Cargados/curados (verificados). Agregar solo URLs `watch` reales evaluadas. |
+| YouTube (validados oEmbed, relevancia/canal, **`published_at` poblado**) | `config/media_links.json` | 5 (en `media_resources`/links) | Cargados/curados; **fechas de publicación extraídas/pobladas (2026-11-09)** para consistencia en estadísticas de actividad. Agregar solo URLs `watch` reales evaluadas. |
 
-- Script: `python scripts/orchestrator/curate_media.py [--reanudar|--force]`.
+- Script: `python scripts/orchestrator/curate_media.py [--reanudar|--force]` (valida oEmbed y rellena `published_at` si falta).
 
 ## Referencias web curadas (complemento, curación manual + validador por reglas)
 
@@ -50,6 +50,6 @@ Ejecutar **por tipo de fuente**, registrando fecha y resultado (evita olvidar qu
 2. **Efemérides (opcional en la misma ronda):** `ingest_ephemeris_horizons.py --date <hoy> --force`.
 3. **YouTube (curación manual):** agregar URLs reales evaluadas en `config/media_links.json` → `curate_media.py`.
 4. **Referencias web (curación manual, tu método):** evaluar ref. por ref. (confiable → consistencia/calidad; guardar “goyitas”, incluso desactualizadas si bien informadas, con nota) → cargar en `config/web_references.json` → (opcional) validador → `curate_web_references.py`.
-5. **Regenerar y publicar:** `generate_dashboard.py --force` → actualizar este `ESTADO_CARGA.md` con fechas/conteos/últimos alias → commit & push (`config/*`, `data/db/iso.db`, checkpoints generados, `reports/dashboard_latest.md` + timestamped, docs).
+5. **Regenerar y publicar (consistencia):** `generate_dashboard.py --force` (regenera dashboard **y** el gráfico de actividad de referencias/publicación por ventanas de 12 meses) → actualizar este `ESTADO_CARGA.md` con fechas/conteos/últimos alias → commit & push (`config/*`, `data/db/iso.db`, checkpoints generados, `reports/dashboard_latest.md` + timestamped, `docs/images/ref_activity*`, `docs/REFERENCE_ACTIVITY.md`, `docs/ref_activity/*`, docs).
 
-> Regla práctica: **no asumir** “ya está al día”; siempre contrastar (a) última ventana/alias y (b) `MAX(published_at)` por objeto, y anotar aquí la fecha de la última ronda. Los tres tipos de carga (papers, YouTube, web) son **independientes**: completar uno no implica completar los otros.
+> Regla práctica: **no asumir** “ya está al día”; siempre contrastar (a) última ventana/alias y (b) `MAX(published_at)` por objeto, y anotar aquí la fecha de la última ronda. Los tres tipos de carga (papers, YouTube, web) son **independientes**: completar uno no implica completar los otros. La estadística de actividad usa **fecha de publicación/origen** (papers=`published_at`, YouTube=`published_at`|`added_at`, web=`source_date`|`retrieved_at`).

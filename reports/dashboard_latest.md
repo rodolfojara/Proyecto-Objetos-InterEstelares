@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-08 17:47:15  
+**Actualizado:** 2026-11-09 01:24:42  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -17,6 +17,22 @@
 *Esquema de trayectorias/posición aproximada (referencial). Para posiciones precisas: efemérides JPL Horizons (ver “Última observación / ubicación aproximada” por objeto).*
 
 **BD:** 407 publicaciones, 6 observaciones, 16 parámetros físicos, 3 registros de composición, 6 registros de actividad, 5 recursos multimedia, 4 referencias web curadas (3 visibles: accepted/watch; rechazadas guardadas con nota, no mostradas).
+
+## Actividad de referencias (estilo contribution graph)
+
+Frecuencia por fecha de **publicación/origen** (papers, YouTube, referencias web). 3 mini-grids apiladas, ventanas de 12 meses navegables (rango completo) con límites al inicio/fin.
+
+![Actividad de referencias — últimos 12 meses](../docs/images/ref_activity_latest.svg)
+
+[←/→ Navegar rango completo (ventanas de 12 meses)](../docs/REFERENCE_ACTIVITY.md)
+
+## Actividad de referencias (estilo contribution graph)
+
+Frecuencia por fecha de **publicación/origen** (papers, YouTube, referencias web). 3 mini-grids apiladas, ventanas de 12 meses navegables (rango completo) con límites al inicio/fin.
+
+![Actividad de referencias — últimos 12 meses](../docs/images/ref_activity_latest.svg)
+
+[←/→ Navegar rango completo (ventanas de 12 meses)](../docs/REFERENCE_ACTIVITY.md)
 
 ---
 

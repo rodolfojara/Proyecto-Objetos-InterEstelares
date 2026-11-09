@@ -208,6 +208,13 @@ Página Markdown generada desde la base de datos con características, parámetr
 - **Script:** `scripts/orchestrator/generate_dashboard.py` (`--reanudar` / `--force`)
 - **Salida:** [`reports/dashboard_latest.md`](reports/dashboard_latest.md) (y copia con timestamp en `reports/`)
 
+### Actividad de referencias (estilo contribution graph)
+Frecuencia por **fecha de publicación/origen** de las referencias utilizadas (Papers, YouTube, páginas web curadas). 3 mini-grids apiladas, rango completo en ventanas de 12 meses con navegación ←/→ y límites.
+
+![Actividad de referencias — últimos 12 meses](docs/images/ref_activity_latest.svg)
+
+[←/→ Navegar rango completo (ventanas de 12 meses)](docs/REFERENCE_ACTIVITY.md)
+
 ```bash
 cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
 python scripts/orchestrator/generate_dashboard.py --force
