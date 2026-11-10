@@ -37,7 +37,7 @@
 
 | Fuente | Config | Registros en BD | Estado |
 |---|---|---:|---|
-| Referencias web (evaluadas ref. por ref.) | `config/web_references.json` (+ reglas `config/web_reference_rules.json`) | 4 (3 `accepted` visibles, 1 `rejected` guardada con nota/oculta) | **Prueba de flujo OK (2026-11-08):** 3 NASA Science (2I, 1I, 3I) aceptadas (valor 8–9) + 1 Wikipedia rechazada con motivo (almacenada, no mostrada). Visibles en dashboard por objeto y Top destacadas. |
+| Referencias web (evaluadas ref. por ref.) | `config/web_references.json` (+ reglas `config/web_reference_rules.json`; visualización `config/dashboard_display.json`) | 4 (3 `accepted` visibles, 1 `rejected` guardada con nota/oculta) | **Prueba de flujo OK (2026-11-08):** 3 NASA Science (2I, 1I, 3I) aceptadas (valor 8–9) + 1 Wikipedia rechazada con motivo (almacenada, no mostrada). Visibles por objeto (Top 3 con resumen/aporte) y global (Top 5), más bloque en README. |
 
 - Flujo: agregar/evaluar en config → (opcional) `python scripts/orchestrator/validate_web_references.py` (sugerencias; aprendizaje = refinar reglas) → revisar/ajustar `status/value/evaluation_note` → `python scripts/orchestrator/curate_web_references.py` → `python scripts/orchestrator/generate_dashboard.py --force`.
 - Agente: `scripts/agents/validador_referencias_web.md`.

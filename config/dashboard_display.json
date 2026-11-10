@@ -1,0 +1,6 @@
+{
+  "description": "Configuración de visualización del dashboard/README para referencias web curadas. Editar y regenerar (`generate_dashboard.py --force`).",
+  "top_n_global": 5,
+  "top_n_por_objeto": 3,
+  "notes": "top_n_global: destacadas globales (orden por value_score DESC, confidence DESC). top_n_por_objeto: referencias con resumen/aporte completo por objeto; el resto se lista compacto. Rechazadas siempre ocultas (guardadas con nota)."
+}

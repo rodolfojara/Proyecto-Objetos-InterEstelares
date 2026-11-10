@@ -1,6 +1,6 @@
 # Dashboard: Objetos Interestelares (ISO Tracker)
 
-**Actualizado:** 2026-11-09 01:56:42  
+**Actualizado:** 2026-11-10 16:18:24  
 **Estado:** Evolutivo (se actualiza con nuevos datos/observaciones/análisis).  
 **Nota:** Los campos sin datos suficientes se marcan como *N/D* o *pendiente*. Se priorizan registros con mayor confianza.
 
@@ -228,7 +228,7 @@ Frecuencia por fecha de **publicación/origen** (papers, YouTube, referencias we
 - [Everything We Know About 'Oumuamua](https://www.youtube.com/watch?v=u4tzK89ZfmA) (relevancia 5)
 - [FEATURES: Everything You Need To Know About 3I/ATLAS](https://www.youtube.com/watch?v=hGJt2KDps-s) (relevancia 4)
 
-## Referencias web curadas destacadas (Top 3, jerarquía por valor 1-10)
+## Referencias web curadas destacadas (Top 5; 3 disponibles, jerarquía por valor 1-10)
 
 *Complemento a papers/YouTube. Evaluadas ref. por ref.; incluye fuentes desactualizadas si están bien informadas y aportan. Las rechazadas quedan registradas con nota (no mostradas).*
 1. **[Comet 3I/ATLAS](https://science.nasa.gov/solar-system/comets/3i-atlas/)** — NASA Science, 2026-05-28 (valor 9/10, conf. 5/5): Fuente primaria/confiable y actualizada. Alto valor por la línea de tiempo multi-misión y enlaces a observaciones concretas; excelente para seguimiento evolutivo de 3I. Aporta m...

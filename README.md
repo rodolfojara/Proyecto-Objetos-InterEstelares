@@ -196,9 +196,21 @@ python scripts/orchestrator/generate_infographic_prompt.py
 
 Tras ejecutarlo, la consola te mostrará la ruta exacta del archivo generado. Ahí tendrás el prompt con los datos actuales del sistema (fechas de descubrimiento, elementos orbitales, actividad y comparativa entre 1I, 2I y 3I).
 
+<!-- WEB_REFS_START -->
+## Referencias web curadas (complemento)
+
+Top 5 global por valor (1–10), complemento a papers/YouTube. Evaluadas ref. por ref.; las rechazadas quedan guardadas con nota y no se muestran.
+
+1. **[Comet 3I/ATLAS](https://science.nasa.gov/solar-system/comets/3i-atlas/)** — NASA Science, 2026-05-28 (valor 9/10, conf. 5/5): Fuente primaria/confiable y actualizada. Alto valor por la línea de tiempo multi-misión y enlaces a observaciones concretas; excelente para seguimiento evolutivo de 3I. Aporta m...
+2. **['Oumuamua](https://science.nasa.gov/solar-system/comets/oumuamua/)** — NASA Science, 2025-11-13 (valor 8/10, conf. 5/5): Fuente primaria/confiable. Aporta contexto de identificación y propiedades observadas clave (elongación, inercia aparente, no coma) con cautela adecuada; útil como línea base fr...
+3. **[Comet 2I/Borisov](https://science.nasa.gov/solar-system/comets/2i-borisov/)** — NASA Science, 2024-11-03 (valor 8/10, conf. 5/5): Fuente primaria/confiable (NASA). Aporta síntesis clara y datos concretos (tamaño, velocidad, hitos de observación, fragmentación) útiles como ancla de contexto; coherente con l...
+
+**Método:** `config/web_references.json` → (opcional) `validate_web_references.py` (sugerencias por reglas) → `curate_web_references.py` → `generate_dashboard.py --force`. Visualización configurable en `config/dashboard_display.json` (`top_n_global`, `top_n_por_objeto`).
+<!-- WEB_REFS_END -->
+
 ## Dashboard (página resumen evolutiva)
 
-Página Markdown generada desde la base de datos con características, parámetros orbitales, actividad, composición (cuando esté disponible), publicaciones recientes y recursos multimedia por objeto. Se actualiza al regenerar con nuevos datos.
+Página Markdown generada desde la base de datos con características, parámetros orbitales, actividad, composición (cuando esté disponible), publicaciones recientes, recursos multimedia y referencias web curadas por objeto. Se actualiza al regenerar con nuevos datos.
 
 ### Situación actual percibida (trayectorias y posición aproximada)
 ![Trayectorias planas y posición aproximada actual de 1I, 2I y 3I](docs/images/1i%202i%203i%20Trayectoria%20plana.png)

@@ -19,6 +19,7 @@ CHECKPOINT_DIR = os.path.join(BASE_DIR, '.metadata_checkpoints')
 CHECKPOINT_FILE = os.path.join(CHECKPOINT_DIR, 'dashboard_checkpoint.json')
 LOG_DIR = os.path.join(BASE_DIR, 'logs')
 LOG_FILE = os.path.join(LOG_DIR, 'dashboard.log')
+DISPLAY_CFG_PATH = os.path.join(BASE_DIR, 'config', 'dashboard_display.json')
 
 
 def log(msg):
@@ -84,6 +85,69 @@ def pick_best_activity(rows):
     return sorted(rows, key=key)[0]
 
 
+def load_display_cfg():
+    """Config de visualización (Top N global / por objeto), editable sin tocar código."""
+    cfg = {'top_n_global': 5, 'top_n_por_objeto': 3}
+    try:
+        with open(DISPLAY_CFG_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        if isinstance(data, dict):
+            for k in ('top_n_global', 'top_n_por_objeto'):
+                v = data.get(k)
+                if isinstance(v, int) and v > 0:
+                    cfg[k] = v
+    except Exception:
+        pass
+    return cfg
+
+
+def update_readme_web_refs(refs, top_n, readme_path):
+    """Mantiene un bloque de referencias web en README (Top N global), idempotente."""
+    if not os.path.exists(readme_path):
+        return False
+    with open(readme_path, 'r', encoding='utf-8') as f:
+        txt = f.read()
+    start = '<!-- WEB_REFS_START -->'
+    end = '<!-- WEB_REFS_END -->'
+    frag = [
+        '## Referencias web curadas (complemento)',
+        '',
+        f'Top {top_n} global por valor (1–10), complemento a papers/YouTube. Evaluadas ref. por ref.; las rechazadas quedan guardadas con nota y no se muestran.',
+        '',
+    ]
+    if refs:
+        for i, r in enumerate(refs[:top_n], 1):
+            rd = dict(r)
+            title = (rd.get('title') or rd.get('url') or 'Referencia').strip()
+            meta = ', '.join([x for x in [rd.get('source'), rd.get('source_date')] if x])
+            val = rd.get('value_score'); conf = rd.get('confidence')
+            blurb = (rd.get('evaluation_note') or rd.get('summary') or '').strip()
+            if len(blurb) > 180:
+                blurb = blurb[:177] + '...'
+            frag.append(f"{i}. **[{title}]({rd.get('url')})** — {meta} (valor {val}/10, conf. {conf}/5)" + (f": {blurb}" if blurb else ""))
+    else:
+        frag.append('*(sin referencias visibles todavía)*')
+    frag += [
+        '',
+        '**Método:** `config/web_references.json` → (opcional) `validate_web_references.py` (sugerencias por reglas) → `curate_web_references.py` → `generate_dashboard.py --force`. Visualización configurable en `config/dashboard_display.json` (`top_n_global`, `top_n_por_objeto`).',
+        '',
+    ]
+    block = start + '\n' + '\n'.join(frag).rstrip() + '\n' + end
+    if start in txt and end in txt:
+        pre = txt[:txt.index(start)]
+        post = txt[txt.index(end) + len(end):]
+        txt = pre + block + post
+    else:
+        anchor = '## Dashboard (página resumen evolutiva)'
+        if anchor in txt:
+            txt = txt.replace(anchor, block + '\n\n' + anchor, 1)
+        else:
+            txt = txt.rstrip() + '\n\n' + block + '\n'
+    with open(readme_path, 'w', encoding='utf-8') as f:
+        f.write(txt)
+    return True
+
+
 def generate_dashboard(resumable=False, force=False):
     start = time.time()
     log("=" * 60)
@@ -111,6 +175,7 @@ def generate_dashboard(resumable=False, force=False):
     cur = conn.cursor()
     try:
         objects = q(cur, "SELECT * FROM objects ORDER BY discovery_date, id")
+        disp = load_display_cfg()
         lines = []
         lines.append("# Dashboard: Objetos Interestelares (ISO Tracker)")
         lines.append("")
@@ -355,7 +420,8 @@ def generate_dashboard(resumable=False, force=False):
                 ORDER BY COALESCE(r.value_score,0) DESC, COALESCE(r.confidence,0) DESC, r.id DESC
                 """, (oid,))
                 if refs:
-                    for r in refs:
+                    top_obj = disp['top_n_por_objeto']
+                    for r in refs[:top_obj]:
                         rd = dict(r)
                         title = (rd.get('title') or rd.get('url') or 'Referencia').strip()
                         url = rd.get('url') or ''
@@ -377,6 +443,16 @@ def generate_dashboard(resumable=False, force=False):
                             lines.append(f"  - **Aporte/evaluación:** {rd.get('evaluation_note')}")
                         if rd.get('tags'):
                             lines.append(f"  - *Tags:* {rd.get('tags')}")
+                    rest = refs[top_obj:]
+                    if rest:
+                        lines.append("")
+                        lines.append(f"- **Otras referencias visibles ({len(rest)}):**")
+                        for r in rest:
+                            rd = dict(r)
+                            title = (rd.get('title') or rd.get('url') or 'Referencia').strip()
+                            val = rd.get('value_score')
+                            extra = f" (valor {val}/10)" if val is not None else ""
+                            lines.append(f"  - [{title}]({rd.get('url')}){extra}")
                 else:
                     lines.append("- N/D (agrega referencias evaluadas en `config/web_references.json` y ejecuta `scripts/orchestrator/curate_web_references.py`; validador opcional: `validate_web_references.py`). Las rechazadas se guardan con nota pero no se muestran.")
             except Exception as e:
@@ -402,9 +478,9 @@ def generate_dashboard(resumable=False, force=False):
                 FROM curated_references WHERE status IN ('accepted','watch')
                 ORDER BY COALESCE(value_score,0) DESC, COALESCE(confidence,0) DESC, id DESC
             """)
+            TOP_N = disp['top_n_global']
             if top_refs:
-                TOP_N = 10
-                lines.append(f"## Referencias web curadas destacadas (Top {min(TOP_N, len(top_refs))}, jerarquía por valor 1-10)")
+                lines.append(f"## Referencias web curadas destacadas (Top {TOP_N}; {len(top_refs)} disponibles, jerarquía por valor 1-10)")
                 lines.append("")
                 lines.append("*Complemento a papers/YouTube. Evaluadas ref. por ref.; incluye fuentes desactualizadas si están bien informadas y aportan. Las rechazadas quedan registradas con nota (no mostradas).*")
                 for i, r in enumerate(top_refs[:TOP_N], 1):
@@ -418,6 +494,7 @@ def generate_dashboard(resumable=False, force=False):
                         blurb = blurb[:177] + '...'
                     lines.append(f"{i}. **[{title}]({rd.get('url')})** — {meta} (valor {val}/10, conf. {conf}/5{hist})" + (f": {blurb}" if blurb else ""))
                 lines.append("")
+            update_readme_web_refs(top_refs or [], TOP_N, os.path.join(BASE_DIR, 'README.md'))
         except Exception:
             pass
 
