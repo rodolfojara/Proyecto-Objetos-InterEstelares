@@ -134,10 +134,11 @@ Fecha de generación del prompt: {now.strftime('%Y-%m-%d %H:%M:%S')}
     with open(prompt_path, 'w', encoding='utf-8') as f:
         f.write(prompt)
 
+    rel_prompt = os.path.relpath(prompt_path, BASE_DIR).replace(os.sep, '/')
     prompts = cp.get('prompts_generated', [])
-    prompts.append(prompt_path)
+    prompts.append(rel_prompt)
     cp['prompts_generated'] = prompts[-50:]
-    cp['last_prompt'] = prompt_path
+    cp['last_prompt'] = rel_prompt
     cp['status'] = 'completed'
     cp['finished_at'] = datetime.utcnow().isoformat() + 'Z'
     save_checkpoint(cp)

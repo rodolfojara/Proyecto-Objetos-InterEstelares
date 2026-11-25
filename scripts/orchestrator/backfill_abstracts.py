@@ -18,13 +18,20 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+from pathlib import Path
 
 from metadata_discovery import limpiar_abstract, limpiar_html
 
-BASE = r'C:/Users/user/Documents/Proyecto Objetos InterEstelares'
-DB = BASE + '/data/db/iso.db'
-CA_BUNDLE = r'C:/Program Files/Git/usr/ssl/certs/ca-bundle.crt'
-CTX = ssl.create_default_context(cafile=CA_BUNDLE) if os.path.exists(CA_BUNDLE) else ssl.create_default_context()
+ROOT = Path(__file__).resolve().parents[2]
+BASE = str(ROOT)
+DB = str(ROOT / 'data/db/iso.db')
+CA_BUNDLE = next((p for p in (
+    os.environ.get('ISO_CA_BUNDLE'),
+    r'C:/Program Files/Git/usr/ssl/certs/ca-bundle.crt',
+    '/etc/ssl/certs/ca-certificates.crt',
+    '/usr/local/etc/openssl/cert.pem',
+) if p and os.path.exists(p)), None)
+CTX = ssl.create_default_context(cafile=CA_BUNDLE) if CA_BUNDLE else ssl.create_default_context()
 MAILTO = 'rodolfojara@users.noreply.github.com'
 MAX_ABSTRACT = 4000
 

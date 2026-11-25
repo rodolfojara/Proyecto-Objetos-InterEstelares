@@ -6,7 +6,7 @@
 ## Estado actual (actualizado)
 
 ✓ Repositorio creado y proyecto subido (rama `main`)
-✓ Directorio del proyecto: `C:\Users\user\Documents\Proyecto Objetos InterEstelares`
+✓ Directorio del proyecto: `<ruta-del-repo>`
 ✓ GitHub CLI (`gh`) instalado y autenticado
 
 ## Flujo de trabajo habitual
@@ -14,7 +14,7 @@
 Para subir cambios (modificaciones, nuevas fases, correcciones):
 
 ```bash
-cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
+cd "<ruta-del-repo>"
 git add .
 git commit -m "Descripción breve del cambio"
 git push

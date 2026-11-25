@@ -1,8 +1,10 @@
 import sqlite3, json
 from datetime import datetime
+from pathlib import Path
 
-db = r'C:/Users/user/Documents/Proyecto Objetos InterEstelares/data/db/iso.db'
-data_path = r'C:/Users/user/Documents/Proyecto Objetos InterEstelares/data/objects.json'
+ROOT = Path(__file__).resolve().parent
+db = str(ROOT / 'data/db/iso.db')
+data_path = str(ROOT / 'data/objects.json')
 
 with open(data_path, encoding='utf-8') as f:
     data = json.load(f)

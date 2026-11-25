@@ -52,11 +52,11 @@ Desarrollar un sistema modular para recolectar, normalizar, versionar, correlaci
 
 ## 6. Comandos rápidos
 ```bash
-cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
+cd "<ruta-del-repo>"
 python scripts/utils/check_status.py
 python scripts/orchestrator/generate_report.py
 python scripts/orchestrator/generate_infographic_prompt.py
 ```
 
-**Directorio:** `C:\Users\user\Documents\Proyecto Objetos InterEstelares`  
+**Directorio:** `<ruta-del-repo>`  
 **Cuenta GitHub:** `github.com/rodolfojara`

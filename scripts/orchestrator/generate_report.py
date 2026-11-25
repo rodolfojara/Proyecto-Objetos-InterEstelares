@@ -191,10 +191,11 @@ def generate_report(resumable=False, force=False):
         with open(report_path, 'w', encoding='utf-8') as f:
             f.write('\n'.join(lines))
 
+        rel_report = os.path.relpath(report_path, BASE_DIR).replace(os.sep, '/')
         reports = cp.get('reports_generated', [])
-        reports.append(report_path)
+        reports.append(rel_report)
         cp['reports_generated'] = reports[-50:]  # keep last 50
-        cp['last_report'] = report_path
+        cp['last_report'] = rel_report
         cp['status'] = 'completed'
         cp['finished_at'] = datetime.utcnow().isoformat() + 'Z'
         save_checkpoint(cp)

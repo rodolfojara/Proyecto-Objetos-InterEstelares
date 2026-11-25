@@ -8,12 +8,13 @@ Uso:
 
 import json
 import sqlite3
+from pathlib import Path
 
-BASE = r'C:/Users/user/Documents/Proyecto Objetos InterEstelares'
-DB = BASE + '/data/db/iso.db'
-PATCH = BASE + '/config/schema_identificacion_patch.sql'
-VIEW = BASE + '/config/schema_identificacion_view.sql'
-DATA = BASE + '/data/identification_timeline.json'
+ROOT = Path(__file__).resolve().parent
+DB = str(ROOT / 'data/db/iso.db')
+PATCH = str(ROOT / 'config/schema_identificacion_patch.sql')
+VIEW = str(ROOT / 'config/schema_identificacion_view.sql')
+DATA = str(ROOT / 'data/identification_timeline.json')
 
 CAMPOS = (
     'earliest_observation_date',

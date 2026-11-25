@@ -543,9 +543,10 @@ def generate_dashboard(resumable=False, force=False):
 
         cp['status'] = 'completed'
         cp['finished_at'] = datetime.utcnow().isoformat() + 'Z'
-        cp.setdefault('generated', []).append(out_path)
+        rel_out = os.path.relpath(out_path, BASE_DIR).replace(os.sep, '/')
+        cp.setdefault('generated', []).append(rel_out)
         cp['generated'] = cp['generated'][-20:]
-        cp['last_dashboard'] = out_path
+        cp['last_dashboard'] = rel_out
         save_checkpoint(cp)
 
         elapsed = time.time() - start

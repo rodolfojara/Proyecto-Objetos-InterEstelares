@@ -5,7 +5,7 @@ Este documento describe cómo se utiliza la IA para este proyecto, qué herramie
 ## 1. Modelo y entorno
 
 - **Agente**: OpenCode (Big Pickle, proveedor `opencode`, modelo `big-pickle`)
-- **Entorno**: Windows, repositorio en `C:\Users\user\Documents\Proyecto Objetos InterEstelares\`
+- **Entorno original**: Windows; el proyecto usa rutas relativas y funciona también en Linux/macOS.
 - **Objetivo**: Asistir en el análisis, desarrollo, depuración y automatización manteniendo la integridad de la base de datos científica.
 
 ## 2. Herramientas disponibles

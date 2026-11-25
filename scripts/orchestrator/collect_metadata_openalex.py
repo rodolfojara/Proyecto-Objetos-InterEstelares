@@ -41,10 +41,16 @@ try:
 except Exception:
     pass
 
-BASE = r'C:/Users/user/Documents/Proyecto Objetos InterEstelares'
-DB = BASE + '/data/db/iso.db'
-CONFIG = BASE + '/config/metadata_scope.json'
-CA_BUNDLE = r'C:/Program Files/Git/usr/ssl/certs/ca-bundle.crt'
+ROOT = Path(__file__).resolve().parents[2]
+BASE = str(ROOT)
+DB = str(ROOT / 'data/db/iso.db')
+CONFIG = str(ROOT / 'config/metadata_scope.json')
+CA_BUNDLE = next((p for p in (
+    os.environ.get('ISO_CA_BUNDLE'),
+    r'C:/Program Files/Git/usr/ssl/certs/ca-bundle.crt',
+    '/etc/ssl/certs/ca-certificates.crt',
+    '/usr/local/etc/openssl/cert.pem',
+) if p and os.path.exists(p)), None)
 API = 'https://api.openalex.org/works'
 MAILTO = 'rodolfojara@users.noreply.github.com'
 TIPOS_VALIDOS = {'article', 'preprint', 'review'}
@@ -52,7 +58,7 @@ MAX_AUTORES = 25
 MAX_ABSTRACT = 4000
 COMMIT_CADA = 10  # Commit every N records for resumability
 
-CTX = ssl.create_default_context(cafile=CA_BUNDLE) if os.path.exists(CA_BUNDLE) else ssl.create_default_context()
+CTX = ssl.create_default_context(cafile=CA_BUNDLE) if CA_BUNDLE else ssl.create_default_context()
 
 # cache opcional de respuestas API (util para reintentar sin volver a paginar)
 CACHE_DIR = None

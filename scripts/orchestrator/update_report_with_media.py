@@ -6,8 +6,9 @@ import sqlite3
 from pathlib import Path
 from datetime import datetime
 
-DB_PATH = Path(r"C:/Users/user/Documents/Proyecto Objetos InterEstelares/data/db/iso.db")
-REPORT_DIR = Path(r"C:/Users/user/Documents/Proyecto Objetos InterEstelares/reports/weekly")
+ROOT = Path(__file__).resolve().parents[2]
+DB_PATH = ROOT / "data" / "db" / "iso.db"
+REPORT_DIR = ROOT / "reports" / "weekly"
 REPORT_DIR.mkdir(parents=True, exist_ok=True)
 
 def get_conn():

@@ -1,7 +1,7 @@
 # HANDOFF - Fase 2 corta (aliases only) completada
 
 **Fecha:** 2026-11-03  
-**Repo:** `C:\Users\user\Documents\Proyecto Objetos InterEstelares` (no es git repo según entorno, pero hay `.git/`)  
+**Repo:** `<ruta-del-repo>` (no es git repo según entorno, pero hay `.git/`)  
 **Objetivo:** Documentar estado actual tras completar Fase 2 corta (solo aliases) e instrucciones para continuar con el resto de Fase 2 (physical_params, composition, activity) siguiendo el mismo patrón batch/checkpoint/reanudación.
 
 ## Estado resumido
@@ -46,21 +46,21 @@
 # Ver plan
 python -c "
 import json
-d=json.load(open(r'C:/Users/user/Documents/Proyecto Objetos InterEstelares/.metadata_checkpoints/fase2_plan.json'))
+d=json.load(open(r'.metadata_checkpoints/fase2_plan.json'))
 print(json.dumps(d, indent=2))
 "
 
 # Ver checkpoint aliases
 python -c "
 import json
-d=json.load(open(r'C:/Users/user/Documents/Proyecto Objetos InterEstelares/.metadata_checkpoints/fase2_aliases_checkpoint.json'))
+d=json.load(open(r'.metadata_checkpoints/fase2_aliases_checkpoint.json'))
 print(json.dumps(d, indent=2))
 "
 
 # Ver conteo aliases
 python -c "
 import sqlite3
-c=sqlite3.connect(r'C:/Users/user/Documents/Proyecto Objetos InterEstelares/data/db/iso.db')
+c=sqlite3.connect(r'data/db/iso.db')
 print(c.execute('SELECT COUNT(*) FROM object_aliases').fetchone()[0])
 c.close()
 "

@@ -25,7 +25,7 @@ Edita `config/media_links.json`:
 
 ### 2) Curar e insertar
 ```bash
-cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
+cd "<ruta-del-repo>"
 python scripts/orchestrator/curate_media.py
 ```
 

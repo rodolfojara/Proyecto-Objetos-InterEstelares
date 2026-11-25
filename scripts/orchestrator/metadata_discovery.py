@@ -22,8 +22,13 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-CA_BUNDLE = r'C:/Program Files/Git/usr/ssl/certs/ca-bundle.crt'
-CTX = ssl.create_default_context(cafile=CA_BUNDLE) if os.path.exists(CA_BUNDLE) else ssl.create_default_context()
+CA_BUNDLE = next((p for p in (
+    os.environ.get('ISO_CA_BUNDLE'),
+    r'C:/Program Files/Git/usr/ssl/certs/ca-bundle.crt',
+    '/etc/ssl/certs/ca-certificates.crt',
+    '/usr/local/etc/openssl/cert.pem',
+) if p and os.path.exists(p)), None)
+CTX = ssl.create_default_context(cafile=CA_BUNDLE) if CA_BUNDLE else ssl.create_default_context()
 MAILTO = 'rodolfojara@users.noreply.github.com'
 UA = 'ISO-Tracker/0.1 (metadata pass; mailto:%s)' % MAILTO
 

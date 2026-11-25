@@ -5,7 +5,7 @@ Este documento contiene **instrucciones paso a paso** para ejecutar todos los sc
 ## Ubicación
 Todos los comandos se ejecutan desde la raíz del proyecto:
 ```bash
-cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
+cd "<ruta-del-repo>"
 ```
 
 ## Fase 0 y 1 (Completadas)
@@ -19,7 +19,7 @@ Ya ejecutado. Ver `config/schema.sql` y `data/db/iso.db`
 **Cuándo usarlo:** Solo para inicialización/reset controlado
 
 ```bash
-cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
+cd "<ruta-del-repo>"
 python ingest_init.py
 ```
 
@@ -42,7 +42,7 @@ python ingest_init.py
 
 **Aplicar patch (si necesario):**
 ```bash
-cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
+cd "<ruta-del-repo>"
 python apply_patch_fase2.py
 ```
 
@@ -59,7 +59,7 @@ Registra las fechas de detección, descubrimiento, anuncio, confirmación intere
 
 **Ejecutar:**
 ```bash
-cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
+cd "<ruta-del-repo>"
 python apply_patch_identificacion.py
 ```
 
@@ -75,7 +75,7 @@ Carga metadatos de papers en `publications` y las vincula a cada objeto en `obje
 
 **Ejecutar:**
 ```bash
-cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
+cd "<ruta-del-repo>"
 python scripts/orchestrator/collect_metadata_openalex.py --dry-run
 python scripts/orchestrator/collect_metadata_openalex.py
 ```
@@ -167,7 +167,7 @@ Orquestador completo y automatización (manual con Task Scheduler/cron)
 
 ## Verificación rápida de BD
 ```bash
-cd "C:\Users\user\Documents\Proyecto Objetos InterEstelares"
+cd "<ruta-del-repo>"
 python -c "
 import sqlite3
 conn = sqlite3.connect('data/db/iso.db')
