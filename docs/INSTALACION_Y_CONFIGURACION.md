@@ -55,7 +55,12 @@ config/
 ├── web_references.json        # referencias web evaluadas una por una
 ├── web_reference_rules.json   # reglas del validador (sugerencias)
 ├── dashboard_display.json     # Top N global / por objeto
-└── schema*.sql                # esquema (aplicado por apply_patch_*.py)
+├── schema.sql                 # esquema BASE: se aplica MANUALMENTE (ningún script lo hace)
+├── schema_fase2_patch.sql     # apply_patch_fase2.py
+├── schema_fase4_patch.sql     # apply_patch_fase4.py
+├── schema_fase6_patch.sql     # apply_patch_fase6.py
+├── schema_identificacion_patch.sql / schema_identificacion_view.sql  # apply_patch_identificacion.py
+└── schema_web_references_patch.sql  # se aplica MANUALMENTE (ningún script lo hace)
 data/
 ├── db/iso.db                  # BD versionada
 ├── objects.json               # datos base de 1I/2I/3I
@@ -66,6 +71,8 @@ logs/                          # logs (ignorados en Git)
 reports/                       # dashboard, reportes, prompts, figuras
 docs/images/ref_activity*/     # gráfico generado
 ```
+
+> **Importante:** solo los `schema_*_patch.sql` los aplican los `apply_patch_*.py`. El esquema base (`schema.sql`) y el patch de referencias web (`schema_web_references_patch.sql`) **no tienen script que los aplique**: se ejecutan manualmente. Comandos y motivo en [`FASES_DESDE_CERO.md`](FASES_DESDE_CERO.md#2-hallazgo-crítico-la-fase-0-no-se-ejecuta-sola).
 
 ## 4. Configuración por archivo
 
