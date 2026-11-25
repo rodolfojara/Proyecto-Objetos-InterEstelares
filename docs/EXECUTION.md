@@ -2,6 +2,8 @@
 
 Este documento contiene **instrucciones paso a paso** para ejecutar todos los scripts del proyecto. Todo lo necesario está en este repositorio.
 
+> **Antes de empezar:** para saber qué pasos requieren decisión humana y cuáles se ejecutan solos una vez lanzados, consultá [`PROCESOS_MANUALES_Y_AUTOMATICOS.md`](PROCESOS_MANUALES_Y_AUTOMATICOS.md). Los scripts **no** corren en horario programado (`config/orchestrator.json` → `execution.mode = "manual"`).
+
 ## Ubicación
 Todos los comandos se ejecutan desde la raíz del proyecto:
 ```bash

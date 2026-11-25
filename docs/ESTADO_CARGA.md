@@ -44,12 +44,12 @@
 
 ## Método estándar de actualización (papers + YouTube + referencias web)
 
-Ejecutar **por tipo de fuente**, registrando fecha y resultado (evita olvidar qué se cargó). Orden sugerido cuando se hace una “ronda” de actualización:
+Ejecutar **por tipo de fuente**, registrando fecha y resultado (evita olvidar qué se cargó). Orden sugerido cuando se hace una “ronda” de actualización. Las etiquetas **[M]** (decisión manual) y **[A]** (el script lo ejecuta solo) se detallan en [`PROCESOS_MANUALES_Y_AUTOMATICOS.md`](PROCESOS_MANUALES_Y_AUTOMATICOS.md):
 
-1. **Papers (metadatos, por objeto/alias):** detectar último `hasta`/alias en `config/metadata_scope.json` y `MAX(published_at)` en BD → crear ventana(s) cola por objeto (`desde = último_hasta+1d`, `hasta = hoy`, alias nuevo) → `collect_metadata_openalex.py --alias <nuevo> --dry-run` → ejecución real → confirmar conteos.
-2. **Efemérides (opcional en la misma ronda):** `ingest_ephemeris_horizons.py --date <hoy> --force`.
-3. **YouTube (curación manual):** agregar URLs reales evaluadas en `config/media_links.json` → `curate_media.py`.
-4. **Referencias web (curación manual, tu método):** evaluar ref. por ref. (confiable → consistencia/calidad; guardar “goyitas”, incluso desactualizadas si bien informadas, con nota) → cargar en `config/web_references.json` → (opcional) validador → `curate_web_references.py`.
-5. **Regenerar y publicar (consistencia):** `generate_dashboard.py --force` (regenera dashboard **y** el gráfico de actividad de referencias/publicación por ventanas de 12 meses) → actualizar este `ESTADO_CARGA.md` con fechas/conteos/últimos alias → commit & push (`config/*`, `data/db/iso.db`, checkpoints generados, `reports/dashboard_latest.md` + timestamped, `docs/images/ref_activity*`, `docs/REFERENCE_ACTIVITY.md`, `docs/ref_activity/*`, docs).
+1. **[M] + [A] Papers (metadatos, por objeto/alias):** detectar último `hasta`/alias en `config/metadata_scope.json` y `MAX(published_at)` en BD → crear ventana(s) cola por objeto (`desde = último_hasta+1d`, `hasta = hoy`, alias nuevo) → `collect_metadata_openalex.py --alias <nuevo> --dry-run` → ejecución real → confirmar conteos.
+2. **[M] + [A] Efemérides (opcional en la misma ronda):** fijar fecha → `ingest_ephemeris_horizons.py --date <hoy> --force`.
+3. **[M] + [A] YouTube (curación manual):** agregar URLs reales evaluadas en `config/media_links.json` → `curate_media.py`.
+4. **[M] + [A] Referencias web (curación manual, tu método):** evaluar ref. por ref. (confiable → consistencia/calidad; guardar “goyitas”, incluso desactualizadas si bien informadas, con nota) → cargar en `config/web_references.json` → (opcional) validador (solo sugiere) → `curate_web_references.py`.
+5. **[A] Regenerar** con `generate_dashboard.py --force` (dashboard **y** gráfico de actividad de referencias/publicación por ventanas de 12 meses) → **[M]** actualizar este `ESTADO_CARGA.md` con fechas/conteos/últimos alias y decidir commit & push (`config/*`, `data/db/iso.db`, checkpoints generados, `reports/dashboard_latest.md` + timestamped, `docs/images/ref_activity*`, `docs/REFERENCE_ACTIVITY.md`, `docs/ref_activity/*`, docs).
 
 > Regla práctica: **no asumir** “ya está al día”; siempre contrastar (a) última ventana/alias y (b) `MAX(published_at)` por objeto, y anotar aquí la fecha de la última ronda. Los tres tipos de carga (papers, YouTube, web) son **independientes**: completar uno no implica completar los otros. La estadística de actividad usa **fecha de publicación/origen** (papers=`published_at`, YouTube=`published_at`|`added_at`, web=`source_date`|`retrieved_at`).
