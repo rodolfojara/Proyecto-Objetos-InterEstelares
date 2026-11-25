@@ -89,13 +89,15 @@ Opciones útiles:
 - `python scripts/orchestrator/backfill_abstracts.py` rellena abstracts vacíos sin tocar el resto de campos.
 - `python scripts/orchestrator/backfill_abstracts.py --refrescar-cortos 200` reemplaza abstracts truncados (< 200 caracteres) por la versión completa de arXiv o Crossref.
 
-**Ventanas (un año desde la designación I):**
+**Ventanas iniciales (un año desde la designación I; registro histórico):**
 
 | Objeto | Desde | Hasta |
 | --- | --- | --- |
 | 1I/'Oumuamua | 2017-11-06 | 2018-11-06 |
 | 2I/Borisov | 2019-09-24 | 2020-09-24 |
 | 3I/ATLAS | 2025-07-02 | 2026-07-02 |
+
+> La fuente de verdad de ventanas es **`config/metadata_scope.json`** (hoy 20 ventanas: 9 de 1I, 8 de 2I y 3 de 3I; 17 con `openalex` y 3 con `arxiv+crossref`). Para extender una cola, crear una ventana nueva con `desde = último_hasta + 1d`, `hasta = hoy` y un alias nuevo; ver [`ESTADO_CARGA.md`](ESTADO_CARGA.md).
 
 **Qué escribe:**
 
@@ -124,7 +126,7 @@ Opciones útiles:
 
 **Descubrimiento alternativo (OpenAlex → arXiv + Crossref):** OpenAlex aplica un presupuesto diario a las consultas de búsqueda. Cuando se agota (`429` con `Retry-After` de horas), la ventana puede resolverse descubriendo DOIs en arXiv (buscador avanzado) y en Crossref (artículos de revista, proceedings y preprints registrados), aplicando el mismo regex y cargando los registros con los mismos campos. La ventana de 3I/ATLAS se cargó por esta vía. Para reactivar la búsqueda directa, cambiar `"metodo": "arxiv+crossref"` por `"metodo": "openalex"` en `config/metadata_scope.json`.
 
-**Resultado del pase (2026-10-28):**
+**Resultado del pase histórico (2026-10-28; el estado actual está en [`ESTADO_CARGA.md`](ESTADO_CARGA.md)):**
 
 | Objeto | Papers | Ventana | Vía |
 | --- | --- | --- | --- |

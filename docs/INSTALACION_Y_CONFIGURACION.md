@@ -37,7 +37,7 @@ En Windows, si `python` no existe pero sí `py`, usá `py -3 ...` en los comando
 
 ### 2.1 No hace falta “inicializar” la BD
 
-`data/db/iso.db` ya está incluida con las fases 0-6 ejecutadas. Ejecutar `ingest_init.py` o los `apply_patch_*.py` **solo** tiene sentido para un reset controlado o para repetir un patch (son idempotentes). Para saber **qué fases se pueden ejecutar desde cero y en qué orden**, mirá [`FASES_DESDE_CERO.md`](FASES_DESDE_CERO.md). Si querés hacerlo, seguí el orden de `docs/EXECUTION.md` y hacé una copia de seguridad antes:
+`data/db/iso.db` ya está incluida con las fases 0-6 ejecutadas. Ejecutar `ingest_init.py` o los `apply_patch_*.py` **solo** tiene sentido para un reset controlado o para repetir un patch. Ojo: la mayoría de los patches es idempotente, pero `ingest_init.py` duplica orbitales/actividad/provenance y `apply_patch_identificacion.py` duplica provenance si se repiten (detalle en [`FASES_DESDE_CERO.md`](FASES_DESDE_CERO.md)). Para saber **qué fases se pueden ejecutar desde cero y en qué orden**, mirá esa guía. Si querés hacerlo, seguí el orden de `docs/EXECUTION.md` y hacé una copia de seguridad antes:
 
 ```bash
 cp data/db/iso.db data/db/iso.db.bak        # Linux/macOS
@@ -121,7 +121,7 @@ Si más adelante se quiere programar **solo** lo determinista (nunca la curació
 - [ ] `python --version` → 3.8+.
 - [ ] `python scripts/utils/check_status.py` muestra 3 objetos y 19 tablas.
 - [ ] `python verify_tables.py` imprime la lista de tablas.
-- [ ] `python scripts/orchestrator/generate_dashboard.py --force` termina sin error y actualiza `reports/dashboard_latest.md`.
+- [ ] `python scripts/orchestrator/generate_dashboard.py --force` termina sin error y crea un `reports/dashboard_objetos_interestelares_<timestamp>.md`. **No actualiza `dashboard_latest.md`**: copiarlo aparte, por ejemplo con `python -c "import json,shutil,pathlib; d=json.loads(pathlib.Path('.metadata_checkpoints/dashboard_checkpoint.json').read_text(encoding='utf-8')); shutil.copyfile(d['last_dashboard'],'reports/dashboard_latest.md')"`.
 - [ ] `python scripts/orchestrator/master_orchestrator.py status` lista las 7 fases (no reinicia nada).
 - [ ] Si se va a publicar: `git remote -v`, `git config user.name`, `git config user.email` y `git status` sin cambios inesperados en `data/db/iso.db`.
 

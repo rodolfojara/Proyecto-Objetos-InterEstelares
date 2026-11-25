@@ -158,7 +158,7 @@ El reporte debe incluir SIEMPRE:
 
 ## Notas importantes
 - **Sin agentes corriendo 24/7:** Los scripts se ejecutan manualmente o con Task Scheduler/cron propio. Yo genero los scripts, tú los ejecutas.
-- **Versionado estricto:** Nunca se sobreescriben datos. Cada valor se guarda con fuente, fecha, agente y confianza.
+- **Versionado estricto:** las tablas científicas no se reemplazan en bloque; cada valor se guarda con fuente, fecha, agente y confianza. Las excepciones son controladas y están documentadas: `--force` borra un subconjunto en SBDB/curados/efemérides, el validador reescribe sugerencias en `config/web_references.json` y las salidas derivadas (`reports/`, gráficos, bloques README) se regeneran. Ver [`FASES_DESDE_CERO.md`](docs/FASES_DESDE_CERO.md#6-precauciones).
 - **Fuentes primarias primero:** MPC/JPL tienen prioridad sobre noticias.
 - **Escepticismo:** Separa hechos medidos vs especulación. El correlacionador marca hipótesis como `propuesta/especulativa`.
 - **Búsqueda retrospectiva:** Se buscarán trayectorias hiperbólicas (e>1) en archivos antiguos, no solo por nombre "interstellar".
