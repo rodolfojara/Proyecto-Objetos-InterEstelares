@@ -29,6 +29,7 @@ Leyenda: **M** = decisión manual necesaria; **A** = el script lo ejecuta solo u
 | --- | --- | --- | --- | --- |
 | Ingesta inicial / reset controlado | `ingest_init.py` · `data/objects.json` | S | Solo ejecutarlo si se quiere reiniciar la carga base. | Carga objetos, orbitales y actividad; registra en `provenance_log`. |
 | Patches de esquema (Fase 2/4/6, identificación) | `apply_patch_fase2.py`, `apply_patch_fase4.py`, `apply_patch_fase6.py`, `apply_patch_identificacion.py` | S | Decidir si hay que aplicarlos; son idempotentes. | Tablas/vistas nuevas y datos de cronología; no alteran tablas científicas ya cargadas. |
+| Aliases y resto de Fase 2 (validador/correlación) | `run_fase2_aliases.py`, `run_fase2_rest.py` (`--reanudar` / `--force`) | S | Lanzar la fase y revisar el checkpoint; los lotes y la reanudación son automáticos. | `object_aliases`, `physical_params`, `composition`, `activity` con checkpoint en `.metadata_checkpoints/`. |
 | Parámetros físicos (SBDB / curados) | `scripts/orchestrator/ingest_physical_sbdb.py`, `ingest_physical_curated.py` | S | Elegir cuándo refrescar y revisar la procedencia. | `physical_params` con `provenance_log`. |
 | Metadatos de papers (OpenAlex / arXiv / Crossref) | `collect_metadata_openalex.py` · `config/metadata_scope.json` · `metadata_discovery.py` | S | **M:** definir/extensionar ventana (`desde = último hasta + 1d`, `hasta = hoy`, alias nuevo) y revisar el `--dry-run`. **A:** filtrado, dedupe, carga por lotes y verificación. | `publications` + `object_publications` + `provenance_log`; sin tocar tablas científicas; checkpoints por ventana. |
 | Limpieza/completado de abstracts | `backfill_abstracts.py` (`--refrescar-cortos N`) | S | Decidir si se normaliza o se refrescan truncados. | Abstracts normalizados/completos; idempotente. |
@@ -39,7 +40,8 @@ Leyenda: **M** = decisión manual necesaria; **A** = el script lo ejecuta solo u
 | Visualización (Top N) | `config/dashboard_display.json` | **M** | Cambiar `top_n_global` / `top_n_por_objeto` y regenerar. | Config editable sin tocar código. |
 | Reportes semanales / resumen | `generate_report.py` (`--reanudar` / `--force`) | S | Decidir cuándo regenerar y revisar el resultado. | `reports/weekly/` + checkpoints; patrón por lotes. |
 | Prompt de infografía | `generate_infographic_prompt.py` | S | Decidir cuándo generarlo; **la imagen se crea fuera del repo** con una IA con capacidad visual. | `reports/infografia_prompt_*.md`. |
-| Dashboard + gráfico de actividad | `generate_dashboard.py --force` | S | Decidir cuándo regenerar (y copiar a `dashboard_latest.md`). | `reports/dashboard_latest.md` + timestamped, `docs/REFERENCE_ACTIVITY.md`, `docs/images/ref_activity*`, bloques README. |
+| Gráfico de actividad (interno) | `generate_reference_activity.py --force` | A | Ninguna: lo invoca `generate_dashboard.py` automáticamente. | `docs/REFERENCE_ACTIVITY.md`, `docs/ref_activity/*`, `docs/images/ref_activity*`, bloque README. |
+| Dashboard + gráfico de actividad | `generate_dashboard.py --force` | S | Decidir cuándo regenerar (y copiar a `dashboard_latest.md`). | `reports/dashboard_latest.md` + timestamped, índice/gráfico de actividad, bloques README. |
 | Orquestación de fases | `master_orchestrator.py` · `config/orchestrator.json` | S | Habilitar fases/orden y lanzar el orquestador; no está en scheduler. | Ejecuta los scripts declarados en las fases 1-6 y deja logs/checkpoints. |
 | Verificación rápida | `scripts/utils/check_status.py` | A | Ninguna (solo leer salida). | Conteos de objetos/tablas/publicaciones/provenance. |
 | Publicación (commit & push) | Git / GitHub | **M** | Revisar diff y decidir publicar. El agente lo hace **cuando se le pide**. | `origin/main` alineado con local. |
@@ -53,6 +55,10 @@ Basado en `docs/ESTADO_CARGA.md` (los tres tipos de fuente son independientes):
 3. **[M] + [A] YouTube:** elegir URLs y relevancia → `curate_media.py`.
 4. **[M] + [A] Referencias web:** evaluar cada fuente, cargar en config → validador opcional → `curate_web_references.py`. El validador **no decide**: solo sugiere.
 5. **[A] Consistencia:** `generate_dashboard.py --force` regenera dashboard y actividad. **[M]** actualizar `ESTADO_CARGA.md` y decidir commit/push.
+
+### Skills y utilidades de apoyo (no se lanzan solas)
+
+`scripts/skills/` contiene `parse_mpec.py`, `extract_orbital_elements.py`, `normalize_units.py`, `search_hyperbolic.py` y `search_media.py`: piezas reutilizables para parsear MPEC, extraer orbitales, normalizar unidades o buscar candidatos/medios. Las definiciones de agente (`scripts/agents/vigilante.md`, `recolector.md`, `normalizador.md`) las referencian; **no tienen scheduler ni disparo automático independiente**, se usan bajo demanda.
 
 ## 5. Qué NO está automatizado hoy (y conviene no automatizar)
 
