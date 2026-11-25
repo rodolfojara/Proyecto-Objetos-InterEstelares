@@ -2,7 +2,7 @@
 
 Este documento contiene **instrucciones paso a paso** para ejecutar todos los scripts del proyecto. Todo lo necesario está en este repositorio.
 
-> **Antes de empezar:** instalación, dependencias y configuración en [`INSTALACION_Y_CONFIGURACION.md`](INSTALACION_Y_CONFIGURACION.md). Para saber qué pasos requieren decisión humana y cuáles se ejecutan solos una vez lanzados, consultá [`PROCESOS_MANUALES_Y_AUTOMATICOS.md`](PROCESOS_MANUALES_Y_AUTOMATICOS.md). Los scripts **no** corren en horario programado (`config/orchestrator.json` → `execution.mode = "manual"`).
+> **Antes de empezar:** instalación, dependencias y configuración en [`INSTALACION_Y_CONFIGURACION.md`](INSTALACION_Y_CONFIGURACION.md). Para reconstruir desde una BD vacía, mirá [`FASES_DESDE_CERO.md`](FASES_DESDE_CERO.md). Para saber qué pasos requieren decisión humana y cuáles se ejecutan solos una vez lanzados, consultá [`PROCESOS_MANUALES_Y_AUTOMATICOS.md`](PROCESOS_MANUALES_Y_AUTOMATICOS.md). Los scripts **no** corren en horario programado (`config/orchestrator.json` → `execution.mode = "manual"`).
 
 ## Ubicación
 Todos los comandos se ejecutan desde la raíz del proyecto:

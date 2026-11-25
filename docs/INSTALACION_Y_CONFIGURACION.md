@@ -37,7 +37,7 @@ En Windows, si `python` no existe pero sí `py`, usá `py -3 ...` en los comando
 
 ### 2.1 No hace falta “inicializar” la BD
 
-`data/db/iso.db` ya está incluida con las fases 0-6 ejecutadas. Ejecutar `ingest_init.py` o los `apply_patch_*.py` **solo** tiene sentido para un reset controlado o para repetir un patch (son idempotentes). Si querés hacerlo, seguí el orden de `docs/EXECUTION.md` y hacé una copia de seguridad antes:
+`data/db/iso.db` ya está incluida con las fases 0-6 ejecutadas. Ejecutar `ingest_init.py` o los `apply_patch_*.py` **solo** tiene sentido para un reset controlado o para repetir un patch (son idempotentes). Para saber **qué fases se pueden ejecutar desde cero y en qué orden**, mirá [`FASES_DESDE_CERO.md`](FASES_DESDE_CERO.md). Si querés hacerlo, seguí el orden de `docs/EXECUTION.md` y hacé una copia de seguridad antes:
 
 ```bash
 cp data/db/iso.db data/db/iso.db.bak        # Linux/macOS

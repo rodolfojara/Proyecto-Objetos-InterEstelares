@@ -96,6 +96,7 @@ Reglas para cualquier automatización futura: (1) `--dry-run` antes de escribir;
 ## 8. Relación con otros documentos
 
 - `docs/INSTALACION_Y_CONFIGURACION.md` — clone, requisitos, archivos de config, variables de entorno y troubleshooting.
+- `docs/FASES_DESDE_CERO.md` — qué se puede reconstruir desde una BD vacía, orden seguro y límites.
 - `docs/EXECUTION.md` — comandos paso a paso por fase.
 - `docs/ESTADO_CARGA.md` — qué está cargado, hasta dónde y cómo continuar.
 - `docs/IA_HERRAMIENTAS_Y_FLUJO.md` — rol del agente, loops, skills y buenas prácticas.

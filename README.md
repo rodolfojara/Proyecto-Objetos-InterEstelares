@@ -316,6 +316,8 @@ También: [índice por páginas](docs/REFERENCE_ACTIVITY.md) · [imagen últimos
 <!-- REF_ACTIVITY_END -->
 
 ## Estado de las fases
+*Qué se puede reconstruir desde una BD vacía y en qué orden: [`docs/FASES_DESDE_CERO.md`](docs/FASES_DESDE_CERO.md).*
+
 - **Infraestructura (implementación estructural):** Fases 0-6 - **IMPLEMENTADAS**
 - **Fase 0:** Preparación - **EJECUTADA**
 - **Fase 1:** Ingesta histórica inicial - **EJECUTADA**
