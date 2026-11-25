@@ -6,12 +6,8 @@
       "id": 0,
       "name": "Preparación",
       "status": "completed",
-      "scripts": [
-        "config/schema.sql",
-        "config/schema_fase2_patch.sql",
-        "config/schema_fase4_patch.sql"
-      ],
-      "description": "Estructura, esquema y base de datos"
+      "scripts": [],
+      "description": "Estructura, esquema y base de datos (los .sql se aplican con apply_patch_*.py; no se ejecutan como Python)"
     },
     {
       "id": 1,
@@ -60,10 +56,9 @@
       "name": "Orquestador completo y automatización",
       "status": "completed",
       "scripts": [
-        "scripts/orchestrator/master_orchestrator.py",
         "scripts/utils/check_status.py"
       ],
-      "description": "Orquestador maestro y sistema de automatización"
+      "description": "Orquestador maestro (entry point, no se reinicia a sí mismo) y verificación de estado"
     },
     {
       "id": 6,
@@ -78,7 +73,7 @@
   ],
   "execution": {
     "mode": "manual",
-    "note": "Los scripts NO corren 24/7. Ejecutar manualmente o con Task Scheduler/cron",
+    "note": "Los scripts NO corren 24/7. Ejecutar manualmente o con Task Scheduler/cron. El orquestador no pasa flags (--force/--reanudar/--date): para esos casos, llamar al script directamente.",
     "log_dir": "logs/",
     "report_dir": "reports/"
   }

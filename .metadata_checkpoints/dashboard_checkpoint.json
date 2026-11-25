@@ -1,10 +1,10 @@
 {
-  "started_at": "2026-11-25T06:54:58.191212Z",
+  "started_at": "2026-11-25T07:15:54.290553Z",
   "status": "completed",
   "generated": [
-    "reports/dashboard_objetos_interestelares_2026-11-25_03-54-58.md"
+    "reports/dashboard_objetos_interestelares_2026-11-25_04-15-54.md"
   ],
-  "finished_at": "2026-11-25T06:54:58.230260Z",
-  "last_dashboard": "reports/dashboard_objetos_interestelares_2026-11-25_03-54-58.md",
-  "updated_at": "2026-11-25T06:54:58.230754Z"
+  "finished_at": "2026-11-25T07:15:54.532893Z",
+  "last_dashboard": "reports/dashboard_objetos_interestelares_2026-11-25_04-15-54.md",
+  "updated_at": "2026-11-25T07:15:54.533330Z"
 }

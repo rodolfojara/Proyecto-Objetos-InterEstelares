@@ -40,7 +40,7 @@ Leyenda: **M** = decisión manual necesaria; **A** = el script lo ejecuta solo u
 | Visualización (Top N) | `config/dashboard_display.json` | **M** | Cambiar `top_n_global` / `top_n_por_objeto` y regenerar. | Config editable sin tocar código. |
 | Reportes semanales / resumen | `generate_report.py` (`--reanudar` / `--force`) | S | Decidir cuándo regenerar y revisar el resultado. | `reports/weekly/` + checkpoints; patrón por lotes. |
 | Prompt de infografía | `generate_infographic_prompt.py` | S | Decidir cuándo generarlo; **la imagen se crea fuera del repo** con una IA con capacidad visual. | `reports/infografia_prompt_*.md`. |
-| Gráfico de actividad (interno) | `generate_reference_activity.py --force` | A | Ninguna: lo invoca `generate_dashboard.py` automáticamente. | `docs/REFERENCE_ACTIVITY.md`, `docs/ref_activity/*`, `docs/images/ref_activity*`, bloque README. |
+| Gráfico de actividad (interno) | `generate_reference_activity.py --force` | A | Ninguna: lo invoca `generate_dashboard.py` automáticamente (no está en `config/orchestrator.json`). | `docs/REFERENCE_ACTIVITY.md`, `docs/ref_activity/*`, `docs/images/ref_activity*`, bloque README. Antes fallaba en silencio por falta de `import subprocess`; corregido el 2026-11-25. |
 | Dashboard + gráfico de actividad | `generate_dashboard.py --force` | S | Decidir cuándo regenerar (y copiar a `dashboard_latest.md`). | `reports/dashboard_latest.md` + timestamped, índice/gráfico de actividad, bloques README. |
 | Orquestación de fases | `master_orchestrator.py` · `config/orchestrator.json` | S | Habilitar fases/orden y lanzar el orquestador; no está en scheduler. | Ejecuta los scripts declarados en las fases 1-6 y deja logs/checkpoints. |
 | Verificación rápida | `scripts/utils/check_status.py` | A | Ninguna (solo leer salida). | Conteos de objetos/tablas/publicaciones/provenance. |
@@ -84,7 +84,16 @@ python scripts/orchestrator/generate_dashboard.py --force
 
 Reglas para cualquier automatización futura: (1) `--dry-run` antes de escribir; (2) checkpoints/locks e idempotencia; (3) verificar conteos y `provenance_log` después; (4) **nunca** auto-aceptar referencias web/videos; (5) publicar solo tras revisión.
 
-## 7. Relación con otros documentos
+## 7. Precisiones detectadas al auditar el orquestador (2026-11-25)
+
+- `master_orchestrator.py` **no pasa ningún flag** a los scripts (`subprocess.run([python, ruta])`). Si se necesita `--force`, `--reanudar` o `--date`, hay que llamar al script directamente. Esto quedó explícito en `config/orchestrator.json → execution.note`. Su `status` usaba `✓/○` y rompía en consolas Windows `cp1252`; ahora imprime `[OK]/[  ]`.
+- La Fase 0 listaba archivos `.sql` como si fueran scripts Python; se corrigió a `scripts: []` (los `.sql` los aplican los `apply_patch_*.py`). La Fase 5 incluía al propio `master_orchestrator.py`; se quitó para que no se reinicie a sí mismo.
+- `generate_reference_activity.py` declara `--force`, pero el flag no se consulta: el script siempre regenera. La llama `generate_dashboard.py`; antes la llamada fallaba con `NameError` silenciado por un `except: pass`, así que el gráfico podía quedar desactualizado aunque el dashboard se regenerara. Ahora se importa `subprocess` y el error se registra en `logs/dashboard.log`.
+- `metadata_discovery.py` es **módulo de apoyo**, no CLI: no tiene `main()`; lo importan `collect_metadata_openalex.py` y `backfill_abstracts.py`.
+- `apply_patch_fase6.py`, `apply_patch_identificacion.py`, `verify_tables.py`, `run_fase2_aliases.py` y `run_fase2_rest.py` son manuales / bajo demanda (no figuran en `config/orchestrator.json`).
+- `curate_media.py` y `curate_web_references.py` aceptan `--skip-validate`; `validate_web_references.py` acepta `--skip-http` y `--only-pending`. Ninguno auto-acepta contenido.
+
+## 8. Relación con otros documentos
 
 - `docs/EXECUTION.md` — comandos paso a paso por fase.
 - `docs/ESTADO_CARGA.md` — qué está cargado, hasta dónde y cómo continuar.

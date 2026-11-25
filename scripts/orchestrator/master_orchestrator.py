@@ -78,7 +78,7 @@ class ISOOrchestrator:
     def status(self):
         self.log("=== ESTADO DEL SISTEMA ===")
         for phase in self.config['phases']:
-            status_icon = "✓" if phase['status'] == 'completed' else "○"
+            status_icon = "[OK]" if phase['status'] == 'completed' else "[  ]"
             self.log(f"{status_icon} Fase {phase['id']}: {phase['name']} - {phase['status']}")
         self.log("")
 

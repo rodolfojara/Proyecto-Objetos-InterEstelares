@@ -125,13 +125,14 @@ python scripts/orchestrator/backfill_abstracts.py --refrescar-cortos 200
 ```
 `--normalizar` limpia títulos y abstracts ya cargados; `--refrescar-cortos` reemplaza abstracts truncados por la versión completa de arXiv o Crossref. Ambos son idempotentes. El detalle de errores, rutas alternativas y tiempos está en `docs/LECCIONES_METADATOS.md`.
 
-### Generador de reportes (se creará en fases posteriores)
-Los scripts de reporte seguirán el patrón:
+### Generador de reportes (Fase 3 - ejecutado)
+El generador de reportes usa el patrón `--reanudar` / `--force`:
 ```bash
 cd "<ruta-del-repo>"
-python scripts/orchestrator/generate_report.py [--weekly|--summary]
+python scripts/orchestrator/generate_report.py --force
+python scripts/orchestrator/generate_report.py --reanudar
 ```
-Las instrucciones específicas de cada script se añadirán en `docs/EXECUTION.md` cuando se creen.
+Las opciones reales son `--reanudar` y `--force` (no `--weekly`/`--summary`). El detalle está en `docs/EXECUTION.md` y en [`docs/PROCESOS_MANUALES_Y_AUTOMATICOS.md`](docs/PROCESOS_MANUALES_Y_AUTOMATICOS.md).
 
 ## Reporte - Información requerida
 El reporte debe incluir SIEMPRE:
@@ -186,7 +187,7 @@ python scripts/orchestrator/update_report_with_media.py
 Dado que el modelo actual **no tiene capacidad de visión/generación de imágenes**, el sistema genera un **prompt listo para copiar y pegar** en otra IA con generación de infografías/imágenes.
 
 - **Script:** `scripts/orchestrator/generate_infographic_prompt.py`
-- **Cuándo ejecutarlo:** **Manualmente**. No forma parte de `master_orchestrator.py all`, se ejecuta solo cuando lo necesites.
+- **Cuándo ejecutarlo:** **Bajo demanda**. Está declarado en la Fase 3 de `config/orchestrator.json` (por eso `master_orchestrator.py all` podría invocarlo), pero se suele ejecutar solo cuando se necesita; el orquestador no le pasa flags.
 - **Dónde se genera:** `reports/infografia_prompt_YYYY-MM-DD_HH-MM-SS.md`
 - **Dónde verlo:** Carpeta `reports/` del proyecto (ruta relativa a la raíz). Abre ese archivo con cualquier editor de texto.
 - **Cómo usarlo:** Copia todo el contenido del archivo `.md` y pégalo en una IA con capacidad de generar imágenes (ChatGPT con imagen, Google Gemini, Grok, Ideogram, Flux, etc.).
@@ -225,7 +226,7 @@ Página Markdown generada desde la base de datos con características, parámetr
 
 <!-- REF_ACTIVITY_START -->
 ### Actividad de referencias (estilo contribution graph)
-Frecuencia por **fecha de publicación/origen** (Papers, YouTube, referencias web curadas). Rango completo **2017-11-07–2026-11-09** en 10 ventanas de 12 meses, 3 mini-grids apiladas. **Navega con ←/→ sin salir de esta página** (enlaces internos por ventana).
+Frecuencia por **fecha de publicación/origen** (Papers, YouTube, referencias web curadas). Rango completo **2017-11-07–2026-11-25** en 10 ventanas de 12 meses, 3 mini-grids apiladas. **Navega con ←/→ sin salir de esta página** (enlaces internos por ventana).
 
 <a id="refact-2017-11_2017-11"></a>
 <details>

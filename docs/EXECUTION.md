@@ -142,15 +142,15 @@ Verificado al cierre: 209 filas en `publications` y 209 en `object_publications`
 **Tiempos y lecciones:** el colector imprime la duración de cada ventana y el total. El pase de 209 papers tomó aproximadamente 1 h 30 min. Errores encontrados, rutas alternativas cuando OpenAlex bloquea y qué sobrevive a una interrupción están documentados en `docs/LECCIONES_METADATOS.md`.
 
 
-## Fase 3 (Pendiente)
+## Fase 3 (Ejecutada)
 
-Se crearán:
-- `scripts/agents/validador.md`
-- `scripts/agents/correlacionador.md` 
-- `scripts/agents/presentador.md`
-- `scripts/orchestrator/generate_report.py` - **Generará reporte con lo solicitado**
+Scripts ya presentes (llamados también desde Fase 3 de `config/orchestrator.json`):
+- `scripts/orchestrator/ingest_ephemeris_horizons.py` - efemérides geocéntricas (`--date`, `--force`)
+- `scripts/orchestrator/generate_report.py` - reporte integral (`--reanudar`, `--force`)
+- `scripts/orchestrator/generate_infographic_prompt.py` - prompt para IA externa (`--reanudar`, `--force`)
+- `scripts/orchestrator/generate_dashboard.py` - dashboard evolutivo (`--reanudar`, `--force`)
 
-**Reporte debe incluir:**
+**El reporte incluye:**
 - Resumen
 - Cantidad de papers que mencionan 1I/'Oumuamua, 2I/Borisov, 3I/ATLAS
 - Fecha de primer reporte de 1I, 2I, 3I
@@ -161,13 +161,14 @@ Se crearán:
 - Cambios recientes
 - Nivel de confianza
 
-## Fase 4 (Pendiente)
-Búsqueda retrospectiva de candidatos hiperbólicos en archivos históricos.
+## Fase 4 (Ejecutada)
+Búsqueda retrospectiva de candidatos hiperbólicos en archivos históricos: `apply_patch_fase4.py` y `scripts/orchestrator/run_retro_search.py` (`--reanudar`/`--force`).
 
-## Fase 5 (Pendiente)
-Orquestador completo y automatización (manual con Task Scheduler/cron)
+## Fase 5 (Ejecutada - disparo manual)
+Orquestador completo: `python scripts/orchestrator/master_orchestrator.py status|faseN|all`. Lee `config/orchestrator.json`, que declara `execution.mode = "manual"` (**no hay cron/Task Scheduler configurado**). Ver detalle en [`PROCESOS_MANUALES_Y_AUTOMATICOS.md`](PROCESOS_MANUALES_Y_AUTOMATICOS.md).
 
 ## Verificación rápida de BD
+También existe el script `scripts/utils/check_status.py` (imprime objetos, tablas, publicaciones y provenance). Equivalente inline:
 ```bash
 cd "<ruta-del-repo>"
 python -c "

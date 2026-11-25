@@ -8,6 +8,7 @@ import argparse
 import json
 import os
 import sqlite3
+import subprocess
 import sys
 import time
 from datetime import datetime
@@ -216,9 +217,11 @@ def generate_dashboard(resumable=False, force=False):
         lines.append("")
         # contribution-style activity (consistencia: refrescar con el dashboard)
         try:
-            subprocess.run([sys.executable, os.path.join(BASE_DIR, 'scripts', 'orchestrator', 'generate_reference_activity.py'), '--force'], cwd=BASE_DIR, check=False, capture_output=True)
-        except Exception:
-            pass
+            res = subprocess.run([sys.executable, os.path.join(BASE_DIR, 'scripts', 'orchestrator', 'generate_reference_activity.py'), '--force'], cwd=BASE_DIR, check=False, capture_output=True, text=True)
+            if res.returncode != 0:
+                log("WARN: no se pudo refrescar la actividad de referencias: " + (res.stderr or '').strip()[-300:])
+        except Exception as e:
+            log(f"WARN: no se pudo refrescar la actividad de referencias: {e}")
         act_svg = os.path.join(BASE_DIR, 'docs', 'images', 'ref_activity_latest.svg')
         if os.path.exists(act_svg):
             lines.append("## Actividad de referencias (estilo contribution graph)")
