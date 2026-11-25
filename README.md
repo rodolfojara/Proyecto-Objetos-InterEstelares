@@ -71,9 +71,11 @@ Proyecto Objetos InterEstelares/
 ```
 
 ## Requisitos
-- Python 3.x (sqlite3 viene incluido)
-- Acceso a internet para consultas (MPC/JPL/arXiv) - las fases posteriores lo usarán
-- No se requiere instalación externa obligatoria para las fases 0-1
+- Python 3.8+ (sqlite3 viene incluido; sin dependencias pip)
+- Acceso a internet para consultas (MPC/JPL/arXiv/OpenAlex/Crossref/YouTube); no hace falta para regenerar con la BD incluida
+- No se requiere scheduler: la ejecución es manual (`config/orchestrator.json`)
+
+Guía completa: [`docs/INSTALACION_Y_CONFIGURACION.md`](docs/INSTALACION_Y_CONFIGURACION.md) (clone, verificación, configs, `ISO_CA_BUNDLE` y troubleshooting).
 
 ## Base de datos
 La base de datos se crea en: `data/db/iso.db`
