@@ -189,5 +189,6 @@ python scripts/orchestrator/validate_web_references.py --only-pending
 - [`INSTALACION_Y_CONFIGURACION.md`](INSTALACION_Y_CONFIGURACION.md) — clon, requisitos, configs y `ISO_CA_BUNDLE`.
 - [`PROCESOS_MANUALES_Y_AUTOMATICOS.md`](PROCESOS_MANUALES_Y_AUTOMATICOS.md) — qué decide una persona y qué ejecuta el script.
 - [`EXECUTION.md`](EXECUTION.md) — comandos por fase.
+- [`EJEMPLO_FLUJO_COMPLETO.md`](EJEMPLO_FLUJO_COMPLETO.md) — traza real de fuente → recolección → normalización → BD → reporte.
 - [`ESTADO_CARGA.md`](ESTADO_CARGA.md) — qué está cargado y cómo continuar una ronda.
 - [`LECCIONES_METADATOS.md`](LECCIONES_METADATOS.md) — rutas alternativas cuando OpenAlex devuelve `429`.

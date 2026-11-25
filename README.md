@@ -12,6 +12,7 @@ Sistema multi-agente/orquestado para recolectar, normalizar, versionar, correlac
 - **Ejecución:** Fases 0-6 **EJECUTADAS** (Fase 2-6 con patrón `--reanudar`/`--force` y checkpoints en `.metadata_checkpoints/`).
 - **Página resumen (dashboard):** [`reports/dashboard_latest.md`](reports/dashboard_latest.md) — vista evolutiva con características, órbita, actividad, publicaciones y multimedia (se regenera desde `data/db/iso.db`).
 - **Procesos manuales vs automatizados:** [`docs/PROCESOS_MANUALES_Y_AUTOMATICOS.md`](docs/PROCESOS_MANUALES_Y_AUTOMATICOS.md) — qué decide una persona y qué ejecuta el script; **no hay scheduler configurado** (`config/orchestrator.json` → modo `manual`).
+- **Ejemplo completo (fuente → recolección → normalización → BD → reporte):** [`docs/EJEMPLO_FLUJO_COMPLETO.md`](docs/EJEMPLO_FLUJO_COMPLETO.md) — recorrido con datos reales de un paper, un video y una referencia web.
 
 > Cuando se mencione una fase por número (Fase 0, Fase 1, ..., Fase 5), se entiende tal como está definida en este proyecto.
 
